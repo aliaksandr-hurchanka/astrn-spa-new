@@ -1,4 +1,6 @@
+import Spline from "@splinetool/react-spline";
 import styled from "styled-components";
+import { Row } from "../../common/components/grid";
 
 
 export const ParallaxStyled = styled.div<{ bg: any }>`
@@ -17,6 +19,15 @@ export const ParallaxStyled = styled.div<{ bg: any }>`
   min-width: 100%;
   min-height: 100%;
   ${({ bg }) => bg && `background: url(${bg}) top right no-repeat;`}
+`;
+
+export const SplineStyled = styled(Spline)`
+  z-index: 0;
+  margin-top: 150px;
+`;
+
+export const RowStyled = styled(Row)`
+  position: relative;
 `;
 
 export const LogoIconStyled = styled.img`
@@ -154,6 +165,35 @@ export const SectionStyled = styled.div`
   justify-content: center;
   font-size: var(--header-h1-size);
   color: var(--colors-primary);
+
+  -webkit-animation: slide-in-fwd-left 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: slide-in-fwd-left 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+
+  @-webkit-keyframes slide-in-fwd-left {
+    0% {
+      -webkit-transform: translateZ(-1400px) translateX(-1000px);
+              transform: translateZ(-1400px) translateX(-1000px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateZ(0) translateX(0);
+              transform: translateZ(0) translateX(0);
+      opacity: 1;
+    }
+  }
+  @keyframes slide-in-fwd-left {
+    0% {
+      -webkit-transform: translateZ(-1400px) translateX(-1000px);
+              transform: translateZ(-1400px) translateX(-1000px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateZ(0) translateX(0);
+              transform: translateZ(0) translateX(0);
+      opacity: 1;
+    }
+  }
+
 `;
 
 export const HeroTextBlockStyled = styled.div`

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { Container } from "../../common/components/grid";
 
@@ -7,9 +7,31 @@ export const HeaderContainerStyled = styled(Container)`
   z-index: 1;
   align-items: center;
   display: flex;
+  position: sticky;
+  top: 0;
+  background-color: #000;
 `;
 
+export const MenuItemStyled = styled(NavLink)`
+  position: relative;
+  line-height: 24px;
+  text-transform: uppercase;
 
+  color: var(--colors-text-primary, #FFF);
+  font-family: Montserrat;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  text-transform: uppercase;
+
+  &:link,
+  &:visited,
+  &:hover,
+  &:active {
+    text-decoration: none;
+  }
+`;
 
 
 
@@ -42,11 +64,7 @@ export const LogoStyled = styled.div`
   justify-content: flex-start;
   gap: var(--gap-9xs);
 `;
-export const MenuItemStyled = styled(Link)`
-  position: relative;
-  line-height: 24px;
-  text-transform: uppercase;
-`;
+
 export const MenuCategoriesStyled = styled.div`
   position: absolute;
   top: 28px;

@@ -1,6 +1,6 @@
 export type WeightRegularTexOptions = 400 | 500;
 
-export type Font = 'Montserrat' | 'Poppins';
+export type Font = 'Montserrat';
 export type Weight = WeightRegularTexOptions | 700;
 
 export type Target = '_self' | '_blank' | '_top' | '_parent';

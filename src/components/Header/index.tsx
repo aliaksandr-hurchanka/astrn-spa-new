@@ -10,9 +10,9 @@ import { HeaderStyled } from '../HeroSection/styled';
 
 function Header() {
 
-  const isActiveLink = ({ isActive }: { isActive: boolean }) => isActive
-    ? 'bg-slate-800 text-white rounded-md px-3 py-2 text-sm font-medium'
-    : 'text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium';
+  const isActiveLink = ({ isActive }: { isActive: boolean }) => ({
+    color: isActive ? '#FFB22E' : '#ffffff',
+  });
 
   let countries = [
     {
@@ -41,9 +41,9 @@ function Header() {
           </Col>
           <Col lg={6}>
             <MenuCategoriesStyled>
-              <MenuItemStyled to="/">Home</MenuItemStyled>
-              <MenuItemStyled to="products">Products</MenuItemStyled>
-              <MenuItemStyled to="about">About</MenuItemStyled>
+              <MenuItemStyled to="/" style={isActiveLink}>Home</MenuItemStyled>
+              <MenuItemStyled to="resources" style={isActiveLink}>Resources</MenuItemStyled>
+              <MenuItemStyled to="about" style={isActiveLink}>About</MenuItemStyled>
             </MenuCategoriesStyled>
           </Col>
           <Col lg={3}>

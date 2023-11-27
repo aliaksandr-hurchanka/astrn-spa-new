@@ -74,21 +74,3 @@ export const AppStyled = styled.main`
   z-index: -5;
   background: #000;
 `;
-
-export const ParallaxStyled = styled.div<{ bg: any }>`
-  // position: absolute;
-  // height: 100vh;
-  // z-index: -1;
-
-  // background-repeat: no-repeat;
-  // background-attachment: fixed;
-  // background-position-x: right;
-  // ${({ bg }) => bg && `background-image: url(${bg});`}
-
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  min-width: 100%;
-  min-height: 100%;
-  ${({ bg }) => bg && `background: url(${bg}) top right no-repeat;`}
-`;
