@@ -1,9 +1,8 @@
 import styled, { createGlobalStyle } from 'styled-components';
-import { Container } from './common/components/grid';
 
 export const GlobalStyles = createGlobalStyle`
   html {
-    min-width: 320px;
+    /* min-width: 320px; */
   }
 
   body {
@@ -12,6 +11,7 @@ export const GlobalStyles = createGlobalStyle`
     color: #fff;
     margin: 0;
     line-height: normal;
+    background-color: #000;
   }
 
   :root {
@@ -70,7 +70,8 @@ export const GlobalStyles = createGlobalStyle`
     --br-7xs-3: 5.3px;
   }`;
 
-export const AppStyled = styled.main`
+export const AppStyled = styled.div`
   z-index: -5;
   background: #000;
+  width: 100%;
 `;

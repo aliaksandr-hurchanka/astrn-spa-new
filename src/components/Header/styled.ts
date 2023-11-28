@@ -4,34 +4,19 @@ import { Container } from "../../common/components/grid";
 
 
 export const HeaderContainerStyled = styled(Container)`
-  z-index: 1;
+  width: 100%;
   align-items: center;
-  display: flex;
-  position: sticky;
+`;
+
+export const HeaderStyled = styled.header`
+  width: 100%;
   top: 0;
+  position: sticky;
   background-color: #000;
+  z-index: 1;
 `;
 
-export const MenuItemStyled = styled(NavLink)`
-  position: relative;
-  line-height: 24px;
-  text-transform: uppercase;
 
-  color: var(--colors-text-primary, #FFF);
-  font-family: Montserrat;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 24px;
-  text-transform: uppercase;
-
-  &:link,
-  &:visited,
-  &:hover,
-  &:active {
-    text-decoration: none;
-  }
-`;
 
 
 
@@ -49,32 +34,7 @@ export const IconStyled = styled.img`
   object-fit: cover;
 `;
 
-export const LogoIconStyled = styled.img`
-  position: relative;
-  width: 40px;
-`;
-export const AsteronIconStyled = styled.img`
-  position: relative;
-  width: 121.5px;
-`;
-export const LogoStyled = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  gap: var(--gap-9xs);
-`;
 
-export const MenuCategoriesStyled = styled.div`
-  position: absolute;
-  top: 28px;
-  left: 512px;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: var(--gap-29xl);
-`;
 export const Message24Outline = styled.img`
   position: relative;
   width: 20px;

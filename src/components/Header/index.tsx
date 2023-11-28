@@ -1,18 +1,14 @@
 import React from 'react';
-import Logo from '../../assets/logo.svg';
-import AsteronLogo from '../../assets/asteron.svg';
 // import { Link, NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Col, Container, Row } from '../../common/components/grid';
 
-import { AsteronIconStyled, ButtonStyled, MenuItemStyled, LogoIconStyled, LogoStyled, MenuCategoriesStyled, Message24Outline, Navigation1Styled, Text1Styled, HeaderContainerStyled } from './styled';
-import { HeaderStyled } from '../HeroSection/styled';
-
+import { ButtonStyled, Message24Outline, Text1Styled, HeaderContainerStyled, HeaderStyled } from './styled';
+import { Logo } from '../Logo';
+import { Menu } from '../Menu';
 function Header() {
 
-  const isActiveLink = ({ isActive }: { isActive: boolean }) => ({
-    color: isActive ? '#FFB22E' : '#ffffff',
-  });
+
 
   let countries = [
     {
@@ -30,21 +26,14 @@ function Header() {
   const { t, i18n } = useTranslation();
 
   return (
-
-      <HeaderContainerStyled height="80px">
-        <Row>
+    <HeaderStyled>
+      <HeaderContainerStyled width='100%'>
+        <Row height='80px' alignItems='center'>
           <Col lg={3}>
-            <LogoStyled>
-              <LogoIconStyled alt="" src={Logo} />
-              <AsteronIconStyled alt="" src={AsteronLogo} />
-            </LogoStyled>
+            <Logo />
           </Col>
           <Col lg={6}>
-            <MenuCategoriesStyled>
-              <MenuItemStyled to="/" style={isActiveLink}>Home</MenuItemStyled>
-              <MenuItemStyled to="resources" style={isActiveLink}>Resources</MenuItemStyled>
-              <MenuItemStyled to="about" style={isActiveLink}>About</MenuItemStyled>
-            </MenuCategoriesStyled>
+            <Menu />
           </Col>
           <Col lg={3}>
             <ButtonStyled>
@@ -55,9 +44,10 @@ function Header() {
           </Col>
         </Row>
       </HeaderContainerStyled>
+    </HeaderStyled>
   );
 }
 
 export default Header;
 
-Header.displayName='Header';
+Header.displayName = 'Header';
