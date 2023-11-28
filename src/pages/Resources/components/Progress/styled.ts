@@ -43,6 +43,7 @@ export const IconStyled = styled(SVGIcon)`
 
 export const BoostStyled = styled.div`
   display: flex;
+  color: #BFBFBF;
   ${getTextStyles('Montserrat', 400, 48, 60)}
   
   > span {

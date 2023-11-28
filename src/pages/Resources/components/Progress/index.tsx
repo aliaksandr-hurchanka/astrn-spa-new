@@ -5,14 +5,15 @@ import ArrowBlue from './ArrowBlue.svg';
 import Cooler from './Cooler.svg';
 import Water from './Water.svg';
 
-export const Progress = (props: { isWater?: boolean; }) => {
+export const Progress = (props: { baseValue: string; boostValue: string; isWater?: boolean; }) => {
+  const { baseValue, boostValue, isWater } = props;
   return (
     <>
       <ProgressStyled>
-        <ArrowLineContainerStyled><ArrowLine isWater={props.isWater} /><ArrowIconStyled type={props.isWater ? ArrowBlue : Arrow} sizes={{ w: 16, h: 65 }} /></ArrowLineContainerStyled>
-        <CountStyled><IconStyled type={props.isWater ? Water : Cooler} sizes={{ w: 37, h: 37 }} />44<span>Th/s</span></CountStyled>
+        <ArrowLineContainerStyled><ArrowLine isWater={isWater} /><ArrowIconStyled type={isWater ? ArrowBlue : Arrow} sizes={{ w: 16, h: 65 }} /></ArrowLineContainerStyled>
+        <CountStyled><IconStyled type={isWater ? Water : Cooler} sizes={{ w: 37, h: 37 }} />{baseValue}<span>Th/s</span></CountStyled>
       </ProgressStyled>
-      <BoostStyled>130<span>Th/s</span></BoostStyled>
+      <BoostStyled>{boostValue}<span>Th/s</span></BoostStyled>
     </>
   );
 }

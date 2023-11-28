@@ -1,10 +1,8 @@
 import styled from "styled-components";
 import { Col } from "../../common/components/grid";
+import { getTextStyles } from "../../common/utils/styles";
 
-export const ResourcesPageStyled = styled.div`
-  height: calc(100vh - 80px);
-  background: #000;
-`;
+export const ResourcesPageStyled = styled.div``;
 
 export const TitleStyled = styled.div`
   margin-top: 80px;
@@ -21,7 +19,7 @@ export const ResourcesListStyled = styled.div`
 `;
 
 export const ResourceStyled = styled.div`
-  padding: 24px;
+  padding: 24px 0;
   align-items: center;
   border-radius: 6px;
   background: #141414;
@@ -29,11 +27,29 @@ export const ResourceStyled = styled.div`
 `;
 
 export const ResourceNameStyled = styled.div`
-  font-family: Montserrat;
-  font-size: 30px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 38px;
+  ${getTextStyles('Montserrat', 700, 30, 38)}
+
+  > span {
+    display: flex;
+    color: #F0F0F0;
+    margin-top: 8px;
+
+    ${getTextStyles('Montserrat', 400, 16, 24)}
+  }
+`;
+
+export const ChipsLabelStyled = styled.div`
+  background-color: #BFBFBF;
+  box-shadow: 0px 1px 2px 0px rgba(105, 81, 255, 0.05);
+  display: inline-flex;
+  color: #000;
+  padding: 4px 12px;
+  border-radius: 30px;
+  margin-left: 8px;
+  top: -2px;
+  position: relative;
+  vertical-align: middle;
+  ${getTextStyles('Montserrat', 700, 12, 18)}
 `;
 
 export const ColStyled = styled(Col)`

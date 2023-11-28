@@ -1,0 +1,58 @@
+[
+  {
+    "name": "Antminer S19",
+    "countChips": "88",
+    "variants": "86",
+    "baseValueCooler": "44",
+    "boostValueCooler": "130"
+  },
+  {
+    "name": "Antminer S19",
+    "countChips": "76",
+    "variants": "82, 84, 86, 90, 95",
+    "baseValueCooler": "31",
+    "boostValueCooler": "115",
+    "baseValueWater": "51",
+    "boostValueWater": "135"
+  },
+  {
+    "name": "Antminer S19 XP",
+    "variants": "134, 141",
+    "baseValueCooler": "46",
+    "boostValueCooler": "180",
+    "baseValueWater": "86",
+    "boostValueWater": "220"
+  },
+  {
+    "name": "Antminer S19 PRO",
+    "countChips": "114",
+    "variants": "110",
+    "baseValueCooler": "25",
+    "boostValueCooler": "135",
+    "baseValueWater": "90",
+    "boostValueWater": "200"
+  },
+  {
+    "name": "Antminer S19J PRO",
+    "countChips": "126",
+    "variants": "88, 92, 96, 100, 104",
+    "baseValueCooler": "48",
+    "boostValueCooler": "140",
+    "baseValueWater": "78",
+    "boostValueWater": "170"
+  },
+  {
+    "name": "Antminer S19Pro+Hydro",
+    "variants": "198",
+    "baseValueWater": "63",
+    "boostValueWater": "240"
+  },
+  {
+    "name": "Antminer L7",
+    "variants": "8300-9500",
+    "baseValueCooler": "3",
+    "boostValueCooler": "11",
+    "baseValueWater": "4",
+    "boostValueWater": "12"
+  }
+]
