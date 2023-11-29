@@ -2,7 +2,7 @@ import { MouseEvent } from 'react';
 
 import styled, { css } from 'styled-components';
 
-import { colorAccentLinkLight, colorCoreBlack900Base } from './colors';
+import { colorAccentLinkLight, colorCoreBlack900Base, colorCoreWhite1000 } from './colors';
 import { elevationBottomLvl4, typographyTextShadow } from './elevations';
 import { ADAPTIVE } from './screen';
 import { ellipsisEndingLine, getTextStyles } from '../utils/styles';
@@ -78,7 +78,7 @@ export const HeadingStylesCommon = css<{ color?: string }>`
   ${textUpperCase}
   ${boxReset}
 
-  color: ${({ color = colorCoreBlack900Base }) => color};
+  color: ${({ color = colorCoreWhite1000 }) => color};
 `;
 
 /**

@@ -87,18 +87,6 @@ export const colorAccentSuccess300 = '#B7EB8F';
 export const colorAccentSuccess200 = '#D9F7BE';
 export const colorAccentSuccess100 = '#F0FFE3';
 
-// Info group
-export const colorAccentInfo1000 = '#3D4CB6'; // TODO: (D.K.) Wrong desc! (Desc = #073575); Need clarify
-export const colorAccentInfo900Base = '#495AD7'; // TODO: (D.K.) Wrong desc! (Desc = #003A8C); Need clarify
-export const colorAccentInfo800 = '#5366F0'; // TODO: (D.K.) Wrong desc! (Desc = #0050B3); Need clarify
-export const colorAccentInfo700 = '#6174FA'; // TODO: (D.K.) Wrong desc! (Desc = #096DD9); Need clarify
-export const colorAccentInfo600 = '#7988FB'; // TODO: (D.K.) Wrong desc! (Desc = #1890FF); Need clarify
-export const colorAccentInfo500 = '#A4AFFC'; // TODO: (D.K.) Wrong desc! (Desc = #40A9FF); Need clarify
-export const colorAccentInfo400 = '#C4CAFE'; // TODO: (D.K.) Wrong desc! (Desc = #69C0FF); Need clarify
-export const colorAccentInfo300 = '#E2E6FE'; // TODO: (D.K.) Wrong desc! (Desc = #91D5FF); Need clarify
-export const colorAccentInfo200 = '#EFF1FF'; // TODO: (D.K.) Wrong desc! (Desc = #BAE7FF); Need clarify
-export const colorAccentInfo100 = '#F8F9FF'; // TODO: (D.K.) Wrong desc! (Desc = #E6F7FF); Need clarify
-
 export const defaultTransparent = 'transparent';
 export const defaultInherit = 'inherit';
 

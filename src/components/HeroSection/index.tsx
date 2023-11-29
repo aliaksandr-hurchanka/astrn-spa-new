@@ -1,11 +1,11 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { lazy } from 'react';
 import { AdditionalTerahash, AdditionalTerahashForContainer, Button1Styled, SectionStyled, ForYourDevices, Message24Outline1, Text11Styled, WeAccelerateYourStyled, HeroTextBlockStyled, SplineStyled, RowStyled } from './styled';
-import { Col, Container, Row } from '../../common/components/grid';
-import { ParallaxStyled } from './styled';
+import { Col, Container } from '../../common/components/grid';
 // import FirstBg from '../../assets/hero-bg.png';
 // @ts-ignore
 import Scene from './models/scene.splinecode';
+
+// const Scene = lazy(() => import('./models/scene.splinecode'));
 
 export function HeroSection() {
   return (

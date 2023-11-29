@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Col } from "../../common/components/grid";
 import { getTextStyles } from "../../common/utils/styles";
+import { Link } from "react-router-dom";
 
 export const ResourcesPageStyled = styled.div``;
 
@@ -22,8 +23,15 @@ export const ResourceStyled = styled.div`
   padding: 24px 0;
   align-items: center;
   border-radius: 6px;
+  border: 1px solid #141414;
   background: #141414;
   margin-bottom: 16px;
+  cursor: pointer;
+
+  &:hover {
+    border: 1px solid #FFB22E;
+    background-color: rgba(255, 178, 46, .2);
+  }
 `;
 
 export const ResourceNameStyled = styled.div`
@@ -38,20 +46,12 @@ export const ResourceNameStyled = styled.div`
   }
 `;
 
-export const ChipsLabelStyled = styled.div`
-  background-color: #BFBFBF;
-  box-shadow: 0px 1px 2px 0px rgba(105, 81, 255, 0.05);
-  display: inline-flex;
-  color: #000;
-  padding: 4px 12px;
-  border-radius: 30px;
-  margin-left: 8px;
-  top: -2px;
-  position: relative;
-  vertical-align: middle;
-  ${getTextStyles('Montserrat', 700, 12, 18)}
-`;
-
 export const ColStyled = styled(Col)`
   display: flex;
+`;
+
+export const LinkStyled = styled(Link)`
+  text-decoration: none;
+  ${getTextStyles('Montserrat', 700, 30, 38)}
+  color: #fff;
 `;

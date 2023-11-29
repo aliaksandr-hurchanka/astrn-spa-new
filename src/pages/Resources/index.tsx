@@ -1,9 +1,11 @@
 import React from 'react'
-import { ChipsLabelStyled, ColStyled, ResourceNameStyled, ResourceStyled, ResourcesListStyled, ResourcesPageStyled, SubTitleStyled, TitleStyled } from './styled';
+import { ColStyled, LinkStyled, ResourceNameStyled, ResourceStyled, ResourcesListStyled, ResourcesPageStyled, SubTitleStyled, TitleStyled } from './styled';
 import { Col, Container, Row } from '../../common/components/grid';
 import { HeadingLevel1, RegularTextLevel3 } from '../../common/tokens/typography';
-import { Progress } from './components/Progress';
-import resources from './data/data.json';
+
+import resources from '../../data/data.json';
+import { ChipsLabelStyled } from '../../common/components/chips-label';
+import { Progress } from '../../components/Progress';
 
 function Resources() {
   return (
@@ -20,29 +22,31 @@ function Resources() {
               </RegularTextLevel3>
             </SubTitleStyled>
             <ResourcesListStyled>
-              {resources.map(({ name, countChips, variants, baseValueCooler, boostValueCooler, baseValueWater, boostValueWater }) => {
+              {resources.map(({ id, name, countChips, variants, baseValueCooler, boostValueCooler, baseValueWater, boostValueWater }) => {
                 return (
                   <ResourceStyled>
-                    <Row>
-                      <Col lg={4}>
-                        <ResourceNameStyled>
-                          {name}
-                          {countChips && <ChipsLabelStyled>
-                            {countChips} chips
-                          </ChipsLabelStyled>}
-                          <span>{variants}Th</span>
-                        </ResourceNameStyled>
-                      </Col>
-                      <ColStyled lg={3}>
-                        {baseValueCooler && <Progress baseValue={baseValueCooler} boostValue={boostValueCooler} />}
-                      </ColStyled>
-                      <ColStyled lg={3}>
-                        {baseValueWater && <Progress baseValue={baseValueWater} boostValue={boostValueWater} isWater />}
-                      </ColStyled>
-                      <Col lg={2}>
+                    <LinkStyled to={id}>
+                      <Row>
+                        <Col lg={4}>
+                          <ResourceNameStyled>
+                            {name}
+                            {countChips && <ChipsLabelStyled>
+                              {countChips} chips
+                            </ChipsLabelStyled>}
+                            <span>{variants}Th</span>
+                          </ResourceNameStyled>
+                        </Col>
+                        <ColStyled lg={3}>
+                          {baseValueCooler && <Progress baseValue={baseValueCooler} boostValue={boostValueCooler} />}
+                        </ColStyled>
+                        <ColStyled lg={3}>
+                          {baseValueWater && <Progress baseValue={baseValueWater} boostValue={boostValueWater} isWater />}
+                        </ColStyled>
+                        <Col lg={2}>
 
-                      </Col>
-                    </Row>
+                        </Col>
+                      </Row>
+                    </LinkStyled>
                   </ResourceStyled>
                 );
               })}

@@ -46,3 +46,12 @@ export const EVENT_NAME_MAP: Record<string, keyof WindowEventMap> = {
   click: 'click',
   mouseDown: 'mousedown',
 };
+
+export const keyCodes: Record<string, any> = {
+  ARROW_LEFT: 'ArrowLeft',
+  ARROW_RIGHT: 'ArrowRight',
+  ARROW_UP: 'ArrowUp',
+  ARROW_DOWN: 'ArrowDown',
+  ESCAPE: 'Escape',
+  ENTER: 'Enter',
+};

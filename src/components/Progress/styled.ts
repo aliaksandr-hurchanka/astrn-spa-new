@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { getTextStyles } from "../../../../common/utils/styles";
-import { SVGIcon } from '../../../../common/components/svg-icon';
+import { getTextStyles } from "../../common/utils/styles";
+import { SVGIcon } from '../../common/components/svg-icon';
 
 
 export const ProgressStyled = styled.div`
