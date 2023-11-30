@@ -118,10 +118,8 @@ export const HeadingLevel1 = styled.h1<{ color?: string }>`
 export const HeadingLevel2 = styled.h2<{ color?: string }>`
   ${getTextStyles('Montserrat', 700, 24, 28)}
 
-  ${HeadingStylesCommon}
-
   ${ADAPTIVE.minWidth.desktop} {
-    ${getTextStyles(null, null, 32, 40)}
+    ${getTextStyles('Montserrat', 700, 36, 44)}
 
     text-shadow: ${typographyTextShadow};
   }

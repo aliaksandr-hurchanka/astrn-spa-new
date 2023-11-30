@@ -7,11 +7,16 @@ export const GlobalStyles = createGlobalStyle`
 
   body {
     padding: 0;
-    // background-color: #000;
     color: #fff;
     margin: 0;
     line-height: normal;
     background-color: #000;
+
+    #root {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
   }
 
   :root {
@@ -69,9 +74,3 @@ export const GlobalStyles = createGlobalStyle`
     --br-5xs: 8px;
     --br-7xs-3: 5.3px;
   }`;
-
-export const AppStyled = styled.div`
-  z-index: -5;
-  background: #000;
-  width: 100%;
-`;

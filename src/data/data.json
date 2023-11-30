@@ -5,7 +5,8 @@
     "countChips": "88",
     "variants": "86",
     "baseValueCooler": "44",
-    "boostValueCooler": "130"
+    "boostValueCooler": "130",
+    "price": "189.5"
   },
   {
     "id": "2",
@@ -15,7 +16,8 @@
     "baseValueCooler": "31",
     "boostValueCooler": "115",
     "baseValueWater": "51",
-    "boostValueWater": "135"
+    "boostValueWater": "135",
+    "price": "198.5"
   },
   {
     "id": "3",
@@ -24,7 +26,8 @@
     "baseValueCooler": "46",
     "boostValueCooler": "180",
     "baseValueWater": "86",
-    "boostValueWater": "220"
+    "boostValueWater": "220",
+    "price": "210.5"
   },
   {
     "id": "4",
@@ -34,7 +37,8 @@
     "baseValueCooler": "25",
     "boostValueCooler": "135",
     "baseValueWater": "90",
-    "boostValueWater": "200"
+    "boostValueWater": "200",
+    "price": "215.5"
   },
   {
     "id": "5",
@@ -44,14 +48,16 @@
     "baseValueCooler": "48",
     "boostValueCooler": "140",
     "baseValueWater": "78",
-    "boostValueWater": "170"
+    "boostValueWater": "170",
+    "price": "230.5"
   },
   {
     "id": "6",
     "name": "Antminer S19Pro+Hydro",
     "variants": "198",
     "baseValueWater": "63",
-    "boostValueWater": "240"
+    "boostValueWater": "240",
+    "price": "245.5"
   },
   {
     "id": "7",
@@ -60,6 +66,7 @@
     "baseValueCooler": "3",
     "boostValueCooler": "11",
     "baseValueWater": "4",
-    "boostValueWater": "12"
+    "boostValueWater": "12",
+    "price": "278.5"
   }
 ]

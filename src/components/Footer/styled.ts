@@ -6,3 +6,7 @@ export const LineStyled = styled.div`
   height: 1px;
   margin: 50px 0;
 `;
+
+export const FooterStyled = styled.footer`
+  margin-top: auto;
+`;

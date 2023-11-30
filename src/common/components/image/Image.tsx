@@ -108,14 +108,13 @@ export function Image(props: ImageAtomComponentProps): JSX.Element | null {
           src={imageUrl}
           onError={handleImageError}
           alt={(!decorative && alt) || ''}
-          width={width} // TODO: (A.H.) - this parameters not configurable into styled component.
+          width={width}
           height={height}
           maxHeight={maxHeight}
           draggable={draggable}
           aspectRatio={aspectRatio}
           objectFit={objectFit}
           data-testid={dataTestIdImage}
-          loading="lazy"
         />
       </picture>
       {!displayPopupTitle && caption && <p>{caption}</p>}

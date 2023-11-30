@@ -2,11 +2,11 @@ import React from 'react';
 import { Col, Container, Row } from '../../common/components/grid';
 import { Logo } from '../Logo';
 import { Menu } from '../Menu';
-import { LineStyled } from './styled';
+import { FooterStyled, LineStyled } from './styled';
 
 export function Footer() {
   return (
-    <>
+    <FooterStyled>
       <Container>
         <Row lgMt='88px'>
           <Col lg={2}><Logo /></Col>
@@ -31,6 +31,6 @@ export function Footer() {
           </Col>
         </Row>
       </Container>
-    </>
+    </FooterStyled>
   );
 }
