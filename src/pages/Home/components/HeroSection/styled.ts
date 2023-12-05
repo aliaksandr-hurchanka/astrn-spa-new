@@ -1,33 +1,18 @@
 import Spline from "@splinetool/react-spline";
 import styled from "styled-components";
-import { Row } from "../../common/components/grid";
+import { Row } from "../../../../common/components/grid";
+import { Image } from '../../../../common/components/image';
 
-
-export const ParallaxStyled = styled.div<{ bg: any }>`
-  // position: absolute;
-  // height: 100vh;
-  // z-index: -1;
-
-  // background-repeat: no-repeat;
-  // background-attachment: fixed;
-  // background-position-x: right;
-  // ${({ bg }) => bg && `background-image: url(${bg});`}
-
-  position: absolute;
-  z-index: 0;
-  top: -80px;
-  min-width: 100%;
-  min-height: 100%;
-  ${({ bg }) => bg && `background: url(${bg}) top right no-repeat;`}
-`;
 
 export const SplineStyled = styled(Spline)`
   z-index: 0;
-  margin-top: 150px;
+  margin-top: 0;
+  max-height: 100vh!important;
 `;
 
 export const RowStyled = styled(Row)`
   position: relative;
+  height: 100vh;
 `;
 
 export const LogoIconStyled = styled.img`
@@ -50,29 +35,13 @@ export const LogoStyled = styled.div`
   justify-content: flex-start;
   gap: var(--gap-9xs);
 `;
-export const EquipmentStyled = styled.div`
-  position: relative;
-  line-height: 24px;
-  text-transform: uppercase;
-`;
-export const MenuCategoriesStyled = styled.div`
-  position: absolute;
-  top: 28px;
-  left: 512px;
+
+export const ImageStyled = styled(Image)`
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: var(--gap-29xl);
+  align-items: center;
+  margin-top: -80px;
 `;
-export const Message24Outline = styled.img`
-  position: relative;
-  width: 20px;
-  height: 20px;
-  overflow: hidden;
-  flex-shrink: 0;
-  display: none;
-`;
+
 export const ButtonStyled = styled.div`
   position: absolute;
   top: calc(50% - 18px);
@@ -165,35 +134,6 @@ export const SectionStyled = styled.div`
   justify-content: center;
   font-size: var(--header-h1-size);
   color: var(--colors-primary);
-
-  -webkit-animation: slide-in-fwd-left 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-	        animation: slide-in-fwd-left 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-
-  @-webkit-keyframes slide-in-fwd-left {
-    0% {
-      -webkit-transform: translateZ(-1400px) translateX(-1000px);
-              transform: translateZ(-1400px) translateX(-1000px);
-      opacity: 0;
-    }
-    100% {
-      -webkit-transform: translateZ(0) translateX(0);
-              transform: translateZ(0) translateX(0);
-      opacity: 1;
-    }
-  }
-  @keyframes slide-in-fwd-left {
-    0% {
-      -webkit-transform: translateZ(-1400px) translateX(-1000px);
-              transform: translateZ(-1400px) translateX(-1000px);
-      opacity: 0;
-    }
-    100% {
-      -webkit-transform: translateZ(0) translateX(0);
-              transform: translateZ(0) translateX(0);
-      opacity: 1;
-    }
-  }
-
 `;
 
 export const HeroTextBlockStyled = styled.div`

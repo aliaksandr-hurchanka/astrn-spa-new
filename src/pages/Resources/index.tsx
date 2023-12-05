@@ -1,5 +1,5 @@
 import React from 'react'
-import { ColStyled, LinkStyled, ResourceNameStyled, ResourceStyled, ResourcesListStyled, ResourcesPageStyled, SubTitleStyled, TitleStyled } from './styled';
+import { ColStyled, DetailsButtonStyled, LinkStyled, ResourceNameStyled, ResourceStyled, ResourcesListStyled, ResourcesPageStyled, SubTitleStyled, TitleStyled } from './styled';
 import { Col, Container, Row } from '../../common/components/grid';
 import { HeadingLevel1, RegularTextLevel3 } from '../../common/tokens/typography';
 
@@ -42,9 +42,11 @@ function Resources() {
                         <ColStyled lg={3}>
                           {baseValueWater && <Progress baseValue={baseValueWater} boostValue={boostValueWater} isWater />}
                         </ColStyled>
-                        <Col lg={2}>
-
-                        </Col>
+                        <ColStyled lg={2} alignItems='center' justifyContent='flex-end'>
+                          <DetailsButtonStyled>
+                            See details
+                          </DetailsButtonStyled>
+                        </ColStyled>
                       </Row>
                     </LinkStyled>
                   </ResourceStyled>

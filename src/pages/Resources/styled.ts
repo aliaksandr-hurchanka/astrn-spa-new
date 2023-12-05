@@ -30,7 +30,7 @@ export const ResourceStyled = styled.div`
 
   &:hover {
     border: 1px solid #FFB22E;
-    background-color: rgba(255, 178, 46, .2);
+    background-color: rgba(38, 38, 38, .1);
   }
 `;
 
@@ -54,4 +54,9 @@ export const LinkStyled = styled(Link)`
   text-decoration: none;
   ${getTextStyles('Montserrat', 700, 30, 38)}
   color: #fff;
+`;
+
+export const DetailsButtonStyled = styled.div`
+  ${getTextStyles('Montserrat', 500, 14, 20)}
+  color: #FFB22E;
 `;
