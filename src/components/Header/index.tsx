@@ -1,14 +1,13 @@
-import React from 'react';
-// import { Link, NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Col, Container, Row } from '../../common/components/grid';
+import { Col, Row } from '../../common/components/grid';
 
-import { ButtonStyled, Message24Outline, Text1Styled, HeaderContainerStyled, HeaderStyled } from './styled';
+import { ColStyled, HeaderContainerStyled, HeaderStyled, MenuColStyled } from './styled';
 import { Logo } from '../Logo';
 import { Menu } from '../Menu';
+import { ButtonStyled } from '../../common/components/button-styled';
 function Header() {
 
-
+  const { i18n } = useTranslation();
 
   let countries = [
     {
@@ -23,8 +22,6 @@ function Header() {
     },
   ];
 
-  const { t, i18n } = useTranslation();
-
   return (
     <HeaderStyled>
       <HeaderContainerStyled width='100%'>
@@ -32,16 +29,23 @@ function Header() {
           <Col lg={3}>
             <Logo />
           </Col>
-          <Col lg={6}>
+          <MenuColStyled lg={6}>
             <Menu />
-          </Col>
-          <Col lg={3}>
-            <ButtonStyled>
-              <Message24Outline alt="" src="/message--24--outline.svg" />
-              <Text1Styled>En</Text1Styled>
-              <Message24Outline alt="" src="/right-arrow--24--outline.svg" />
-            </ButtonStyled>
-          </Col>
+          </MenuColStyled>
+          <ColStyled lg={3}>
+            {countries.map((lng, i) => {
+              return (
+                <ButtonStyled
+                  key={`${lng}_${i}`}
+                  type='small'
+                  onClick={() => i18n.changeLanguage(lng.code)}
+                  disabled={i18n.language === lng.code}
+                >
+                  <span>{lng.code}</span>
+                </ButtonStyled>
+              );
+            })}
+          </ColStyled>
         </Row>
       </HeaderContainerStyled>
     </HeaderStyled>

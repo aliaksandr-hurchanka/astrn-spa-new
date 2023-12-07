@@ -1,16 +1,18 @@
-import React from 'react'
 import { HeroSection } from './components/HeroSection';
-import { ParallaxProvider } from 'react-scroll-parallax';
 import { AdminPanelBanner } from './components/AdminPanelBanner';
-import { TextLayer } from './components/TextLayer';
-import { Temporary } from './components/Temporary';
+import { Achievements } from './components/Achievements';
+import { SupportedHardware } from './components/SupportedHardware';
+import { Performance } from './components/Performance';
+import './components/Temporary/styles.css';
 
 function Home() {
   return (
     <>
       <HeroSection />
-      {/* <AdminPanelBanner /> */}
-      <Temporary />
+      <AdminPanelBanner />
+      <Achievements />
+      <SupportedHardware />
+      <Performance />
     </>
   );
 }

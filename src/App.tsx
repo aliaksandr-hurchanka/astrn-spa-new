@@ -4,9 +4,9 @@ import { GlobalStyles } from './styled';
 import Home from './pages/Home';
 import Header from './components/Header';
 import Resources from './pages/Resources';
-import { About } from './pages/About';
 import { Footer } from './components/Footer';
 import { Resource } from './pages/Resource';
+import { FAQ } from './pages/FAQ';
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/resources/:id" element={<Resource />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/faq" element={<FAQ />} />
         </Routes>
       </section>
       <Footer />

@@ -71,7 +71,7 @@ export function Temporary() {
       </div>
       <img className="image-33-icon" alt="" src="/image-33@2x.png" />
     </div> */}
-        <div className="apps">
+        {/* <div className="apps">
           <b className="we-are-one-container">
             <span>{`We are `}</span>
             <span className="one">one</span>
@@ -113,8 +113,8 @@ export function Temporary() {
               <div className="description">Maximum performance modes</div>
             </div>
           </div>
-        </div>
-        <div className="text2">
+        </div> */}
+        {/* <div className="text2">
           <b className="for-5-years">
             For 5 years we've been helping customers earn more, providing
             technical support and releasing updates — each time making the product
@@ -134,8 +134,14 @@ export function Temporary() {
               <div className="projects-completed">Unique Users</div>
             </div>
           </div>
-        </div>
-        <div className="equipment1">
+        </div> */}
+
+
+
+
+
+
+        {/* <div className="equipment1">
           <div className="title4">
             <b className="supported-hardware-upgrade">
               SUPPORTED HARDWARE UPGRADE
@@ -449,8 +455,18 @@ export function Temporary() {
               </div>
             </div>
           </div>
-        </div>
-        <div className="feature">
+        </div> */}
+
+
+
+
+
+
+
+
+
+
+        {/* <div className="feature">
           <img className="image-32-icon" alt="" src={image32} />
           <b className="performance-vs-energy-container">
             <span>{`Performance `}</span>
@@ -489,7 +505,16 @@ export function Temporary() {
               src="/right-arrow--24--outline11.svg"
             />
           </div>
-        </div>
+        </div> */}
+
+
+
+
+
+
+
+
+        
         <div className="question">
           <b className="frequently-asked-questions">Frequently Asked Questions</b>
           <div className="flex1">

@@ -1,8 +1,18 @@
 import Spline from "@splinetool/react-spline";
 import styled from "styled-components";
-import { Row } from "../../../../common/components/grid";
+import { Container, Row } from "../../../../common/components/grid";
 import { Image } from '../../../../common/components/image';
+import HeroImage from '../../../../assets/PatternDark.png';
+import { HeadingLevel1 } from "../../../../common/tokens/typography";
+import { getTextStyles } from "../../../../common/utils/styles";
 
+
+export const HeadingLevel1Styled = styled(HeadingLevel1)`
+  color: #FFB22E;
+  > span {
+    color: #fff;
+  }
+`;
 
 export const SplineStyled = styled(Spline)`
   z-index: 0;
@@ -15,11 +25,6 @@ export const RowStyled = styled(Row)`
   height: 100vh;
 `;
 
-export const LogoIconStyled = styled.img`
-  position: relative;
-  width: 40px;
-  height: 40px;
-`;
 export const AsteronIconStyled = styled.img`
   position: relative;
   width: 121.5px;
@@ -42,24 +47,7 @@ export const ImageStyled = styled(Image)`
   margin-top: -80px;
 `;
 
-export const ButtonStyled = styled.div`
-  position: absolute;
-  top: calc(50% - 18px);
-  left: 1266px;
-  border-radius: var(--br-7xs);
-  background-color: var(--colors-primary);
-  box-shadow: 0px 1px 2px rgba(105, 81, 255, 0.05);
-  overflow: hidden;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  padding: var(--padding-5xs) var(--padding-base);
-  gap: var(--gap-7xs);
-  font-size: var(--text-sm-regular-size);
-  color: var(--palette-gray-grey-800);
-  font-family: var(--display-lg-medium);
-`;
+
 export const Navigation1Styled = styled.div`
   position: absolute;
   top: 0px;
@@ -86,49 +74,14 @@ export const AdditionalTerahashForContainer = styled.b`
   display: inline-block;
   width: 513px;
 `;
-export const WeAccelerateYourStyled = styled.div`
-  position: relative;
-  font-size: var(--text-md-regular-size);
-  line-height: 24px;
-  color: var(--colors-text-secondary);
-  display: inline-block;
-  width: 513px;
+export const DescriptionStyled = styled.p`
+  ${getTextStyles('Montserrat', 400, 16, 24)}
+  color: #fff;
 `;
-export const Message24Outline1 = styled.img`
-  position: relative;
-  width: 24px;
-  height: 24px;
-  overflow: hidden;
-  flex-shrink: 0;
-  display: none;
-`;
-export const Text11Styled = styled.div`
-  position: relative;
-  line-height: 28px;
-  font-weight: 500;
-`;
-export const Button1Styled = styled.div`
-  border-radius: var(--br-7xs);
-  background-color: var(--colors-primary);
-  box-shadow: 0px 1px 2px rgba(105, 81, 255, 0.05);
-  height: 56px;
-  overflow: hidden;
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  padding: var(--padding-base) var(--padding-9xl);
-  box-sizing: border-box;
-  gap: var(--gap-5xs);
-  font-size: var(--scale-lg-size);
-  color: var(--palette-gray-grey-800);
-  font-family: var(--display-lg-medium);
-`;
-
 export const SectionStyled = styled.div`
   height: calc(100vh - 80px);
   display: flex;
+  gap: 32px;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
@@ -136,13 +89,46 @@ export const SectionStyled = styled.div`
   color: var(--colors-primary);
 `;
 
-export const HeroTextBlockStyled = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-  margin-top: -160px;
-  align-items: flex-start;
+export const ContainerStyled = styled(Container)`
+  background: url(${HeroImage}) no-repeat;
+  background-position: 0 25%;
 `;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// export const HeroTextBlockStyled = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   gap: 32px;
+//   margin-top: -160px;
+//   align-items: flex-start;
+// `;
 
 export const HeaderStyled = styled.div`
   height: 80px;

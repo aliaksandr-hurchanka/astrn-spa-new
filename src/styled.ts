@@ -1,11 +1,14 @@
-import styled, { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
   html {
-    /* min-width: 320px; */
+    min-width: 320px;
   }
 
   body {
+    font-family: 'Montserrat';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     padding: 0;
     color: #fff;
     margin: 0;

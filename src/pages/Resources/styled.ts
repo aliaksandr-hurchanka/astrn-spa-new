@@ -1,22 +1,28 @@
 import styled from "styled-components";
-import { Col } from "../../common/components/grid";
+import { Col, Container } from "../../common/components/grid";
 import { getTextStyles } from "../../common/utils/styles";
 import { Link } from "react-router-dom";
+import BackImage from '../../assets/ResourcesPatternDark.png';
 
 export const ResourcesPageStyled = styled.div``;
 
+export const ContainerStyled = styled(Container)`
+  background: url(${BackImage}) no-repeat;
+  background-position: 0 0%;
+`;
+
 export const TitleStyled = styled.div`
   margin-top: 80px;
-  text-align: center;
+  text-align: left;
 `;
 
 export const SubTitleStyled = styled.div`
   margin-top: 16px;
-  text-align: center;
+  text-align: left;
 `;
 
 export const ResourcesListStyled = styled.div`
-  margin-top: 200px;
+  margin-top: 0px;
 `;
 
 export const ResourceStyled = styled.div`

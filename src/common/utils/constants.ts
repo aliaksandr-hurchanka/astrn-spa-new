@@ -1,5 +1,4 @@
 // Options for attr 'target'
-import { TextVariant, VariantName } from './types';
 
 export const SELF = '_self';
 export const BLANK = '_blank';

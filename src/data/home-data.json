@@ -1,0 +1,33 @@
+[
+  
+  {
+    "id": "4",
+    "name": "Antminer S19 PRO",
+    "countChips": "114",
+    "variants": "110",
+    "baseValueCooler": "25",
+    "boostValueCooler": "135",
+    "baseValueWater": "90",
+    "boostValueWater": "200",
+    "price": "215.5"
+  },
+  {
+    "id": "5",
+    "name": "Antminer S19J PRO",
+    "countChips": "126",
+    "variants": "88, 92, 96, 100, 104",
+    "baseValueCooler": "48",
+    "boostValueCooler": "140",
+    "baseValueWater": "78",
+    "boostValueWater": "170",
+    "price": "230.5"
+  },
+  {
+    "id": "6",
+    "name": "Antminer S19Pro+Hydro",
+    "variants": "198",
+    "baseValueWater": "63",
+    "boostValueWater": "240",
+    "price": "245.5"
+  }
+]
