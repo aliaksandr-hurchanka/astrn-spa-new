@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 // import { ImageErrorPlaceholder } from '../image-error-placeholder';
 import { useImageError } from '../../hooks/index';
@@ -34,7 +34,7 @@ export function Image(props: ImageAtomComponentProps): JSX.Element | null {
     width = '100%',
     height = 'auto',
     maxHeight = 'none',
-    isFullHeight = true, // TODO(A.N.): change for any height
+    isFullHeight = true,
     decorative = false,
     draggable = false,
     role,
@@ -42,7 +42,6 @@ export function Image(props: ImageAtomComponentProps): JSX.Element | null {
     dataTestId = 'atom',
     aspectRatio,
     objectFit,
-    errorPlaceholderHasBackground = true,
     onError,
     placeholderComponent,
     fallbackSrc = '',
@@ -58,7 +57,7 @@ export function Image(props: ImageAtomComponentProps): JSX.Element | null {
     }
   }, [src]);
 
-  const { isImageLoading, onErrorHandler } = useImageError();
+  const { onErrorHandler } = useImageError();
 
   const handleImageError = useCallback(() => {
     if (onError) {

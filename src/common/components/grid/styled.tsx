@@ -18,6 +18,7 @@ export const ContainerStyled = styled.div<ContainerProps>`
   margin-left: auto;
   margin-right: auto;
   position: relative;
+  scroll-snap-stop: normal;
 
   ${({ isRightToLeft }) => isRightToLeft && 'direction: rtl;'}
 

@@ -79,7 +79,7 @@ export const DescriptionStyled = styled.p`
   color: #fff;
 `;
 export const SectionStyled = styled.div`
-  height: calc(100vh - 80px);
+  height: calc(100vh - 360px);
   display: flex;
   gap: 32px;
   flex-direction: column;
@@ -87,11 +87,35 @@ export const SectionStyled = styled.div`
   justify-content: center;
   font-size: var(--header-h1-size);
   color: var(--colors-primary);
+
+  -webkit-animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+
+  @-webkit-keyframes slide-bottom {
+    0% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+    }
+    100% {
+      -webkit-transform: translateY(100px);
+              transform: translateY(100px);
+    }
+  }
+  @keyframes slide-bottom {
+    0% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+    }
+    100% {
+      -webkit-transform: translateY(100px);
+              transform: translateY(100px);
+    }
+  }
 `;
 
 export const ContainerStyled = styled(Container)`
-  background: url(${HeroImage}) no-repeat;
-  background-position: 0 25%;
+  /* background: url(${HeroImage}) no-repeat;
+  background-position: 0 25%; */
 `;
 
 

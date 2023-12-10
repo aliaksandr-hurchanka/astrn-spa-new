@@ -3,10 +3,8 @@ import React, { SyntheticEvent, useCallback } from 'react';
 import { noop } from '../../utils/common';
 
 import { SVGIconStyled } from './SvgIconStyled';
-import { ICON_SIZE } from './constants';
-import { getCorrectSize } from './helpers';
 import { SVG } from './svgInline';
-import { SizeType, TIconProps } from './types';
+import { TIconProps } from './types';
 
 /**
  * SVG Component

@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import { colorBlackTransparent50 } from '../../tokens/colors';
 import { CORNER_RADIUS } from '../../tokens/cornerRadius';
 
-import { Breakpoint, SizeType, TSvgIconProps } from './types';
+import { TSvgIconProps } from './types';
 
 // const getWidth = (size: number) => css`
 //   width: ${size}px;

@@ -175,12 +175,12 @@ import { AppsTitleStyled } from './styled';
 
 export function AdminPanelBanner() {
   return (
-    <Container>
+    <Container height='100vh'>
       <div className="apps">
         <AppsTitleStyled>
-            <h3>
-              We are <span>one</span> of the market <span>leaders</span>
-            </h3>
+          <h3>
+            We are <span>one</span> of the market <span>leaders</span>
+          </h3>
         </AppsTitleStyled>
         <img className="apps-child" alt="" src={Group42} />
         <div className="card-parent">

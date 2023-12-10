@@ -11,7 +11,7 @@ export function Performance() {
           <PerformanceSubTitleStyled>Up to 15% energy efficiency relative to factory firmware</PerformanceSubTitleStyled>
         </Col>
       </Row>
-      <SplineStyled scene="https://prod.spline.design/XV-WcZsOaVmBBT0r/scene.splinecode" />
+      {/* <SplineStyled scene="https://prod.spline.design/XV-WcZsOaVmBBT0r/scene.splinecode" /> */}
       <OverlayStyled />
       <TextStyled style={{ position: 'absolute', top: '35%', width: '300px', textAlign: 'right', left: '12%' }}>Different acceleration modes</TextStyled>
       <TextStyled style={{ position: 'absolute', top: '50%', width: '300px', textAlign: 'right', left: '7%' }}>Quick switch between performance modes</TextStyled>

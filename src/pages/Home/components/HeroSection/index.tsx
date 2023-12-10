@@ -5,25 +5,26 @@ import { ParallaxBannerStyled } from '../../../../common/components/parallax-ban
 
 import { useTranslation } from 'react-i18next';
 import { ButtonStyled } from '../../../../common/components/button-styled';
+import { useEffect } from 'react';
 
 export function HeroSection() {
-  
+
   const { t } = useTranslation();
 
   const Layer1: BannerLayer = {
-    translateY: [-5, -15],
+    translateY: [0, 30],
     opacity: [1.0, 0],
     shouldAlwaysCompleteAnimation: true,
     expanded: false,
     children: (
       <SectionStyled>
-        <HeadingLevel1Styled dangerouslySetInnerHTML={{__html: t('home-hero-title')}} />
-          <DescriptionStyled>
-            {t('home-hero-description')}
-          </DescriptionStyled>
-          <ButtonStyled>
-            {t('home-hero-button')}
-          </ButtonStyled>
+        <HeadingLevel1Styled dangerouslySetInnerHTML={{ __html: t('home-hero-title') }} />
+        <DescriptionStyled>
+          {t('home-hero-description')}
+        </DescriptionStyled>
+        <ButtonStyled>
+          {t('home-hero-button')}
+        </ButtonStyled>
       </SectionStyled>
     )
   }
@@ -38,7 +39,25 @@ export function HeroSection() {
   //     <ImageStyled src={HeroImage} />
   //   )
   // }
-  
+
+  // useEffect(() => {
+  //   var getParallaxContainer = document.querySelector(".parallax-container");
+  //   var getParallaxContent = document.querySelector(".parallax-content");
+  //   console.log(getParallaxContent, ' getParallaxContent');
+    
+  //   // @ts-ignore
+  //   getParallaxContainer.addEventListener("mousemove", (e) => {
+  //         // @ts-ignore
+  //     let x = e.pageX / window.innerWidth;
+  //         // @ts-ignore
+  //     let y = e.pageY / window.innerHeight;
+  //   // @ts-ignore
+  //     this.style.transform = `translate(${x * 5}%, ${y * 5}%)`;
+  //         // @ts-ignore
+  //     getParallaxContent.style.transform = `translate(${-x * 8}%, ${-y * 8}%)`;
+  //   })
+  // }, []);
+
   return (
     <ParallaxProvider>
       <ContainerStyled>
