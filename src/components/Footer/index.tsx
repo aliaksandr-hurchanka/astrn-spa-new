@@ -1,7 +1,7 @@
 import React from 'react';
 import { Col, Container, Row } from '../../common/components/grid';
 import { Logo } from '../Logo';
-import { Menu } from '../Menu';
+import { Menu } from '../Menu/desktop';
 import { FooterStyled, LineStyled } from './styled';
 
 export function Footer() {

@@ -11,8 +11,9 @@ export const HeaderStyled = styled.header`
   width: 100%;
   top: 0;
   position: sticky;
-  background-color: #000;
-  z-index: 1;
+  backdrop-filter: blur(10px);
+  background-color: rgba(0,0,0,.72);
+  z-index: 99;
 `;
 
 export const ColStyled = styled(Col)`

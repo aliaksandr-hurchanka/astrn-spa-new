@@ -1,19 +1,5 @@
-import { NavLink } from "react-router-dom";
-import styled from "styled-components";
-
-export const MenuCategoriesStyled = styled.div`
-  /* position: absolute;
-  top: 28px;
-  left: 512px;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: var(--gap-29xl); */
-
-  display: flex;
-  gap: 48px;
-`;
+import { NavLink } from 'react-router-dom';
+import styled from 'styled-components';
 
 export const MenuItemStyled = styled(NavLink)`
   position: relative;

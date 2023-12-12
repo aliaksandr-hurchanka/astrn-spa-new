@@ -8,7 +8,7 @@ import { ButtonColStyled, ButtonLinkStyled, SubTitleStyled, TitleStyled } from '
 
 export function SupportedHardware() {
   return (
-    <Container lgPt='200px'>
+    <Container>
       <Row>
         <Col>
           <TitleStyled>

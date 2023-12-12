@@ -3,11 +3,16 @@ import { Col, Row } from '../../common/components/grid';
 
 import { ColStyled, HeaderContainerStyled, HeaderStyled, MenuColStyled } from './styled';
 import { Logo } from '../Logo';
-import { Menu } from '../Menu';
+import { Menu } from '../Menu/desktop';
 import { ButtonStyled } from '../../common/components/button-styled';
+import { useWindowSize } from '../../common/hooks';
+
+import { MobileMenu } from '../Menu/mobile';
+
 function Header() {
 
   const { i18n } = useTranslation();
+  const { isInfiniteDesktopView, isMobileView, isTabletView } = useWindowSize();
 
   let countries = [
     {
@@ -26,14 +31,16 @@ function Header() {
     <HeaderStyled>
       <HeaderContainerStyled width='100%'>
         <Row height='80px' alignItems='center'>
-          <Col lg={3}>
+          <Col sm={2} md={4} lg={3}>
             <Logo />
           </Col>
-          <MenuColStyled lg={6}>
-            <Menu />
-          </MenuColStyled>
-          <ColStyled lg={3}>
-            {countries.map((lng, i) => {
+          {isInfiniteDesktopView && (
+            <MenuColStyled lg={6}>
+              <Menu />
+            </MenuColStyled>
+          )}
+          <ColStyled sm={2} md={4} lg={3}>
+            {/* {countries.map((lng, i) => {
               return (
                 <ButtonStyled
                   key={`${lng}_${i}`}
@@ -44,7 +51,8 @@ function Header() {
                   <span>{lng.code}</span>
                 </ButtonStyled>
               );
-            })}
+            })} */}
+            {(isMobileView || isTabletView) && <MobileMenu />}
           </ColStyled>
         </Row>
       </HeaderContainerStyled>

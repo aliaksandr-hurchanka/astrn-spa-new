@@ -7,6 +7,28 @@ import { HeadingLevel1 } from "../../../../common/tokens/typography";
 import { getTextStyles } from "../../../../common/utils/styles";
 
 
+export const TestStyled = styled.div`
+  opacity: 0;
+    -webkit-transform: scale(0.9);
+        -moz-transform: scale(0.9);
+        -ms-transform: scale(0.9);
+          -o-transform: scale(0.9);
+            transform: scale(0.9);
+    -webkit-transition: all 1s ease-in-out;
+        -moz-transition: all 1s ease-in-out;
+        -ms-transition: all 1s ease-in-out;
+          -o-transition: all 1s ease-in-out;
+            transition: all 1s ease-in-out;
+  &.visible {
+    opacity: 1;
+    -webkit-transform: none;
+        -moz-transform: none;
+        -ms-transform: none;
+          -o-transform: none;
+            transform: none;
+  }
+`;
+
 export const HeadingLevel1Styled = styled(HeadingLevel1)`
   color: #FFB22E;
   > span {
