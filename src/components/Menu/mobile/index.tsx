@@ -1,16 +1,21 @@
-import { MobileMenuButtonStyled, MobileMenuStyled } from "./styled";
+import { LanguageSelectorStyled, MobileMenuButtonStyled, MobileMenuStyled } from "./styled";
 import HamburgerIcon from '../../../assets/icons/hamburger.svg';
 import CloseIcon from '../../../assets/icons/close.svg';
 import { SVGIcon } from '../../../common/components/svg-icon';
-import { useEffect, useState } from "react";
 import { MenuList } from "../components/MenuList";
+import { LanguageSelector } from "../../LanguageSelector";
+import { useContext, useEffect } from "react";
+import { OptionsContext } from "../../../common/contexts";
+import { useWindowSize } from "../../../common/hooks";
 
 export function MobileMenu() {
 
-  const [isMenuShowed, setIsMenuShowed] = useState(false);
+  const { isMobileView, isTabletView } = useWindowSize();
+  const { isMenuShowed, setIsMenuShowed } = useContext(OptionsContext);
 
   useEffect(() => {
-    if (isMenuShowed) {
+    if ((isMobileView || isTabletView) && (isMenuShowed)) {
+      
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
       const scrollLeft = window.scrollX || document.documentElement.scrollLeft;
 
@@ -20,13 +25,15 @@ export function MobileMenu() {
       document.body.style.overflow = 'hidden';
 
       window.onscroll = () => window.scrollTo(scrollLeft, scrollTop);
+      console.log('Done');
+      
 
       return;
     }
 
     window.onscroll = () => null;
     document.body.style.overflow = 'auto';
-  }, [isMenuShowed]);
+  }, [isMenuShowed, isMobileView, isTabletView]);
 
   return (
     <>
@@ -38,6 +45,9 @@ export function MobileMenu() {
       </MobileMenuButtonStyled>
       {isMenuShowed && <MobileMenuStyled>
         <MenuList closeMenuCb={setIsMenuShowed} />
+        <LanguageSelectorStyled>
+          <LanguageSelector />
+        </LanguageSelectorStyled>
       </MobileMenuStyled>}
     </>
   );

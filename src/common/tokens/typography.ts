@@ -95,6 +95,9 @@ export const HeadingStylesCommon = css<{ color?: string }>`
 export const HeadingLevel1 = styled.h1<{ color?: string }>`
   ${getTextStyles('Montserrat', 700, 48, 60)}
 
+  word-break: break-all;
+  white-space: normal;
+
   ${HeadingStylesCommon}
 
   text-shadow: ${typographyTextShadow};

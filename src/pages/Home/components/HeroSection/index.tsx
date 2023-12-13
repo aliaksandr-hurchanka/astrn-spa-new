@@ -16,7 +16,6 @@ import { SectionStyled as HomeSectionStyled } from "../../styled";
 import { useEffect } from "react";
 import "./style.css";
 
-import ScrollMagic from "scrollmagic";
 
 export function HeroSection() {
   const { t } = useTranslation();

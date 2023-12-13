@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const MobileMenuStyled = styled.div`
   position: absolute;
-  height: 100vh;
+  height: calc(100dvh - 105px);
   width: 100%;
   background: #000;
   top: 80px;
@@ -62,4 +62,10 @@ export const MobileMenuButtonStyled = styled.div`
   border-radius: 6px;
   background: #141414;
   box-shadow: 0px 1px 2px 0px rgba(105, 81, 255, 0.05);
+`;
+
+export const LanguageSelectorStyled = styled.div`
+  position: absolute;
+  margin-bottom: 16px;
+  bottom: 0;
 `;
