@@ -5,6 +5,7 @@ import {
   HeadingLevel1Styled,
   DescriptionStyled,
   TestStyled,
+  HeroSectionStyled,
 } from "./styled";
 import { Col, Container, Row } from "../../../../common/components/grid";
 import { BannerLayer, ParallaxProvider } from "react-scroll-parallax";
@@ -14,7 +15,6 @@ import { useTranslation } from "react-i18next";
 import { ButtonStyled } from "../../../../common/components/button-styled";
 import { SectionStyled as HomeSectionStyled } from "../../styled";
 import { useEffect } from "react";
-import "./style.css";
 
 
 export function HeroSection() {
@@ -56,8 +56,8 @@ export function HeroSection() {
   // }, []);
 
   return (
-    <>
-      <Container height="100vh">
+    <HeroSectionStyled>
+      <ContainerStyled height="100vh">
         <Row>
           <Col sm={4} md={8} lg={6}>
             <SectionStyled>
@@ -69,7 +69,7 @@ export function HeroSection() {
             </SectionStyled>
           </Col>
         </Row>
-      </Container>
+      </ContainerStyled>
       {/* <h2>
         kdjflksjflkjsdflkjsd jslkdj flksd lksjdfklj sldkfj lskdfj sd
         dfklsdfksdjfklsdlkjflksdjfkjsdklfjlskdjflksdflkj
@@ -90,7 +90,7 @@ export function HeroSection() {
         dfklsdfksdjfklsdlkjflksdjfkjsdklfjlskdjflksdflkj
         dflkdsjflkjsdflkjsdlkfjlksdjflksdjf
       </h2> */}
-    </>
+    </HeroSectionStyled>
   );
 
   // return (

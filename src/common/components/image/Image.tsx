@@ -1,10 +1,10 @@
-import { useCallback, useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 
 // import { ImageErrorPlaceholder } from '../image-error-placeholder';
-import { useImageError } from '../../hooks/index';
-import { buildKey } from '../../utils/common';
+// import { useImageError } from '../../hooks/index';
+// import { buildKey } from '../../utils/common';
 
-import { getImageSources } from './helpers';
+// import { getImageSources } from './helpers';
 import { ImageStyled, ImageStyledWrapper } from './styled';
 import { ImageAtomComponentProps } from './types';
 
@@ -29,7 +29,7 @@ export function Image(props: ImageAtomComponentProps): JSX.Element | null {
   const {
     src = '',
     alt = '',
-    srcSet = [],
+    // srcSet = [],
     caption = '',
     width = '100%',
     height = 'auto',
@@ -39,40 +39,39 @@ export function Image(props: ImageAtomComponentProps): JSX.Element | null {
     draggable = false,
     role,
     displayPopupTitle = false,
-    dataTestId = 'atom',
     aspectRatio,
     objectFit,
     onError,
     placeholderComponent,
-    fallbackSrc = '',
+    // fallbackSrc = '',
     ...rest
   } = props;
 
-  const [imageUrl, setImageUrl] = useState('');
-  const [errorOccurred, setErrorOccurred] = useState(false);
+  // const [imageUrl, setImageUrl] = useState('');
+  // const [errorOccurred, setErrorOccurred] = useState(false);
 
-  useEffect(() => {
-    if (src) {
-      setImageUrl(src);
-    }
-  }, [src]);
+  // useEffect(() => {
+  //   if (src) {
+  //     setImageUrl(src);
+  //   }
+  // }, [src]);
 
-  const { onErrorHandler } = useImageError();
+  // const { onErrorHandler } = useImageError();
 
-  const handleImageError = useCallback(() => {
-    if (onError) {
-      onError();
-    } else {
-      if (!errorOccurred) {
-        setImageUrl(fallbackSrc);
-        setErrorOccurred(true);
-      }
+  // const handleImageError = useCallback(() => {
+  //   if (onError) {
+  //     onError();
+  //   } else {
+  //     if (!errorOccurred) {
+  //       setImageUrl(fallbackSrc);
+  //       setErrorOccurred(true);
+  //     }
 
-      if (errorOccurred) {
-        onErrorHandler();
-      }
-    }
-  }, [errorOccurred, fallbackSrc, onError, onErrorHandler]);
+  //     if (errorOccurred) {
+  //       onErrorHandler();
+  //     }
+  //   }
+  // }, [errorOccurred, fallbackSrc, onError, onErrorHandler]);
 
   // if (!src || !isImageLoading) {
   //   return placeholderComponent ? (
@@ -85,27 +84,27 @@ export function Image(props: ImageAtomComponentProps): JSX.Element | null {
   //   );
   // }
 
-  const sources = getImageSources(srcSet);
+  // const sources = getImageSources(srcSet);
   const titleRole = displayPopupTitle &&
     caption && {
       title: caption,
     };
-  const dataTestIdImage = buildKey(dataTestId, 'image');
+  // const dataTestIdImage = buildKey(dataTestId, 'image');
 
   return (
     <ImageStyledWrapper
       isFullHeight={isFullHeight}
       {...rest}
     >
-      <picture>
-        {sources}
+      {/* <picture> */}
+        {/* {sources} */}
         <ImageStyled
           {...titleRole}
           {...(role && {
             role,
           })}
-          src={imageUrl}
-          onError={handleImageError}
+          src={src}
+          // onError={handleImageError}
           alt={(!decorative && alt) || ''}
           width={width}
           height={height}
@@ -113,9 +112,9 @@ export function Image(props: ImageAtomComponentProps): JSX.Element | null {
           draggable={draggable}
           aspectRatio={aspectRatio}
           objectFit={objectFit}
-          data-testid={dataTestIdImage}
+          // data-testid={dataTestIdImage}
         />
-      </picture>
+      {/* </picture> */}
       {!displayPopupTitle && caption && <p>{caption}</p>}
     </ImageStyledWrapper>
   );

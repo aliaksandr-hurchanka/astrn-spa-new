@@ -4,7 +4,7 @@ import { LanguageSelectorStyled, LanguageListStyled, LanguageItemStyled, LangCod
 import { useContext, useState } from "react";
 import { getLanguages } from "./languages";
 import { useTranslation } from "react-i18next";
-import { first } from "lodash";
+import { find } from "lodash";
 import { Language } from "./types";
 import { EVENT_NAME_MAP } from "../../common/utils/constants";
 import { useOutsideClick } from "../../common/hooks/useOutsideClick";
@@ -12,12 +12,12 @@ import { useWindowSize } from "../../common/hooks";
 import { OptionsContext } from "../../common/contexts";
 
 export function LanguageSelector() {
-
-  const defaultLanguage = first(getLanguages());
+  
+  const { i18n } = useTranslation();
+  const defaultLanguage = find(getLanguages(), ['code', i18n.language]);  
 
   const { isLanguageMenuShowed, setIsLanguageMenuShowed } = useContext(OptionsContext);
   const [activeLanguage, setActiveLanguage] = useState<Language | undefined>(defaultLanguage);
-  const { i18n } = useTranslation();
   const { elementRef } = useOutsideClick({
     eventName: EVENT_NAME_MAP.click,
     callback: () => setIsLanguageMenuShowed(false),

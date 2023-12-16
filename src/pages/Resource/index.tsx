@@ -15,6 +15,7 @@ import { SVGIcon } from '../../common/components/svg-icon';
 import { DownloadSection } from './components/DownloadSection';
 import { AccordionMainTitleStyled } from '../../common/components/accordion/styled';
 import Accordion from '../../common/components/accordion';
+import { Connected } from './components/Connected';
 
 const options = [
   { value: 'lifetime-license', label: 'Lifetime License' },
@@ -109,7 +110,7 @@ export function Resource() {
       </Container>
       <DownloadSection />
       <Container>
-      <Row lgMt='80px'>
+        <Row lgMt='80px' lgMb='80px'>
           <Col lg={4}>
             <AccordionMainTitleStyled>Frequently asked questions</AccordionMainTitleStyled>
           </Col>
@@ -133,6 +134,7 @@ export function Resource() {
           </Col>
         </Row>
       </Container>
+      <Connected />
     </>
   );
 }

@@ -1,19 +1,29 @@
 import styled from "styled-components";
-import { Col, Container } from "../../common/components/grid";
+import { Col, Container, Row } from "../../common/components/grid";
 import { getTextStyles } from "../../common/utils/styles";
 import { Link } from "react-router-dom";
-import BackImage from '../../assets/ResourcesPatternDark.png';
+// import BackImage from '../../assets/ResourcesPatternDark.png';
+// import MobileBackImage from '../../assets/resources/mobile-bg.png';
+import { Image } from '../../common/components/image';
+import { ADAPTIVE } from "../../common/tokens/screen";
 
-export const ResourcesPageStyled = styled.div``;
+export const ResourcesPageStyled = styled.div`
+  padding-bottom: 48px;
+`;
 
 export const ContainerStyled = styled(Container)`
-  background: url(${BackImage}) no-repeat;
-  background-position: 0 0%;
+  ${ADAPTIVE.minWidth.desktop} {
+
+  }
 `;
 
 export const TitleStyled = styled.div`
-  margin-top: 80px;
-  text-align: left;
+  margin-top: 0;
+
+  ${ADAPTIVE.minWidth.desktop} {
+    text-align: left;
+    margin-top: 80px;
+  }
 `;
 
 export const SubTitleStyled = styled.div`
@@ -52,6 +62,12 @@ export const ResourceNameStyled = styled.div`
   }
 `;
 
+export const RowStyled = styled(Row)`
+  ${ADAPTIVE.maxWidth.mobile} {
+    gap: 16px;
+  }
+`;
+
 export const ColStyled = styled(Col)`
   display: flex;
 `;
@@ -65,4 +81,8 @@ export const LinkStyled = styled(Link)`
 export const DetailsButtonStyled = styled.div`
   ${getTextStyles('Montserrat', 500, 14, 20)}
   color: #FFB22E;
+`;
+
+export const ImageStyled = styled(Image)`
+  height: auto;
 `;

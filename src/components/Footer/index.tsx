@@ -20,14 +20,10 @@ export function Footer() {
         </Row>
       </Container>
       <LineStyled />
-      <Container lgPb='50px'>
+      <Container lgPb='50px' mdPb='50px' pb='50px'>
         <Row>
-          <Col lg={4}>
+          <Col lg={12} md={8} sm={4} >
             © 2023 Asteron. All rights reserved.
-          </Col>
-          <Col lg={5} />
-          <Col lg={3}>
-            Links
           </Col>
         </Row>
       </Container>

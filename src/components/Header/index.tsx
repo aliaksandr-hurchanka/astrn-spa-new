@@ -7,13 +7,16 @@ import { useWindowSize } from '../../common/hooks';
 
 import { MobileMenu } from '../Menu/mobile';
 import { LanguageSelector } from '../LanguageSelector';
+import { OptionsContext } from '../../common/contexts';
+import { useContext } from 'react';
 
 
 function Header() {
   const { isInfiniteDesktopView, isMobileView, isTabletView } = useWindowSize();
+  const { isMenuShowed } = useContext(OptionsContext);
 
   return (
-    <HeaderStyled>
+    <HeaderStyled isMenuShowed={isMenuShowed}>
       <HeaderContainerStyled width='100%'>
         <Row height='80px' alignItems='center'>
           <Col sm={2} md={4} lg={3}>

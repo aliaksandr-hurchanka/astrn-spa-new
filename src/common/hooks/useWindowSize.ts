@@ -1,4 +1,4 @@
-import { useCallback, useLayoutEffect, useState } from 'react';
+import { useCallback, useEffect, useLayoutEffect, useState } from 'react';
 
 import { DESKTOP, MOBILE, TABLET } from '../utils/constants';
 
@@ -83,11 +83,9 @@ export const useWindowSize = (): IUseWindowSizeResult => {
     return () => window.removeEventListener('resize', onResizeHandler);
   }, [onResizeHandler]);
 
-  const windowResolution = getWindowResolution(screenType);
-
   return {
     width,
     height,
-    ...windowResolution,
+    ...getWindowResolution(screenType),
   };
 };

@@ -68,4 +68,8 @@ export const LanguageSelectorStyled = styled.div`
   position: absolute;
   margin-bottom: 16px;
   bottom: 0;
+  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 `;

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Route, Routes } from "react-router-dom";
-import { GlobalStyles } from './styled';
+import { GlobalStyles, SectionStyled } from './styled';
 import Home from './pages/Home';
 import Header from './components/Header';
 import Resources from './pages/Resources';
@@ -22,17 +22,19 @@ function App() {
       // @ts-ignore
       setIsLanguageMenuShowed
     }}>
-      <GlobalStyles />
-      <Header />
-      <section>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/resources" element={<Resources />} />
-          <Route path="/resources/:id" element={<Resource />} />
-          <Route path="/faq" element={<FAQ />} />
-        </Routes>
-      </section>
-      <Footer />
+      <SectionStyled>
+        <GlobalStyles />
+        <Header />
+        <section>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/resources" element={<Resources />} />
+            <Route path="/resources/:id" element={<Resource />} />
+            <Route path="/faq" element={<FAQ />} />
+          </Routes>
+        </section>
+        <Footer />
+      </SectionStyled>
     </OptionsContext.Provider>
   );
 }

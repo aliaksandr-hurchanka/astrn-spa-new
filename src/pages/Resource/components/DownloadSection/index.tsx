@@ -7,7 +7,7 @@ import ArrowRight from '../../../../assets/icons/arrow-right.svg';
 
 export function DownloadSection() {
   return (
-    <Container lgPb='80px'>
+    <Container lgPb='80px' lgPt='80px'>
       <Row>
         <Col>
           <TitleStyled>Download</TitleStyled>

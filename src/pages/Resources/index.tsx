@@ -1,40 +1,48 @@
 import React from 'react'
-import { ColStyled, ContainerStyled, DetailsButtonStyled, LinkStyled, ResourceNameStyled, ResourceStyled, ResourcesListStyled, ResourcesPageStyled, SubTitleStyled, TitleStyled } from './styled';
+import { ColStyled, ContainerStyled, DetailsButtonStyled, ImageStyled, LinkStyled, ResourceNameStyled, ResourceStyled, ResourcesListStyled, ResourcesPageStyled, RowStyled, SubTitleStyled, TitleStyled } from './styled';
 import { Col, Row } from '../../common/components/grid';
 import { HeadingLevel1, RegularTextLevel3 } from '../../common/tokens/typography';
+// import MobileBackImage from '../../assets/resources/mobile-bg.png';
 
 import resources from '../../data/data.json';
 import { ChipsLabelStyled } from '../../common/components/chips-label';
 import { Progress } from '../../components/Progress';
 import Accordion from '../../common/components/accordion';
 import { AccordionMainTitleStyled } from '../../common/components/accordion/styled';
+import { useWindowSize } from '../../common/hooks';
+import { Image } from '../../common/components/image';
+import Antminer from '../../assets/resource/antminer.png';
 
 function Resources() {
+  const { isMobileView } = useWindowSize();
+  
   return (
     <ResourcesPageStyled>
       <ContainerStyled width='100%'>
         <Row>
-          <Col lg={7}>
+          <Col lg={7} md={4} sm={4} smCustomMargin='0 0 40px' order={isMobileView ? 2 : 1}>
             <TitleStyled>
               <HeadingLevel1 color='#fff'>All supported hardware</HeadingLevel1>
             </TitleStyled>
             <SubTitleStyled>
               <RegularTextLevel3 color='#f0f0f0'>
-              On this page you will find a list of supported equipment. <br />Select the one that suits you for more detailed information
+                On this page you will find a list of supported equipment. <br />Select the one that suits you for more detailed information
               </RegularTextLevel3>
             </SubTitleStyled>
           </Col>
-          <Col lg={5}></Col>
+          <Col lg={5} md={4} order={isMobileView ? 1 : 2}>
+            <Image src={Antminer} />
+          </Col>
         </Row>
-        <Row lgMb='80px' lgMt='200px'>
+        <Row lgMb='80px'>
           <Col>
             <ResourcesListStyled>
               {resources.map(({ id, name, countChips, variants, baseValueCooler, boostValueCooler, baseValueWater, boostValueWater }) => {
                 return (
                   <ResourceStyled>
                     <LinkStyled to={`/resources/${id}`}>
-                      <Row>
-                        <Col lg={4}>
+                      <RowStyled>
+                        <Col lg={4} md={8} sm={4}>
                           <ResourceNameStyled>
                             {name}
                             {countChips && <ChipsLabelStyled>
@@ -43,18 +51,18 @@ function Resources() {
                             <span>{variants}Th</span>
                           </ResourceNameStyled>
                         </Col>
-                        <ColStyled lg={3}>
+                        <ColStyled lg={3} md={3} sm={4}>
                           {baseValueCooler && <Progress baseValue={baseValueCooler} boostValue={boostValueCooler} />}
                         </ColStyled>
-                        <ColStyled lg={3}>
+                        <ColStyled lg={3} md={4} sm={4}>
                           {baseValueWater && <Progress baseValue={baseValueWater} boostValue={boostValueWater} isWater />}
                         </ColStyled>
-                        <ColStyled lg={2} alignItems='center' justifyContent='flex-end'>
+                        <ColStyled lg={2} md={1} sm={4} alignItems='center' justifyContent='flex-end'>
                           <DetailsButtonStyled>
                             See details
                           </DetailsButtonStyled>
                         </ColStyled>
-                      </Row>
+                      </RowStyled>
                     </LinkStyled>
                   </ResourceStyled>
                 );

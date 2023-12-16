@@ -93,14 +93,17 @@ export const HeadingStylesCommon = css<{ color?: string }>`
  * @builtin letterSpacing: 2%
  */
 export const HeadingLevel1 = styled.h1<{ color?: string }>`
-  ${getTextStyles('Montserrat', 700, 48, 60)}
-
-  word-break: break-all;
-  white-space: normal;
-
   ${HeadingStylesCommon}
-
+  text-transform: uppercase;
+  word-break: break-word;
+  white-space: normal;
   text-shadow: ${typographyTextShadow};
+
+  ${getTextStyles('Montserrat', 700, 30, 38)}
+
+  ${ADAPTIVE.minWidth.tablet} {
+    ${getTextStyles(null, null, 36, 44)}
+  }
 
   ${ADAPTIVE.minWidth.desktop} {
     ${getTextStyles(null, null, 48, 56)}
@@ -119,11 +122,15 @@ export const HeadingLevel1 = styled.h1<{ color?: string }>`
  * @builtin letterSpacing: 2%
  */
 export const HeadingLevel2 = styled.h2<{ color?: string }>`
-  ${getTextStyles('Montserrat', 700, 24, 28)}
+  text-transform: uppercase;
+  ${getTextStyles('Montserrat', 700, 24, 32)}
+
+  ${ADAPTIVE.minWidth.tablet} {
+    ${getTextStyles('Montserrat', 700, 30, 38)}
+  }
 
   ${ADAPTIVE.minWidth.desktop} {
     ${getTextStyles('Montserrat', 700, 36, 44)}
-
     text-shadow: ${typographyTextShadow};
   }
 `;
@@ -140,15 +147,19 @@ export const HeadingLevel2 = styled.h2<{ color?: string }>`
  * @builtin letterSpacing: 2%
  */
 export const HeadingLevel3 = styled.h3<{ color?: string }>`
-  ${getTextStyles('Montserrat', 700, 18, 24)}
-
   ${HeadingStylesCommon}
+
+  ${getTextStyles('Montserrat', 700, 20, 30)}
+
+  ${ADAPTIVE.minWidth.tablet} {
+    ${getTextStyles(null, null, 24, 32)}
+  }
 
   ${ADAPTIVE.minWidth.desktop} {
     ${getTextStyles(null, null, 24, 28)}
-
-    text-shadow: ${typographyTextShadow};
   }
+
+  text-shadow: ${typographyTextShadow};
 `;
 
 /**
@@ -164,7 +175,7 @@ export const HeadingLevel3 = styled.h3<{ color?: string }>`
  * @builtin letterSpacing: 2%
  */
 export const HeadingLevel4 = styled.h4<{ color?: string; alignSelf?: string; whiteSpace?: string }>`
-  ${getTextStyles('Montserrat', 700, 14, 16)}
+  ${getTextStyles('Montserrat', 700, 20, 30)}
 
   align-self: ${({ alignSelf = 'flex-start' }) => alignSelf};
 
@@ -172,8 +183,12 @@ export const HeadingLevel4 = styled.h4<{ color?: string; alignSelf?: string; whi
 
   ${HeadingStylesCommon}
 
+  ${ADAPTIVE.minWidth.tablet} {
+    ${getTextStyles(null, null, 20, 30)}
+  }
+
   ${ADAPTIVE.minWidth.desktop} {
-    ${getTextStyles(null, null, 18, 24)}
+    ${getTextStyles(null, null, 20, 30)}
   }
 `;
 
@@ -214,7 +229,15 @@ export const RegularTextStylesCommon = css<RegularTextProps>`
 
 // Regular text | paragraph (p) | Body 24
 export const RegularTextLevel1 = styled.p<RegularTextProps>`
-  ${getTextStyles('Montserrat', null, 24, 32)}
+  ${getTextStyles('Montserrat', 400, 16, 24)}
+
+  ${ADAPTIVE.minWidth.tablet} {
+    ${getTextStyles(null, null, 18, 28)}
+  }
+
+  ${ADAPTIVE.minWidth.desktop} {
+    ${getTextStyles(null, null, 20, 30)}
+  }
 
   ${RegularTextStylesCommon}
 `;

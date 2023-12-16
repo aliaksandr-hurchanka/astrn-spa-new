@@ -7,6 +7,8 @@ import { HeadingLevel1 } from "../../../../common/tokens/typography";
 import { getTextStyles } from "../../../../common/utils/styles";
 
 
+export const HeroSectionStyled = styled.div``;
+
 export const TestStyled = styled.div`
   opacity: 0;
     -webkit-transform: scale(0.9);
@@ -45,6 +47,7 @@ export const SplineStyled = styled(Spline)`
 export const RowStyled = styled(Row)`
   position: relative;
   height: 100vh;
+  background: var(--Gold-gradient, radial-gradient(46.25% 45.98% at 0% 46.5%, #3A2813 0%, #010101 100%));
 `;
 
 export const AsteronIconStyled = styled.img`
@@ -138,6 +141,7 @@ export const SectionStyled = styled.div`
 export const ContainerStyled = styled(Container)`
   /* background: url(${HeroImage}) no-repeat;
   background-position: 0 25%; */
+  // transform: rotate(-90deg);
 `;
 
 
@@ -585,50 +589,7 @@ export const StayConnectedWithContainerStyled = styled.div`
   display: inline-block;
   width: 295px;
 `;
-// export const SectionStyled = styled.div`
-//   position: absolute;
-//   top: 296px;
-//   left: 150px;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   justify-content: flex-start;
-//   padding: var(--padding-13xl) 0px;
-//   gap: var(--gap-5xl);
-// `;
-// export const Section1Styled = styled.div`
-//   position: absolute;
-//   top: 296px;
-//   left: 931px;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   justify-content: flex-start;
-//   padding: var(--padding-13xl) 0px;
-//   gap: var(--gap-5xl);
-// `;
-// export const Section2Styled = styled.div`
-//   position: absolute;
-//   top: 612px;
-//   left: 150px;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   justify-content: flex-start;
-//   padding: var(--padding-13xl) 0px;
-//   gap: var(--gap-5xl);
-// `;
-// export const Section3Styled = styled.div`
-//   position: absolute;
-//   top: 612px;
-//   left: 931px;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   justify-content: flex-start;
-//   padding: var(--padding-13xl) 0px;
-//   gap: var(--gap-5xl);
-// `;
+
 export const FeatureStyled = styled.div`
   position: relative;
   background-color: var(--colors-text-primary);

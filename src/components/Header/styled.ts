@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Col, Container } from "../../common/components/grid";
 
 
@@ -7,13 +7,18 @@ export const HeaderContainerStyled = styled(Container)`
   align-items: center;
 `;
 
-export const HeaderStyled = styled.header`
+export const HeaderStyled = styled.header<{ isMenuShowed: boolean }>`
   width: 100%;
   top: 0;
   position: sticky;
   backdrop-filter: blur(10px);
-  background-color: rgba(0,0,0,.72);
+  background-color: rgba(0,0,0,.22);
   z-index: 99;
+
+  ${({ isMenuShowed }) => isMenuShowed && css`
+    backdrop-filter: none;
+    background-color: #000;
+  `}
 `;
 
 export const ColStyled = styled(Col)`

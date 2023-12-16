@@ -5,4 +5,6 @@ export const OptionsContext = createContext({
   setIsMenuShowed: (isShowed: boolean) => isShowed,
   isLanguageMenuShowed: false,
   setIsLanguageMenuShowed: (isShowed: boolean) => isShowed,
+  currentLanguage: {},
+  setCurrentLanguage: ({}) => {}
 });

@@ -1,4 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
+import MainGradient from './assets/gradients/main-gradient.svg'
 
 export const GlobalStyles = createGlobalStyle`
   html {
@@ -77,3 +78,8 @@ export const GlobalStyles = createGlobalStyle`
     --br-5xs: 8px;
     --br-7xs-3: 5.3px;
   }`;
+
+  export const SectionStyled = styled.section`
+    background: url('${MainGradient}') no-repeat;
+    background-position: top center;
+  `;

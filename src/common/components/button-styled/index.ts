@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { getTextStyles } from '../../utils/styles';
 
-export const ButtonStyled = styled.button<{ type?: 'small' | 'large' | undefined }>`
+export const ButtonStyled = styled.button<{ type?: 'small' | 'large' | undefined; btnWidth?: '100%' | 'auto' | undefined }>`
   border-radius: 6px;
 	border: none;
   box-shadow: 0px 1px 2px 0px rgba(105, 81, 255, 0.05);
@@ -25,4 +25,6 @@ export const ButtonStyled = styled.button<{ type?: 'small' | 'large' | undefined
     height: 36px;
     ${getTextStyles('Montserrat', 500, 14, 20)}
   `}
+
+  ${({ btnWidth }) => btnWidth && css`width: ${btnWidth};`}
 `;

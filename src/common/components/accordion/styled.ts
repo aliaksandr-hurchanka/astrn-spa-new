@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { getTextStyles } from "../../utils/styles";
+import { HeadingLevel2 } from "../../tokens/typography";
 
 /* Style the accordion section */
 export const AccordionSectionStyled = styled.div<{ theme?: string }>`
@@ -24,11 +25,6 @@ export const AccordionStyled = styled.div`
   border: none;
   outline: none;
   transition: background-color 0.6s ease;
-
-  :hover,
-  .active {
-    /* background-color: #fff; */
-  }
 `;
 
 export const AccordionTitleStyled = styled.p`
@@ -50,8 +46,6 @@ export const AccordionTextStyled = styled.div`
   ${getTextStyles('Montserrat', 400, 16, 24)}
 `;
 
-export const AccordionMainTitleStyled = styled.div`
-  ${getTextStyles('Montserrat', 700, 48, 60)}
+export const AccordionMainTitleStyled = styled(HeadingLevel2)`
   padding: 15px 40px 0 0;
-  text-transform: uppercase;
 `;
