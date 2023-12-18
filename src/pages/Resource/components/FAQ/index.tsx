@@ -1,46 +1,13 @@
-import React from 'react'
-import { ContainerStyled, ResourcesPageStyled, SubTitleStyled, TitleStyled } from './styled';
-import { Col, Row } from '../../common/components/grid';
-import { HeadingLevel1, RegularTextLevel3 } from '../../common/tokens/typography';
-// import MobileBackImage from '../../assets/resources/mobile-bg.png';
+import { Col, Container, Row } from "../../../../common/components/grid";
+import Accordion from '../../../../common/components/accordion';
+import { HeadingLevel2 } from "../../../../common/tokens/typography";
 
-import resources from '../../data/data.json';
-import Accordion from '../../common/components/accordion';
-import { AccordionMainTitleStyled } from '../../common/components/accordion/styled';
-import { useWindowSize } from '../../common/hooks';
-import { Image } from '../../common/components/image';
-import Antminer from '../../assets/resource/antminer.png';
-import { ResourcesList } from '../../components/Resources';
-
-function Resources() {
-  const { isMobileView } = useWindowSize();
-  
+export function FAQ() {
   return (
-    <ResourcesPageStyled>
-      <ContainerStyled width='100%'>
-        <Row>
-          <Col lg={7} md={4} sm={4} smCustomMargin='0 0 40px' order={isMobileView ? 2 : 1}>
-            <TitleStyled>
-              <HeadingLevel1 color='#fff'>All supported hardware</HeadingLevel1>
-            </TitleStyled>
-            <SubTitleStyled>
-              <RegularTextLevel3 color='#f0f0f0'>
-                On this page you will find a list of supported equipment. <br />Select the one that suits you for more detailed information
-              </RegularTextLevel3>
-            </SubTitleStyled>
-          </Col>
-          <Col lg={5} md={4} order={isMobileView ? 1 : 2}>
-            <Image src={Antminer} />
-          </Col>
-        </Row>
-        <Row lgMb='80px'>
-          <Col>
-            <ResourcesList resources={resources} />
-          </Col>
-        </Row>
-        <Row>
+    <Container>
+        <Row lgMt='80px' lgMb='80px' mt='40px' mb='40px'>
           <Col lg={4}>
-            <AccordionMainTitleStyled>Frequently asked questions</AccordionMainTitleStyled>
+            <HeadingLevel2 width='100%' textAlign='center'>Frequently asked questions</HeadingLevel2>
           </Col>
           <Col lg={8}>
             <Accordion
@@ -61,9 +28,6 @@ function Resources() {
             />
           </Col>
         </Row>
-      </ContainerStyled>
-    </ResourcesPageStyled>
+      </Container>
   );
 }
-
-export default Resources;

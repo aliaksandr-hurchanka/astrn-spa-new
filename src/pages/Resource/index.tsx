@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import data from '../../data/data.json';
 import { find, isEmpty } from 'lodash';
 import { Col, Container, Row } from '../../common/components/grid';
-import { CalculatorStyled, CharacteristicsStyled, ChipsStyled, ColStyled, CurrencyStyled, InputStyled, LabelStyled, MethodStyled, MinusButtonStyled, NameStyled, PaymentMethodsStyled, PlusButtonStyled, PriceColStyled, PriceLabelStyled, PriceSectionTitleStyled, PriceStyled, RowStyled, SelectStyled } from './styled';
+import { CalculatorStyled, CharacteristicsStyled, ChipsStyled, ColStyled, CurrencyStyled, DiscountStyled, ImageStyled, InputStyled, LabelStyled, MethodStyled, MinusButtonStyled, NameStyled, PaymentMethodsStyled, PlusButtonStyled, PriceColStyled, PriceLabelStyled, PriceSectionTitleStyled, PriceStyled, RowStyled, SelectStyled } from './styled';
 import { Progress } from '../../components/Progress';
 import { Image } from '../../common/components/image';
 import ResourceImage from '../../assets/resource.png';
@@ -13,9 +13,10 @@ import BTCIcon from '../../assets/icons/btc.png';
 import USDTIcon from '../../assets/icons/usdt.png'
 import { SVGIcon } from '../../common/components/svg-icon';
 import { DownloadSection } from './components/DownloadSection';
-import { AccordionMainTitleStyled } from '../../common/components/accordion/styled';
-import Accordion from '../../common/components/accordion';
 import { Connected } from './components/Connected';
+import { AdministratorPanel } from '../../components/AdministratorPanel';
+import { useWindowSize } from '../../common/hooks';
+import { FAQ } from './components/FAQ';
 
 const options = [
   { value: 'lifetime-license', label: 'Lifetime License' },
@@ -26,6 +27,8 @@ const options = [
 export function Resource() {
   const { id } = useParams();
   const [count, setCount] = useState(1);
+
+  const { isMobileView } = useWindowSize();
 
   const resource = find(data, ['id', id]);
 
@@ -40,8 +43,8 @@ export function Resource() {
   return (
     <>
       <Container lgPb='80px'>
-        <Row lgMt='80px'>
-          <Col lg={7}>
+        <Row lgMt='80px' mt='40px'>
+          <Col lg={7} order={isMobileView ? 2 : 1}>
             <NameStyled>
               {resource?.name}
               {resource?.countChips && <ChipsStyled>
@@ -56,16 +59,16 @@ export function Resource() {
               {resource?.baseValueWater && <Progress baseValue={resource?.baseValueWater} boostValue={resource?.boostValueWater} isWater />}
             </CharacteristicsStyled>
           </Col>
-          <ColStyled lg={5} justifyContent='center'>
-            <Image src={ResourceImage} width={396} height={344} />
+          <ColStyled lg={5} justifyContent='center' order={isMobileView ? 1 : 2}>
+            <ImageStyled src={ResourceImage} width={396} height={344} />
           </ColStyled>
         </Row>
         <PriceSectionTitleStyled>
           To find out the price, select the payment period and the required number of devices
         </PriceSectionTitleStyled>
         <CalculatorStyled>
-          <RowStyled>
-            <Col lg={2}>
+          <RowStyled rowGap='16px'>
+            <Col lg={2} md={8} sm={4}>
               <LabelStyled>
                 Payment period
               </LabelStyled>
@@ -76,7 +79,7 @@ export function Resource() {
                 options={options}
               />
             </Col>
-            <Col lg={2}>
+            <Col lg={2} md={8} sm={4}>
               <LabelStyled>
                 Number of devices
               </LabelStyled>
@@ -94,46 +97,24 @@ export function Resource() {
                   }} />
               </PlusButtonStyled>
             </Col>
-            <PriceColStyled lg={8}>
+            <PriceColStyled lg={8} md={8} sm={4}>
+              {resource?.discount && <DiscountStyled><CurrencyStyled>$</CurrencyStyled>{Number(resource?.price) * count}</DiscountStyled>}
               <PriceLabelStyled>One-off payment:</PriceLabelStyled>
               <PriceStyled>
-                <CurrencyStyled>$</CurrencyStyled>{Number(resource?.price) * count}
+                <CurrencyStyled>$</CurrencyStyled>{(Number(resource?.price) * count) - Number(resource?.discount || 0)}
               </PriceStyled>
             </PriceColStyled>
           </RowStyled>
         </CalculatorStyled>
         <PaymentMethodsStyled>
-          We accept payment methods:
+          <p>We accept payment methods:</p>
           <MethodStyled color="#FFC107"><Image src={BTCIcon} width={36} height={36} /> BTC</MethodStyled>
           <MethodStyled color="#26A69A"><Image src={USDTIcon} width={36} height={36} /> USDT TRC-20</MethodStyled>
         </PaymentMethodsStyled>
       </Container>
       <DownloadSection />
-      <Container>
-        <Row lgMt='80px' lgMb='80px'>
-          <Col lg={4}>
-            <AccordionMainTitleStyled>Frequently asked questions</AccordionMainTitleStyled>
-          </Col>
-          <Col lg={8}>
-            <Accordion
-              title="How does custom firmware work for a miner?"
-              content="Custom firmware is special software that you can install on your mining device and customise it to run better and faster. It can help save energy, protect your device from viruses and maximise speed. To start using custom firmware, you need to download the version for your device model to your computer or select one of the pre-installed configurations. After that, you can adjust settings, voltage levels to achieve optimal results. Although custom firmware can provide significant benefits, it is important to follow the instructions and be careful when changing parameters to avoid possible problems."
-            />
-            <Accordion
-              title="Is there technical support available?"
-              content="Custom firmware is special software that you can install on your mining device and customise it to run better and faster. It can help save energy, protect your device from viruses and maximise speed. To start using custom firmware, you need to download the version for your device model to your computer or select one of the pre-installed configurations. After that, you can adjust settings, voltage levels to achieve optimal results. Although custom firmware can provide significant benefits, it is important to follow the instructions and be careful when changing parameters to avoid possible problems."
-            />
-            <Accordion
-              title="How do I go back to factory settings in the firmware?"
-              content="Custom firmware is special software that you can install on your mining device and customise it to run better and faster. It can help save energy, protect your device from viruses and maximise speed. To start using custom firmware, you need to download the version for your device model to your computer or select one of the pre-installed configurations. After that, you can adjust settings, voltage levels to achieve optimal results. Although custom firmware can provide significant benefits, it is important to follow the instructions and be careful when changing parameters to avoid possible problems."
-            />
-            <Accordion
-              title="How many per cent is it safe to overclock devices?"
-              content="Custom firmware is special software that you can install on your mining device and customise it to run better and faster. It can help save energy, protect your device from viruses and maximise speed. To start using custom firmware, you need to download the version for your device model to your computer or select one of the pre-installed configurations. After that, you can adjust settings, voltage levels to achieve optimal results. Although custom firmware can provide significant benefits, it is important to follow the instructions and be careful when changing parameters to avoid possible problems."
-            />
-          </Col>
-        </Row>
-      </Container>
+      <AdministratorPanel />
+      <FAQ />
       <Connected />
     </>
   );

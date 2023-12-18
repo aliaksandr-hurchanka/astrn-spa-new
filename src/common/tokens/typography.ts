@@ -121,8 +121,11 @@ export const HeadingLevel1 = styled.h1<{ color?: string }>`
  * @builtin textTransform: uppercase
  * @builtin letterSpacing: 2%
  */
-export const HeadingLevel2 = styled.h2<{ color?: string }>`
+export const HeadingLevel2 = styled.h2<{ color?: string; width?: string; textAlign?: string }>`
   text-transform: uppercase;
+  ${({ color }) => color && `color: ${color};`}
+  ${({ width }) => width && `width: ${width};`}
+  ${({ textAlign }) => textAlign && `text-align: ${textAlign};`}
   ${getTextStyles('Montserrat', 700, 24, 32)}
 
   ${ADAPTIVE.minWidth.tablet} {
@@ -206,6 +209,7 @@ interface RegularTextProps {
   textAlign?: string;
   isEllipsisEndingLine?: boolean;
   isUserSelectDisabled?: boolean;
+  gap?: string;
 }
 
 export const RegularTextStylesCommon = css<RegularTextProps>`
@@ -223,6 +227,8 @@ export const RegularTextStylesCommon = css<RegularTextProps>`
   ${({ isEllipsisEndingLine }) => isEllipsisEndingLine && ellipsisEndingLine}
   
   ${({ isUserSelectDisabled }) => isUserSelectDisabled && 'user-select: none;'}
+
+  ${({ gap }) => gap && `gap: ${gap};`}
 
   ${boxReset}
 `;

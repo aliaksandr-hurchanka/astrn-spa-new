@@ -6,6 +6,9 @@ import {
   DescriptionStyled,
   TestStyled,
   HeroSectionStyled,
+  LinesStyled,
+  FoundationStyled,
+  SectionBlurStyled,
 } from "./styled";
 import { Col, Container, Row } from "../../../../common/components/grid";
 import { BannerLayer, ParallaxProvider } from "react-scroll-parallax";
@@ -15,6 +18,9 @@ import { useTranslation } from "react-i18next";
 import { ButtonStyled } from "../../../../common/components/button-styled";
 import { SectionStyled as HomeSectionStyled } from "../../styled";
 import { useEffect } from "react";
+import { SVGIcon } from "../../../../common/components/svg-icon";
+import Lines from '../../../../assets/home/Lines.svg';
+import Foundation from '../../../../assets/home/Foundation.svg';
 
 
 export function HeroSection() {
@@ -58,14 +64,27 @@ export function HeroSection() {
   return (
     <HeroSectionStyled>
       <ContainerStyled height="100vh">
+        <LinesStyled>
+          <SVGIcon type={Lines} sizes={{
+            w: 1440,
+            h: 646
+          }} />
+        </LinesStyled>
+        <FoundationStyled>
+          <SVGIcon type={Foundation} sizes={{
+              w: 1440,
+              h: 463
+            }} />
+        </FoundationStyled>
         <Row>
           <Col sm={4} md={8} lg={6}>
             <SectionStyled>
+              {/* <SectionBlurStyled /> */}
               <HeadingLevel1Styled
                 dangerouslySetInnerHTML={{ __html: t("home-hero-title") }}
               />
               <DescriptionStyled>{t("home-hero-description")}</DescriptionStyled>
-              <ButtonStyled>{t("home-hero-button")}</ButtonStyled>
+              <ButtonStyled zIndex="1">{t("home-hero-button")}</ButtonStyled>
             </SectionStyled>
           </Col>
         </Row>

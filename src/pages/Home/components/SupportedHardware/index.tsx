@@ -1,67 +1,35 @@
 import React from 'react';
-import { Progress } from '../../../../components/Progress';
 import { Col, Container, Row } from '../../../../common/components/grid';
-import { ColStyled, DetailsButtonStyled, LinkStyled, ResourceNameStyled, ResourceStyled, ResourcesListStyled } from '../../../Resources/styled';
 import resources from '../../../../data/home-data.json';
-import { ChipsLabelStyled } from '../../../../common/components/chips-label';
-import { ButtonColStyled, ButtonLinkStyled, SubTitleStyled, TitleStyled } from './styled';
+import { ButtonColStyled, ButtonLinkStyled } from './styled';
+import { ResourcesList } from '../../../../components/Resources';
+import { HeadingLevel2, RegularTextLevel1 } from '../../../../common/tokens/typography';
 
 export function SupportedHardware() {
   return (
-    <Container>
-      <Row>
+    <Container lgPt='80px' lgPb='80px' mdPt='40px' mdPb='40px'>
+      <Row lgMb='40px' mdMb='40px'>
         <Col>
-          <TitleStyled>
+          <HeadingLevel2 textAlign='center'>
             SUPPORTED HARDWARE UPGRADE
-          </TitleStyled>
-          <SubTitleStyled>
+          </HeadingLevel2>
+          <RegularTextLevel1 textAlign='center' color='#fff'>
             Pricing that scales with your business immediately.
-          </SubTitleStyled>
+          </RegularTextLevel1>
         </Col>
       </Row>
-      <Row>
-          <Col>
-            <ResourcesListStyled>
-              {resources.map(({ id, name, countChips, variants, baseValueCooler, boostValueCooler, baseValueWater, boostValueWater }) => {
-                return (
-                  <ResourceStyled>
-                    <LinkStyled to={`/resources/${id}`}>
-                      <Row>
-                        <Col lg={4}>
-                          <ResourceNameStyled>
-                            {name}
-                            {countChips && <ChipsLabelStyled>
-                              {countChips} chips
-                            </ChipsLabelStyled>}
-                            <span>{variants}Th</span>
-                          </ResourceNameStyled>
-                        </Col>
-                        <ColStyled lg={3}>
-                          {baseValueCooler && <Progress baseValue={baseValueCooler} boostValue={boostValueCooler} />}
-                        </ColStyled>
-                        <ColStyled lg={3}>
-                          {baseValueWater && <Progress baseValue={baseValueWater} boostValue={boostValueWater} isWater />}
-                        </ColStyled>
-                        <ColStyled lg={2} alignItems='center' justifyContent='flex-end'>
-                          <DetailsButtonStyled>
-                            See details
-                          </DetailsButtonStyled>
-                        </ColStyled>
-                      </Row>
-                    </LinkStyled>
-                  </ResourceStyled>
-                );
-              })}
-            </ResourcesListStyled>
-          </Col>
-        </Row>
-        <Row lgMt='24px' lgMb='80px'>
-          <ButtonColStyled>
-              <ButtonLinkStyled to="/resources">
-                See all support devices
-              </ButtonLinkStyled>
-          </ButtonColStyled>
-        </Row>
+      <Row >
+        <Col>
+          <ResourcesList resources={resources} />
+        </Col>
+      </Row>
+      <Row lgMt='24px' lgMb='80px'>
+        <ButtonColStyled>
+            <ButtonLinkStyled to="/resources">
+              See all support devices
+            </ButtonLinkStyled>
+        </ButtonColStyled>
+      </Row>
     </Container>
   );
 }

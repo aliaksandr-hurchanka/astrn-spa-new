@@ -1,4 +1,4 @@
-export type WeightRegularTexOptions = 400 | 500;
+export type WeightRegularTexOptions = 400 | 500 | 600 | 700;
 
 export type Font = 'Montserrat';
 export type Weight = WeightRegularTexOptions | 700;

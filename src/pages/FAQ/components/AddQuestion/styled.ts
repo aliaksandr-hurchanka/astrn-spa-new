@@ -1,15 +1,17 @@
 import styled from "styled-components";
 import { getTextStyles } from "../../../../common/utils/styles";
+import { HeadingLevel3 } from "../../../../common/tokens/typography";
 
 export const AddQuestionSectionStyled = styled.div`
   width: 100%;
-  margin-top: 80px;
+  margin-top: 65px;
 `;
 
-export const TitleStyled = styled.h3`
+export const TitleStyled = styled(HeadingLevel3)`
   color: #2A3342;
   text-align: center;
-  ${getTextStyles('Montserrat', 700, 36, 44)}
+  text-transform: capitalize;
+  margin-bottom: 24px;
 `;
 
 export const SubTitleStyled = styled.div`
@@ -24,7 +26,7 @@ export const FormStyled = styled.div`
   margin: 0 auto;
   border-radius: 6px;
   text-align: center;
-  padding: 63px;
+  padding: 40px 24px;
   margin-bottom: -180px;
   z-index: 9;
   position: relative;

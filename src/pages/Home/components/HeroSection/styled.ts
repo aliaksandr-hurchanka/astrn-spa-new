@@ -9,6 +9,25 @@ import { getTextStyles } from "../../../../common/utils/styles";
 
 export const HeroSectionStyled = styled.div``;
 
+export const LinesStyled = styled.div`
+  position: absolute;
+`;
+
+export const FoundationStyled = styled.div`
+  position: absolute;
+  bottom: 30%;
+`;
+
+export const SectionBlurStyled = styled.div`
+  background: #000;
+  filter: blur(58.54999923706055px);
+  z-index: 0;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+`;
+
 export const TestStyled = styled.div`
   opacity: 0;
     -webkit-transform: scale(0.9);
@@ -33,6 +52,7 @@ export const TestStyled = styled.div`
 
 export const HeadingLevel1Styled = styled(HeadingLevel1)`
   color: #FFB22E;
+  text-shadow: 3px -1px 15px rgba(0,0,0,1);
   > span {
     color: #fff;
   }
@@ -101,10 +121,16 @@ export const AdditionalTerahashForContainer = styled.b`
 `;
 export const DescriptionStyled = styled.p`
   ${getTextStyles('Montserrat', 400, 16, 24)}
+  text-shadow: 3px -1px 15px rgba(0,0,0,1);
   color: #fff;
+  position: relative;
+  z-index: 1;
 `;
 export const SectionStyled = styled.div`
-  height: calc(100vh - 360px);
+  /* height: calc(100vh - 360px); */
+  top: 60%;
+  z-index: 1;
+  position: relative;
   display: flex;
   gap: 32px;
   flex-direction: column;

@@ -1,9 +1,17 @@
 import styled from 'styled-components';
 import Select from 'react-select';
+import { Image } from '../../common/components/image';
 import { HeadingLevel1 } from '../../common/tokens/typography';
 import { ChipsLabelStyled } from '../../common/components/chips-label';
 import { getTextStyles } from "../../common/utils/styles";
 import { Col, Row } from '../../common/components/grid';
+import { ADAPTIVE } from '../../common/tokens/screen';
+
+export const ImageStyled = styled(Image)`
+  ${ADAPTIVE.minWidth.mobile} {
+    margin-bottom: 40px;
+  }
+`;
 
 export const NameStyled = styled(HeadingLevel1)`
   letter-spacing: -0.96px;
@@ -38,7 +46,7 @@ export const ColStyled = styled(Col)`
 `;
 
 export const PriceSectionTitleStyled = styled.div`
-  margin-top: 12px;
+  margin: 12px 16px;
   display: flex;
   ${getTextStyles('Montserrat', 400, 16, 24)}
 `;
@@ -51,8 +59,7 @@ export const CalculatorStyled = styled.div`
   gap: 8px;
   align-self: stretch;
   background: #141414;
-  width: 100%;
-  margin-top: 12px;
+  margin: 12px 16px;
 `;
 
 export const SelectStyled = styled(Select)`
@@ -71,7 +78,7 @@ export const LabelStyled = styled.label`
 
 export const InputStyled = styled.input`
   display: inline-flex;
-  height: 46px;
+  height: 48px;
   border: none;
   vertical-align: top;
   border-radius: 8px;
@@ -90,7 +97,7 @@ export const MinusButtonStyled = styled.button`
   cursor: pointer;
 
   margin-right: -46px;
-  z-index: 9;
+  z-index: 0;
   position: relative;
   border: none;
   border-radius: 8px 0 0 8px;
@@ -103,7 +110,7 @@ export const PlusButtonStyled = styled.button`
   cursor: pointer;
 
   margin-left: -50px;
-  z-index: 9;
+  z-index: 0;
   position: relative;
   border: none;
   border-radius: 0 8px 8px 0;
@@ -131,17 +138,46 @@ export const PriceColStyled = styled(Col)`
 `;
 
 export const PaymentMethodsStyled = styled.div`
-  display: inline-flex;
+  display: block;
+  text-align: right;
   height: 40px;
   align-items: center;
   justify-content: flex-end;
-  width: 100%;
   gap: 16px;
+
+  margin: 0 16px 40px;
+
+  ${ADAPTIVE.minWidth.tablet} {
+    display: flex;
+    margin: 0px;
+    box-sizing: border-box;
+    margin: 16px;
+    justify-content: flex-end;
+    flex-direction: row;
+    right: 0;
+    position: relative;
+  }
 `;
 
-export const MethodStyled = styled.span<{ color: string }>`
+export const MethodStyled = styled.div<{ color: string }>`
   ${({ color }) => color && `color: ${color};`}
-  display: inline-flex;
   align-items: center;
   gap: 4px;
+
+  display: flex;
+  justify-content: flex-end;
+
+  ${ADAPTIVE.minWidth.tablet} {
+    display: inline-flex;
+  }
+`;
+
+export const DiscountStyled = styled.div`
+  ${getTextStyles('Montserrat', 400, 30, 38)}
+  color: #FFB22E;
+  text-decoration: line-through;
+  span {
+    ${getTextStyles('Montserrat', 400, 18, 28)}
+    color: #FFB22E;
+  }
 `;

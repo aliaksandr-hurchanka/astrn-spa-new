@@ -38,7 +38,8 @@
     "boostValueCooler": "135",
     "baseValueWater": "90",
     "boostValueWater": "200",
-    "price": "215.5"
+    "price": "215.5",
+    "discount": "40"
   },
   {
     "id": "5",

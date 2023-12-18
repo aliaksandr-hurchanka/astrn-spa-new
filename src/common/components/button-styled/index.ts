@@ -1,7 +1,11 @@
 import styled, { css } from 'styled-components';
 import { getTextStyles } from '../../utils/styles';
 
-export const ButtonStyled = styled.button<{ type?: 'small' | 'large' | undefined; btnWidth?: '100%' | 'auto' | undefined }>`
+export const ButtonStyled = styled.button<{
+  type?: 'small' | 'large' | undefined;
+  btnWidth?: '100%' | 'auto' | undefined;
+  zIndex?: string;
+}>`
   border-radius: 6px;
 	border: none;
   box-shadow: 0px 1px 2px 0px rgba(105, 81, 255, 0.05);
@@ -26,5 +30,11 @@ export const ButtonStyled = styled.button<{ type?: 'small' | 'large' | undefined
     ${getTextStyles('Montserrat', 500, 14, 20)}
   `}
 
+  a {
+    text-decoration: none;
+    color: #000;
+  }
+
   ${({ btnWidth }) => btnWidth && css`width: ${btnWidth};`}
+  ${({ zIndex }) => zIndex && css`z-index: ${zIndex};`}
 `;

@@ -12,7 +12,7 @@ export function Footer() {
           <Col lg={2}><Logo /></Col>
           <Col lg={10} />
         </Row>
-        <Row lgMt='40px'>
+        <Row lgMt='40px' mdMt='40px'>
           <Col lg={7}>
             <Menu />
           </Col>

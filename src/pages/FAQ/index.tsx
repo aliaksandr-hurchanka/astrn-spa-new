@@ -1,13 +1,20 @@
 import Accordion from "../../common/components/accordion";
+import { ButtonStyled } from "../../common/components/button-styled";
 import { Col, Container, Row } from "../../common/components/grid";
-import { SupportedHardware } from "../Home/components/SupportedHardware";
+import { useWindowSize } from "../../common/hooks";
+import { HeadingLevel2, RegularTextLevel1 } from "../../common/tokens/typography";
+import { ResourcesList } from "../../components/Resources";
+import resources from '../../data/home-data.json'
 import { AddQuestion } from "./components/AddQuestion";
-import { FAQSubtitleStyled, FAQTitleStyled } from "./styled";
+import { ColStyled, FAQSubtitleStyled, FAQTitleStyled } from "./styled";
 
 export function FAQ() {
+
+  const { isMobileView } = useWindowSize();
+
   return (
     <Container>
-      <Row lgMb="80px">
+      <Row lgMb="80px" mdMb="40px" mb="40px">
         <Col>
           <FAQTitleStyled>
             Frequently Asked Questions
@@ -17,7 +24,7 @@ export function FAQ() {
           </FAQSubtitleStyled>
         </Col>
       </Row>
-      <Row>
+      <Row >
         <Col lg={2} />
         <Col lg={8}>
           <Accordion
@@ -42,7 +49,28 @@ export function FAQ() {
         <Col lg={2} />
       </Row>
       <AddQuestion />
-      <SupportedHardware />
+      <Row lgMb="80px" mdMb="40px" mb="40px" mt="40px">
+        <Col>
+          <HeadingLevel2 textAlign="center">
+            SUPPORTED HARDWARE UPGRADE
+          </HeadingLevel2>
+          <RegularTextLevel1 color="#fff" textAlign="center">
+            Pricing that scales with your business immediately.
+          </RegularTextLevel1>
+        </Col>
+      </Row>
+      <Row mb="40px">
+        <Col>
+          <ResourcesList resources={resources} />
+        </Col>
+      </Row>
+      <Row mb="80px">
+        <ColStyled lg={12}>
+          <ButtonStyled type={isMobileView ? 'small' : 'large'} btnWidth={isMobileView ? '100%' : 'auto'}>
+            See all support devices
+          </ButtonStyled>
+        </ColStyled>
+      </Row>
     </Container>
   );
 };
