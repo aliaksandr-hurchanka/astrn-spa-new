@@ -12,7 +12,7 @@ import { useContext } from 'react';
 
 
 function Header() {
-  const { isInfiniteDesktopView, isMobileView, isTabletView } = useWindowSize();
+  const { isInfiniteDesktopView, isMiddleDesktopView, isMobileView, isTabletView } = useWindowSize();
   const { isMenuShowed } = useContext(OptionsContext);
 
   return (
@@ -22,13 +22,13 @@ function Header() {
           <Col sm={2} md={4} lg={3}>
             <Logo />
           </Col>
-          {isInfiniteDesktopView && (
+          {(isInfiniteDesktopView || isMiddleDesktopView) && (
             <MenuColStyled lg={6}>
               <Menu />
             </MenuColStyled>
           )}
           <ColStyled sm={2} md={4} lg={3}>
-            {isInfiniteDesktopView && <LanguageSelector />}
+            {(isInfiniteDesktopView || isMiddleDesktopView) && <LanguageSelector />}
             {(isMobileView || isTabletView) && <MobileMenu />}
           </ColStyled>
         </Row>

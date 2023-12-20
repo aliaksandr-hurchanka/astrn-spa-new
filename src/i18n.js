@@ -7,7 +7,7 @@ import { initReactI18next } from "react-i18next";
 const resources = {
   en: {
     translation: {
-      "home-hero-title": "ADDITIONAL TERAHASH <span>FOR YOUR DEVICES</span> FOREVER",
+      "home-hero-title": "EFFICIENT OVERCLOCKING <span>YOUR DEVICES</span>",
       "home-hero-description": "We accelerate your equipment gently and well and conserve energy",
       "home-hero-button": "Select equipment",
       "menu-item-home": "Home",

@@ -23,7 +23,7 @@ export function LanguageSelector() {
     callback: () => setIsLanguageMenuShowed(false),
     options: true
   });
-  const { isMobileView, isTabletView, isInfiniteDesktopView } = useWindowSize();
+  const { isMobileView, isTabletView, isMiddleDesktopView, isInfiniteDesktopView } = useWindowSize();
 
   const handleClick = (lng: Language) => {
     i18n.changeLanguage(lng.code);
@@ -33,7 +33,8 @@ export function LanguageSelector() {
 
   return (
     <>
-      {!isLanguageMenuShowed && (isMobileView || isTabletView) || isInfiniteDesktopView ? (
+      {!isLanguageMenuShowed
+      ? (
         <LanguageSelectorStyled onClick={() => setIsLanguageMenuShowed(!isLanguageMenuShowed)}>
           <SVGIcon type={activeLanguage?.icon} sizes={{
             w: 20,
@@ -45,7 +46,9 @@ export function LanguageSelector() {
             h: 15
           }} />
         </LanguageSelectorStyled>) : null}
-      {isLanguageMenuShowed && isInfiniteDesktopView && (
+      {isLanguageMenuShowed
+        && (isInfiniteDesktopView || isMiddleDesktopView)
+        && (
         // @ts-ignore
         <LanguageListStyled ref={elementRef}>{
           getLanguages().map((lng, i) => {
@@ -60,7 +63,10 @@ export function LanguageSelector() {
 
             );
           })}</LanguageListStyled>)}
-      {isLanguageMenuShowed && !isInfiniteDesktopView && (
+      {isLanguageMenuShowed
+        && !isInfiniteDesktopView
+        && !isMiddleDesktopView
+        && (
         <>
           <LanguageMobileListStyled>{
             getLanguages().map((lng, i) => {

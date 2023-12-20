@@ -10,14 +10,14 @@ export function getFoundationY(
   }
 
   if (isTabletView) {
-    return [48, 38, 'easeOutQuad'];
+    return [30, 38, 'easeOutQuad'];
   }
   
   if (isMiddleDesktopView) {
-    return [35, 38, 'easeOutQuad'];
+    return [33, 0, 'easeOutQuad'];
   }
 
-  return [32, 38, 'easeOutQuad'];
+  return [33, 0, 'easeOutQuad'];
 }
 
 export function getMinerXY(
@@ -29,34 +29,51 @@ export function getMinerXY(
 
   if (isMobileView) {
     return {
-      translateY: [27, 40, 'easeOutQuad'],
-      translateX: [10, -10],
+      translateY: [10, 20, 'easeOutQuad'],
+      translateX: [16, -10],
     };
   }
 
   if (isTabletView) {
     return {
-      translateY: [43, 40, 'easeOutQuad'],
+      translateY: [30, 40, 'easeOutQuad'],
       translateX: [52, 35],
     };
   }
   
   if (isMiddleDesktopView) {
     return {
-      translateY: [41, 40, 'easeOutQuad'],
-      translateX: [50, 30],
+      translateY: [16, -7, 'easeOutQuad'],
+      translateX: [50, 45],
     };
   }
 
   if (isDesktopView) {
     return {
-      translateY: [31, 40, 'easeOutQuad'],
-      translateX: [48, 30],
+      translateY: [15, -7, 'easeOutQuad'],
+      translateX: [48, 0],
     };
   }
 
   return {
-    translateY: [32, 38, 'easeOutQuad'],
+    translateY: [14, -9, 'easeOutQuad'],
     translateX: [50, 30],
+  };
+}
+
+export function getTextXY(
+  isMobileView?: boolean,
+  isTabletView?: boolean,
+  isMiddleDesktopView?: boolean
+): any {
+
+  if (isMobileView) {
+    return {
+      translateY: [5, -20, 'easeOutQuad'],
+    };
+  }
+
+  return {
+    translateY: [15, -20, 'easeOutQuad'],
   };
 }

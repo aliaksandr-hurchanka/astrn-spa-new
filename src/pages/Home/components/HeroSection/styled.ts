@@ -1,5 +1,5 @@
-import Spline from "@splinetool/react-spline";
-import styled from "styled-components";
+// import Spline from "@splinetool/react-spline";
+import styled, { css } from "styled-components";
 import { Col, Container, Row } from "../../../../common/components/grid";
 import { Image } from '../../../../common/components/image';
 import HeroImage from '../../../../assets/PatternDark.png';
@@ -42,6 +42,36 @@ export const LinesLayerStyled = styled.div<{
   background-position-x: center;
   /* background-size: auto; */
   /* position: absolute; */
+
+  ${({ isMobileView }) => isMobileView && css`
+    background-size: 100% auto;
+    background-position-y: 10%;
+  `}
+  ${({ isTabletView }) => isTabletView && css`
+    background-size: 100% auto;
+    background-position-y: 20%;
+  `}
+
+  -webkit-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.5s both;
+	        animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.5s both;
+
+  @-webkit-keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
 `;
 
 export const FoundationLayerStyled = styled.div<{ isTabletView?: boolean; isMiddleDesktopView?: boolean }>`
@@ -57,6 +87,7 @@ export const MinerLayerStyled = styled.div<{
   isMobileView?: boolean,
   isTabletView?: boolean,
   isMiddleDesktopView?: boolean,
+  isDesktopView?: boolean
 }>`
   z-index: 3;
   background: url(${MinerImage}) no-repeat;
@@ -65,12 +96,51 @@ export const MinerLayerStyled = styled.div<{
   ${({ isMobileView }) => isMobileView && 'background-size: auto 300px;'}
   ${({ isTabletView }) => isTabletView && 'background-size: auto 350px;'}
   ${({ isMiddleDesktopView }) => isMiddleDesktopView && 'background-size: auto 500px;'}
-`;
+  ${({ isDesktopView }) => isDesktopView && 'background-size: auto 500px;'}
+  background-position-y: 17%;
 
-export const BlackLayer = styled.div`
-  background-color: #000;
-  width: 100%;
-  height: 30%;
+  -webkit-animation: slide-left 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: slide-left 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  
+          @-webkit-keyframes slide-left {
+            0% {
+              -webkit-transform: translateX(100px);
+                      transform: translateX(100px);
+            }
+            100% {
+              -webkit-transform: translateX(0px);
+                      transform: translateX(0px);
+            }
+          }
+          @keyframes slide-left {
+            0% {
+              -webkit-transform: translateX(100px);
+                      transform: translateX(100px);
+            }
+            100% {
+              -webkit-transform: translateX(0px);
+                      transform: translateX(0px);
+            }
+          }
+  /* -webkit-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) 1s both;
+	        animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) 1s both;
+
+  @-webkit-keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  } */
 `;
 
 export const ColStyled = styled(Col)`
@@ -79,16 +149,6 @@ export const ColStyled = styled(Col)`
   justify-content: center;
   margin-top: -35%;
 `;
-
-// export const SectionBlurStyled = styled.div`
-//   background: #000;
-//   filter: blur(58.54999923706055px);
-//   z-index: 0;
-//   position: absolute;
-//   height: 100%;
-//   width: 100%;
-//   z-index: 0;
-// `;
 
 export const TestStyled = styled.div`
   opacity: 0;
@@ -119,12 +179,6 @@ export const HeadingLevel1Styled = styled(HeadingLevel1)`
     color: #fff;
   }
 `;
-
-// export const SplineStyled = styled(Spline)`
-//   z-index: 0;
-//   margin-top: 0;
-//   max-height: 100vh!important;
-// `;
 
 export const RowStyled = styled(Row)`
   position: relative;
@@ -192,15 +246,74 @@ export const SectionStyled = styled.div`
   /* top: 60%; */
   z-index: 5;
   position: relative;
-  display: flex;
+  /* display: flex; */
   gap: 32px;
-  flex-direction: column;
+  /* flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: center; */
   font-size: var(--header-h1-size);
   color: var(--colors-primary);
 
-  -webkit-animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  -webkit-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.5s both;
+	        animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) 0.5s both;
+
+  @-webkit-keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  /* h1 {
+  -webkit-animation: tracking-in-expand-fwd-top 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+	        animation: tracking-in-expand-fwd-top 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+
+          @-webkit-keyframes tracking-in-expand-fwd-top {
+            0% {
+              letter-spacing: -0.5em;
+              -webkit-transform: translateZ(-700px) translateY(-500px);
+                      transform: translateZ(-700px) translateY(-500px);
+              opacity: 0;
+            }
+            40% {
+              opacity: 0.6;
+            }
+            100% {
+              -webkit-transform: translateZ(0) translateY(0);
+                      transform: translateZ(0) translateY(0);
+              opacity: 1;
+            }
+          }
+          @keyframes tracking-in-expand-fwd-top {
+            0% {
+              letter-spacing: -0.5em;
+              -webkit-transform: translateZ(-700px) translateY(-500px);
+                      transform: translateZ(-700px) translateY(-500px);
+              opacity: 0;
+            }
+            40% {
+              opacity: 0.6;
+            }
+            100% {
+              -webkit-transform: translateZ(0) translateY(0);
+                      transform: translateZ(0) translateY(0);
+              opacity: 1;
+            }
+          }
+    } */
+
+
+  /* -webkit-animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 	        animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 
   @-webkit-keyframes slide-bottom {
@@ -222,7 +335,7 @@ export const SectionStyled = styled.div`
       -webkit-transform: translateY(100px);
               transform: translateY(100px);
     }
-  }
+  } */
 `;
 
 export const ContainerStyled = styled(Container)`

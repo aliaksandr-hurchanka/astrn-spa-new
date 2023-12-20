@@ -1,30 +1,21 @@
 import {
   SectionStyled,
-  RowStyled,
   ContainerStyled,
   HeadingLevel1Styled,
   DescriptionStyled,
-  TestStyled,
   HeroSectionStyled,
-  // LinesStyled,
-  // FoundationStyled,
-  // SectionBlurStyled,
   LinesLayerStyled,
   FoundationLayerStyled,
   MinerLayerStyled,
   ColStyled,
   ParallaxBannerStyled,
-  BlackLayer,
 } from "./styled";
-import { Col, Container, Row } from "../../../../common/components/grid";
-import { BannerLayer, ParallaxBanner, ParallaxProvider } from "react-scroll-parallax";
-// import { ParallaxBannerStyled } from "../../../../common/components/parallax-banner-styled";
-
-
+import { Row } from "../../../../common/components/grid";
+import { BannerLayer } from "react-scroll-parallax";
 import { useTranslation } from "react-i18next";
 import { ButtonStyled } from "../../../../common/components/button-styled";
 import { useWindowSize } from "../../../../common/hooks";
-import { getFoundationY, getMinerXY } from "./helpers";
+import { getFoundationY, getMinerXY, getTextXY } from "./helpers";
 
 
 export function HeroSection() {
@@ -33,13 +24,17 @@ export function HeroSection() {
 
   // --------- LINES -----------
   const layer1: BannerLayer = {
-    translateY: [20, 30],
+    translateY: [17, -35],
     // translateX: [0, 30],
     opacity: [1.0, 0],
-    speed: -30,
+    speed: 10,
     shouldAlwaysCompleteAnimation: true,
     children: (
-      <LinesLayerStyled isMiddleDesktopView={isMiddleDesktopView} />
+      <LinesLayerStyled
+        isMobileView={isMobileView}
+        isTabletView={isTabletView}
+        isMiddleDesktopView={isMiddleDesktopView}
+      />
     )
   };
 
@@ -54,6 +49,7 @@ export function HeroSection() {
         isMobileView={isMobileView}
         isTabletView={isTabletView}
         isMiddleDesktopView={isMiddleDesktopView}
+        isDesktopView={isDesktopView}
       />
     )
   };
@@ -70,7 +66,7 @@ export function HeroSection() {
 
   // --------- TEXT -----------
   const layer4: BannerLayer = {
-    translateY: [0, -20, 'easeOutQuad'],
+    ...getTextXY(isMobileView, isTabletView, isMiddleDesktopView),
     // translateX: [0, -50],
     opacity: [1.0, 0],
     speed: 100,
@@ -90,10 +86,6 @@ export function HeroSection() {
       </Row>
     )
   };
-
-  // <LinesLayerStyled />
-  // <FoundationLayerStyled />
-  // <MinerLayerStyled />
 
   return (
     <>

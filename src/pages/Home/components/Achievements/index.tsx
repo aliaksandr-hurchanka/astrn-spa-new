@@ -4,7 +4,7 @@ import { CenterColStyled, CountStyled, CountTextStyled, TitleStyled } from './st
 
 export function Achievements() {
   return (
-    <Container height='100dvh'>
+    <Container>
       <Row lgMt='150px'>
         <Col lg={1} />
         <CenterColStyled lg={10}>
