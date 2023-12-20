@@ -5,16 +5,19 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { ScrollToTop } from './common/components/scroll-to-top';
 import './i18n';
+import { ParallaxProvider } from 'react-scroll-parallax';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <ScrollToTop />
-      <App />
-    </BrowserRouter>
+    <ParallaxProvider>
+      <BrowserRouter>
+        <ScrollToTop />
+        <App />
+      </BrowserRouter>
+    </ParallaxProvider>
   </React.StrictMode>
 );
 

@@ -1,32 +1,94 @@
 import Spline from "@splinetool/react-spline";
 import styled from "styled-components";
-import { Container, Row } from "../../../../common/components/grid";
+import { Col, Container, Row } from "../../../../common/components/grid";
 import { Image } from '../../../../common/components/image';
 import HeroImage from '../../../../assets/PatternDark.png';
 import { HeadingLevel1 } from "../../../../common/tokens/typography";
 import { getTextStyles } from "../../../../common/utils/styles";
+import LinesImage from '../../../../assets/home/Lines.png';
+import FoundationImage from '../../../../assets/home/Foundation.png';
+import MinerImage from '../../../../assets/home/miner.png';
+import { ParallaxBanner } from "react-scroll-parallax";
 
 
-export const HeroSectionStyled = styled.div``;
-
-export const LinesStyled = styled.div`
-  position: absolute;
+export const HeroSectionStyled = styled.div`
+  height: 100dvh;
 `;
 
-export const FoundationStyled = styled.div`
-  position: absolute;
-  bottom: 30%;
+// export const LinesStyled = styled.div`
+//   position: absolute;
+// `;
+
+// export const FoundationStyled = styled.div`
+//   position: absolute;
+//   bottom: 30%;
+// `;
+
+export const ParallaxBannerStyled = styled(ParallaxBanner)`
+  /* overflow: auto !important;
+  position: absolute !important; */
+  height: 100dvh;
 `;
 
-export const SectionBlurStyled = styled.div`
-  background: #000;
-  filter: blur(58.54999923706055px);
-  z-index: 0;
-  position: absolute;
-  height: 100%;
+export const LinesLayerStyled = styled.div<{
+  isMobileView?: boolean;
+  isTabletView?: boolean;
+  isMiddleDesktopView?: boolean;
+}>`
+  z-index: 2;
+  background: url(${LinesImage}) no-repeat;
+  height: 100vh;
   width: 100%;
-  z-index: 0;
+  background-position-x: center;
+  /* background-size: auto; */
+  /* position: absolute; */
 `;
+
+export const FoundationLayerStyled = styled.div<{ isTabletView?: boolean; isMiddleDesktopView?: boolean }>`
+  z-index: 4;
+  background: url(${FoundationImage}) no-repeat;
+  height: 100vh;
+  width: 100%;
+  background-position-x: center;
+  ${({ isTabletView }) => isTabletView && 'background-size: auto 350px;'}
+`;
+
+export const MinerLayerStyled = styled.div<{
+  isMobileView?: boolean,
+  isTabletView?: boolean,
+  isMiddleDesktopView?: boolean,
+}>`
+  z-index: 3;
+  background: url(${MinerImage}) no-repeat;
+  height: 100vh;
+  width: 100%;
+  ${({ isMobileView }) => isMobileView && 'background-size: auto 300px;'}
+  ${({ isTabletView }) => isTabletView && 'background-size: auto 350px;'}
+  ${({ isMiddleDesktopView }) => isMiddleDesktopView && 'background-size: auto 500px;'}
+`;
+
+export const BlackLayer = styled.div`
+  background-color: #000;
+  width: 100%;
+  height: 30%;
+`;
+
+export const ColStyled = styled(Col)`
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  margin-top: -35%;
+`;
+
+// export const SectionBlurStyled = styled.div`
+//   background: #000;
+//   filter: blur(58.54999923706055px);
+//   z-index: 0;
+//   position: absolute;
+//   height: 100%;
+//   width: 100%;
+//   z-index: 0;
+// `;
 
 export const TestStyled = styled.div`
   opacity: 0;
@@ -58,11 +120,11 @@ export const HeadingLevel1Styled = styled(HeadingLevel1)`
   }
 `;
 
-export const SplineStyled = styled(Spline)`
-  z-index: 0;
-  margin-top: 0;
-  max-height: 100vh!important;
-`;
+// export const SplineStyled = styled(Spline)`
+//   z-index: 0;
+//   margin-top: 0;
+//   max-height: 100vh!important;
+// `;
 
 export const RowStyled = styled(Row)`
   position: relative;
@@ -91,7 +153,6 @@ export const ImageStyled = styled(Image)`
   align-items: center;
   margin-top: -80px;
 `;
-
 
 export const Navigation1Styled = styled.div`
   position: absolute;
@@ -128,8 +189,8 @@ export const DescriptionStyled = styled.p`
 `;
 export const SectionStyled = styled.div`
   /* height: calc(100vh - 360px); */
-  top: 60%;
-  z-index: 1;
+  /* top: 60%; */
+  z-index: 5;
   position: relative;
   display: flex;
   gap: 32px;
@@ -168,6 +229,7 @@ export const ContainerStyled = styled(Container)`
   /* background: url(${HeroImage}) no-repeat;
   background-position: 0 25%; */
   // transform: rotate(-90deg);
+  /* max-height: 900px; */
 `;
 
 

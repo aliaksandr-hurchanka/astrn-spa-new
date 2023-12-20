@@ -4,6 +4,7 @@ import MainGradient from './assets/gradients/main-gradient.svg'
 export const GlobalStyles = createGlobalStyle`
   html {
     min-width: 320px;
+    overflow: auto;
   }
 
   body {

@@ -7,6 +7,7 @@ export const TOP = '_top';
 
 export const MOBILE = 'MOBILE';
 export const TABLET = 'TABLET';
+export const MIDDLE_DESKTOP = 'MIDDLE_DESKTOP';
 export const DESKTOP = 'DESKTOP';
 
 export enum AspectRatio {

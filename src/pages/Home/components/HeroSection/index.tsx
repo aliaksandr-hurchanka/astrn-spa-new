@@ -6,25 +6,124 @@ import {
   DescriptionStyled,
   TestStyled,
   HeroSectionStyled,
-  LinesStyled,
-  FoundationStyled,
-  SectionBlurStyled,
+  // LinesStyled,
+  // FoundationStyled,
+  // SectionBlurStyled,
+  LinesLayerStyled,
+  FoundationLayerStyled,
+  MinerLayerStyled,
+  ColStyled,
+  ParallaxBannerStyled,
+  BlackLayer,
 } from "./styled";
 import { Col, Container, Row } from "../../../../common/components/grid";
-import { BannerLayer, ParallaxProvider } from "react-scroll-parallax";
-import { ParallaxBannerStyled } from "../../../../common/components/parallax-banner-styled";
+import { BannerLayer, ParallaxBanner, ParallaxProvider } from "react-scroll-parallax";
+// import { ParallaxBannerStyled } from "../../../../common/components/parallax-banner-styled";
+
 
 import { useTranslation } from "react-i18next";
 import { ButtonStyled } from "../../../../common/components/button-styled";
-import { SectionStyled as HomeSectionStyled } from "../../styled";
-import { useEffect } from "react";
-import { SVGIcon } from "../../../../common/components/svg-icon";
-import Lines from '../../../../assets/home/Lines.svg';
-import Foundation from '../../../../assets/home/Foundation.svg';
+import { useWindowSize } from "../../../../common/hooks";
+import { getFoundationY, getMinerXY } from "./helpers";
 
 
 export function HeroSection() {
   const { t } = useTranslation();
+  const { isMobileView, isTabletView, isMiddleDesktopView, isDesktopView } = useWindowSize();
+
+  // --------- LINES -----------
+  const layer1: BannerLayer = {
+    translateY: [20, 30],
+    // translateX: [0, 30],
+    opacity: [1.0, 0],
+    speed: -30,
+    shouldAlwaysCompleteAnimation: true,
+    children: (
+      <LinesLayerStyled isMiddleDesktopView={isMiddleDesktopView} />
+    )
+  };
+
+  // --------- MINER -----------
+  const layer2: BannerLayer = {
+    ...getMinerXY(isMobileView, isTabletView, isMiddleDesktopView, isDesktopView),
+    speed: 20,
+    // opacity: [1, 0.1],
+    shouldAlwaysCompleteAnimation: true,
+    children: (
+      <MinerLayerStyled
+        isMobileView={isMobileView}
+        isTabletView={isTabletView}
+        isMiddleDesktopView={isMiddleDesktopView}
+      />
+    )
+  };
+
+  // --------- FOUNDATION -----------
+  const layer3: BannerLayer = {
+    translateY: getFoundationY(isMobileView, isTabletView, isMiddleDesktopView),
+    // opacity: [1.0, 0],
+    speed: 10,
+    expanded: false,
+    shouldAlwaysCompleteAnimation: true,
+    children: <FoundationLayerStyled isTabletView={isTabletView} />
+  };
+
+  // --------- TEXT -----------
+  const layer4: BannerLayer = {
+    translateY: [0, -20, 'easeOutQuad'],
+    // translateX: [0, -50],
+    opacity: [1.0, 0],
+    speed: 100,
+    shouldAlwaysCompleteAnimation: true,
+    expanded: false,
+    children: (
+      <Row height="100vh">
+        <ColStyled sm={4} md={4} lg={6}>
+          <SectionStyled>
+            <HeadingLevel1Styled
+              dangerouslySetInnerHTML={{ __html: t("home-hero-title") }}
+            />
+            <DescriptionStyled>{t("home-hero-description")}</DescriptionStyled>
+            <ButtonStyled zIndex="1">{t("home-hero-button")}</ButtonStyled>
+          </SectionStyled>
+        </ColStyled>
+      </Row>
+    )
+  };
+
+  // <LinesLayerStyled />
+  // <FoundationLayerStyled />
+  // <MinerLayerStyled />
+
+  return (
+    <>
+      <HeroSectionStyled>
+        <ContainerStyled height="100vh">
+          {/* <LinesStyled>
+            <SVGIcon type={Lines} sizes={{
+              w: 1440,
+              h: 646
+            }} />
+          </LinesStyled>
+          <FoundationStyled>
+            <SVGIcon type={Foundation} sizes={{
+                w: 1440,
+                h: 463
+              }} />
+          </FoundationStyled> */}
+          {/* <LinesLayerStyled />
+          <FoundationLayerStyled />
+          <MinerLayerStyled /> */}
+          <ParallaxBannerStyled
+            style={{ aspectRatio: '1 / 1' }}
+            layers={[layer1, layer2, layer3, layer4]}
+          />
+        </ContainerStyled>
+      </HeroSectionStyled>
+    </>
+  );
+
+
 
   // useEffect(() => {
     // const controller = new ScrollMagic.Controller();
@@ -61,56 +160,12 @@ export function HeroSection() {
   //   h2s.forEach((el) => observer.observe(el));
   // }, []);
 
-  return (
-    <HeroSectionStyled>
-      <ContainerStyled height="100vh">
-        <LinesStyled>
-          <SVGIcon type={Lines} sizes={{
-            w: 1440,
-            h: 646
-          }} />
-        </LinesStyled>
-        <FoundationStyled>
-          <SVGIcon type={Foundation} sizes={{
-              w: 1440,
-              h: 463
-            }} />
-        </FoundationStyled>
-        <Row>
-          <Col sm={4} md={8} lg={6}>
-            <SectionStyled>
-              {/* <SectionBlurStyled /> */}
-              <HeadingLevel1Styled
-                dangerouslySetInnerHTML={{ __html: t("home-hero-title") }}
-              />
-              <DescriptionStyled>{t("home-hero-description")}</DescriptionStyled>
-              <ButtonStyled zIndex="1">{t("home-hero-button")}</ButtonStyled>
-            </SectionStyled>
-          </Col>
-        </Row>
-      </ContainerStyled>
-      {/* <h2>
-        kdjflksjflkjsdflkjsd jslkdj flksd lksjdfklj sldkfj lskdfj sd
-        dfklsdfksdjfklsdlkjflksdjfkjsdklfjlskdjflksdflkj
-        dflkdsjflkjsdflkjsdlkfjlksdjflksdjf
-      </h2>
-      <h2>
-        kdjflksjflkjsdflkjsd jslkdj flksd lksjdfklj sldkfj lskdfj sd
-        dfklsdfksdjfklsdlkjflksdjfkjsdklfjlskdjflksdflkj
-        dflkdsjflkjsdflkjsdlkfjlksdjflksdjf
-      </h2>
-      <h2>
-        kdjflksjflkjsdflkjsd jslkdj flksd lksjdfklj sldkfj lskdfj sd
-        dfklsdfksdjfklsdlkjflksdjfkjsdklfjlskdjflksdflkj
-        dflkdsjflkjsdflkjsdlkfjlksdjflksdjf
-      </h2>
-      <h2>
-        kdjflksjflkjsdflkjsd jslkdj flksd lksjdfklj sldkfj lskdfj sd
-        dfklsdfksdjfklsdlkjflksdjfkjsdklfjlskdjflksdflkj
-        dflkdsjflkjsdflkjsdlkfjlksdjflksdjf
-      </h2> */}
-    </HeroSectionStyled>
-  );
+  // return (
+  //     <ParallaxBannerStyled
+  //       style={{ aspectRatio: '1 / 1' }}
+  //       layers={[layer1]}
+  //     />
+  // );
 
   // return (
   //   <>

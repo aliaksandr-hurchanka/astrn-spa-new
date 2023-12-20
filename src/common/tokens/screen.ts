@@ -12,15 +12,16 @@ export type GridNameBreakpoints = 'sm' | 'md' | 'lg';
  * @param lg - large | Desktop: (1025px+) -> Default option for desktop | from GridNameBreakpoints type
  * @param xlg - extra large | Desktop: <= 1440px
  */
-export type AliasBreakpoints = GridNameBreakpoints | 'xs' | 'xlg';
+export type AliasBreakpoints = GridNameBreakpoints | 'xs' | 'mlg' | 'xlg';
 
-export type SizesBreakpoints = 320 | 360 | 768 | 1025 | 1440;
+export type SizesBreakpoints = 320 | 360 | 768 | 1025 | 1280 | 1440;
 
 export const BREAKPOINT: Record<AliasBreakpoints, SizesBreakpoints> = {
   xs: 320,
   sm: 360,
   md: 768,
   lg: 1025,
+  mlg: 1280,
   xlg: 1440,
 };
 

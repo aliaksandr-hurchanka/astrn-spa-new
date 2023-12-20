@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useLayoutEffect, useState } from 'react';
 
-import { DESKTOP, MOBILE, TABLET } from '../utils/constants';
+import { DESKTOP, MIDDLE_DESKTOP, MOBILE, TABLET } from '../utils/constants';
 
 import { BREAKPOINT } from '../tokens/screen';
 
@@ -21,6 +21,10 @@ const getScreenType = (width: number) => {
     return TABLET;
   }
 
+  if (width >= BREAKPOINT.lg && width < BREAKPOINT.mlg) {
+    return MIDDLE_DESKTOP;
+  }
+
   if (width >= BREAKPOINT.lg && width < BREAKPOINT.xlg) {
     return DESKTOP;
   }
@@ -31,6 +35,7 @@ const getScreenType = (width: number) => {
 const getWindowResolution = (screenType: string) => ({
   isMobileView: screenType === MOBILE,
   isTabletView: screenType === TABLET,
+  isMiddleDesktopView: screenType === MIDDLE_DESKTOP,
   isDesktopView: screenType === DESKTOP,
   isLargeDesktopView: screenType === LARGE_DESKTOP,
   isInfiniteDesktopView: screenType === DESKTOP || screenType === LARGE_DESKTOP,
@@ -41,6 +46,7 @@ export interface IUseWindowSizeResult {
   height: number | undefined;
   isMobileView: boolean;
   isTabletView: boolean;
+  isMiddleDesktopView: boolean;
   isDesktopView: boolean;
   isLargeDesktopView: boolean;
   isInfiniteDesktopView: boolean;
