@@ -13,25 +13,25 @@ export function AdministratorPanel() {
 
   return (
     <AdministratorPanelStyled>
-      {!isMobileView && !isTabletView && <LeftShadowStyled />}
-      <Container>
+      {/* {!isMobileView && !isTabletView && <LeftShadowStyled />} */}
+      <Container height='448px'>
         <Row mb='30px' mt='30px'>
           <LeftColStyled lg={6} md={4} sm={4} order={isMobileView ? 2 : 1}>
             {!isMobileView && <HeadingLevel2 color='#FFB22E' width='100%' textAlign='center'>
-              Administrator panel
+              Administrator panel app
             </HeadingLevel2>}
             <RegularTextLevel1 color='#fff'>
               The firmware interface is simple and easy to use. Always stay connected to your farm wherever you are. You can see how the administration panel works.
             </RegularTextLevel1>
             <ButtonStyled type='large' btnWidth='auto'>
               <Link to="https://demo.breakhash.com/#/main" target='blank'>
-                Open Administrator panel demo
+                Try Demo App
               </Link>
             </ButtonStyled>
           </LeftColStyled>
           <RightColStyled lg={6} md={4} sm={4} order={isMobileView ? 1 : 2}>
             {isMobileView && <HeadingLevel2 color='#FFB22E' width='100%' textAlign='center'>
-              Administrator panel
+              Administrator panel app
             </HeadingLevel2>}
             <ImageStyled src={Tablet} />
           </RightColStyled>

@@ -1,26 +1,13 @@
-import Spline from "@splinetool/react-spline";
 import styled from "styled-components";
 import { HeadingLevel2 } from "../../../../common/tokens/typography";
 import { getTextStyles } from "../../../../common/utils/styles";
-import { Image } from '../../../../common/components/image';
-import { Container } from "../../../../common/components/grid";
-import { ImageCommonProps } from "../../../../common/types/images";
+import ImageBg from '../../../../assets/performance/hole.png';
 
-
-export const SplineStyled = styled(Spline)`
-  h3 {
-
-  }
-`;
-
-export const ContainerStyled = styled(Container)<{ image: string }>`
-  ${({ image }) => image && `
-    background: url(${image}) cover;
-  `}
-`;
-
-export const ImageStyled = styled(Image)`
-  max-height: 100%;
+export const GradientLayerStyled = styled.div`
+  background: url(${ImageBg}) no-repeat;
+  background-position: top center;
+  height: 100%;
+  width: 100%;
 `;
 
 export const PerformanceTitleStyled = styled(HeadingLevel2)`

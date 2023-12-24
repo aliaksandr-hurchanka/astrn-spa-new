@@ -14,10 +14,10 @@ export function getFoundationY(
   }
   
   if (isMiddleDesktopView) {
-    return [33, 0, 'easeOutQuad'];
+    return [38, 0, 'easeOutQuad'];
   }
 
-  return [33, 0, 'easeOutQuad'];
+  return [34, 30, 'easeOutQuad'];
 }
 
 export function getMinerXY(
@@ -48,16 +48,16 @@ export function getMinerXY(
     };
   }
 
-  if (isDesktopView) {
-    return {
-      translateY: [15, -7, 'easeOutQuad'],
-      translateX: [48, 0],
-    };
-  }
+  // if (isDesktopView) {
+  //   return {
+  //     translateY: [16, -7, 'easeOutQuad'],
+  //     translateX: [50, 0],
+  //   };
+  // }
 
   return {
-    translateY: [14, -9, 'easeOutQuad'],
-    translateX: [50, 30],
+    translateY: [27, 20, 'easeOutQuad'],
+    translateX: [50, 50],
   };
 }
 
@@ -74,6 +74,6 @@ export function getTextXY(
   }
 
   return {
-    translateY: [15, -20, 'easeOutQuad'],
+    translateY: [20, -20, 'easeOutQuad'],
   };
 }

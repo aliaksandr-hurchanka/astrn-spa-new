@@ -21,3 +21,5 @@ export const elevationTopLvl4 = '0 -10px 30px rgba(57, 57, 57, 0.1)';
 // Extra constants
 
 export const typographyTextShadow = '0 0 95px rgba(0, 0, 0, 0.07)';
+
+export const textLayerShadow = '3px -1px 15px rgba(0,0,0,1)';

@@ -12,7 +12,7 @@ import { ParallaxBanner } from "react-scroll-parallax";
 
 
 export const HeroSectionStyled = styled.div`
-  height: 100dvh;
+  /* height: 100dvh; */
 `;
 
 // export const LinesStyled = styled.div`
@@ -27,7 +27,7 @@ export const HeroSectionStyled = styled.div`
 export const ParallaxBannerStyled = styled(ParallaxBanner)`
   /* overflow: auto !important;
   position: absolute !important; */
-  height: 100dvh;
+  /* height: 100dvh; */
 `;
 
 export const LinesLayerStyled = styled.div<{
@@ -37,7 +37,7 @@ export const LinesLayerStyled = styled.div<{
 }>`
   z-index: 2;
   background: url(${LinesImage}) no-repeat;
-  height: 100vh;
+  height: 636px;
   width: 100%;
   background-position-x: center;
   /* background-size: auto; */
@@ -77,7 +77,7 @@ export const LinesLayerStyled = styled.div<{
 export const FoundationLayerStyled = styled.div<{ isTabletView?: boolean; isMiddleDesktopView?: boolean }>`
   z-index: 4;
   background: url(${FoundationImage}) no-repeat;
-  height: 100vh;
+  height: 463px;
   width: 100%;
   background-position-x: center;
   ${({ isTabletView }) => isTabletView && 'background-size: auto 350px;'}
@@ -91,12 +91,13 @@ export const MinerLayerStyled = styled.div<{
 }>`
   z-index: 3;
   background: url(${MinerImage}) no-repeat;
-  height: 100vh;
-  width: 100%;
+  background-size: contain;
+  height: 500px;
+  width: 500px;
   ${({ isMobileView }) => isMobileView && 'background-size: auto 300px;'}
   ${({ isTabletView }) => isTabletView && 'background-size: auto 350px;'}
-  ${({ isMiddleDesktopView }) => isMiddleDesktopView && 'background-size: auto 500px;'}
-  ${({ isDesktopView }) => isDesktopView && 'background-size: auto 500px;'}
+  /* ${({ isMiddleDesktopView }) => isMiddleDesktopView && 'background-size: auto 500px;'} */
+  /* ${({ isDesktopView }) => isDesktopView && 'background-size: auto 500px;'} */
   background-position-y: 17%;
 
   -webkit-animation: slide-left 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
@@ -144,10 +145,11 @@ export const MinerLayerStyled = styled.div<{
 `;
 
 export const ColStyled = styled(Col)`
-  flex-direction: column;
+  /* flex-direction: column;
   display: flex;
-  justify-content: center;
-  margin-top: -35%;
+  // justify-content: center;
+  gap: 16px; */
+  /* margin-top: -35%; */
 `;
 
 export const TestStyled = styled.div`
@@ -182,7 +184,7 @@ export const HeadingLevel1Styled = styled(HeadingLevel1)`
 
 export const RowStyled = styled(Row)`
   position: relative;
-  height: 100vh;
+  /* height: 100vh; */
   background: var(--Gold-gradient, radial-gradient(46.25% 45.98% at 0% 46.5%, #3A2813 0%, #010101 100%));
 `;
 
@@ -245,12 +247,12 @@ export const SectionStyled = styled.div`
   /* height: calc(100vh - 360px); */
   /* top: 60%; */
   z-index: 5;
-  position: relative;
-  /* display: flex; */
+  /* position: relative; */
+  display: flex;
   gap: 32px;
-  /* flex-direction: column;
+  flex-direction: column;
   align-items: flex-start;
-  justify-content: center; */
+  justify-content: center;
   font-size: var(--header-h1-size);
   color: var(--colors-primary);
 
@@ -342,7 +344,11 @@ export const ContainerStyled = styled(Container)`
   /* background: url(${HeroImage}) no-repeat;
   background-position: 0 25%; */
   // transform: rotate(-90deg);
-  /* max-height: 900px; */
+  height: 768px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* margin-top: -80px; // header height */
 `;
 
 

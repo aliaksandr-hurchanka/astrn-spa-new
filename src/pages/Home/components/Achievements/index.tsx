@@ -1,11 +1,32 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Col, Container, Row } from '../../../../common/components/grid';
-import { CenterColStyled, CountStyled, CountTextStyled, TitleStyled } from './styled';
+import { CenterColStyled, CountStyled, CountTextStyled, RowStyled, TitleStyled } from './styled';
 
 export function Achievements() {
+
+  useEffect(() => {
+
+    const focusTag = document.querySelectorAll('#achievements');
+
+    const observer = new IntersectionObserver(
+      (entries, options) => {        
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          } else {
+            entry.target.classList.remove('visible');
+          }
+        }
+      },
+      { threshold: 0.1, rootMargin: "1%" }
+    );
+
+    focusTag.forEach((el) => observer.observe(el));
+  }, []);
+
   return (
-    <Container>
-      <Row lgMt='150px'>
+    <Container height='650px'>
+      <RowStyled lgMt='70px' id='achievements'>
         <Col lg={1} />
         <CenterColStyled lg={10}>
           <TitleStyled>
@@ -13,7 +34,7 @@ export function Achievements() {
           </TitleStyled>
         </CenterColStyled>
         <Col lg={1} />
-      </Row>
+      </RowStyled>
       <Row>
         <CenterColStyled lg={4}>
           <CountStyled>235 000</CountStyled>

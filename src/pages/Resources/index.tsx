@@ -1,9 +1,7 @@
 import React from 'react'
-import { ContainerStyled, ResourcesPageStyled, SubTitleStyled, TitleStyled } from './styled';
+import { ContainerStyled, ResourcesPageStyled, RowStyled, SubTitleStyled, TitleStyled } from './styled';
 import { Col, Row } from '../../common/components/grid';
 import { HeadingLevel1, RegularTextLevel3 } from '../../common/tokens/typography';
-// import MobileBackImage from '../../assets/resources/mobile-bg.png';
-
 import resources from '../../data/data.json';
 import Accordion from '../../common/components/accordion';
 import { AccordionMainTitleStyled } from '../../common/components/accordion/styled';
@@ -18,7 +16,7 @@ function Resources() {
   return (
     <ResourcesPageStyled>
       <ContainerStyled width='100%'>
-        <Row>
+        <RowStyled height='546px'>
           <Col lg={7} md={4} sm={4} smCustomMargin='0 0 40px' order={isMobileView ? 2 : 1}>
             <TitleStyled>
               <HeadingLevel1 color='#fff'>All supported hardware</HeadingLevel1>
@@ -32,7 +30,7 @@ function Resources() {
           <Col lg={5} md={4} order={isMobileView ? 1 : 2}>
             <Image src={Antminer} />
           </Col>
-        </Row>
+        </RowStyled>
         <Row lgMb='80px'>
           <Col>
             <ResourcesList resources={resources} />
