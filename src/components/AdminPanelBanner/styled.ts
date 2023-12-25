@@ -4,17 +4,8 @@ import { Col, Container, Row } from "../../common/components/grid";
 import { getTextStyles } from "../../common/utils/styles";
 import LeftShadow from '../../assets/admin-panel-section/shadow-1.png';
 import RightShadow from '../../assets/admin-panel-section/shadow-2.png';
+import { ADAPTIVE } from "../../common/tokens/screen";
 
-// export const ImageLayer1Styled = styled(Image)`
-//   /* position: absolute; */
-//   max-width: 1200px;
-//   z-index: 2;
-// `;
-
-// export const ImageLayer2Styled = styled(Image)`
-//   /* position: absolute; */
-//   z-index: 3;
-// `;
 
 export const AdminPanelBannerStyled = styled.div`
   position: relative;
@@ -32,29 +23,11 @@ export const ColStyled = styled(Col)`
   display: flex;
   flex-direction: column;
   gap: 36px;
-  padding: 110px 0 150px 0;
+  padding: 0;
 
-  /* &.visible-admin-panel {
-    -webkit-animation: fade-in 3.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-            animation: fade-in 3.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-
-    @-webkit-keyframes fade-in {
-      0% {
-        opacity: 0;
-      }
-      100% {
-        opacity: 1;
-      }
-    }
-    @keyframes fade-in {
-      0% {
-        opacity: 0;
-      }
-      100% {
-        opacity: 1;
-      }
-    }
-  } */
+  ${ADAPTIVE.minWidth.desktop} {
+    padding: 110px 0 150px 0;
+  }
 `;
 
 export const ImageStyled = styled.div`

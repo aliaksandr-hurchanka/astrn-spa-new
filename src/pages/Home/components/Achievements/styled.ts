@@ -1,10 +1,26 @@
 import styled from "styled-components";
 import { getTextStyles } from "../../../../common/utils/styles";
-import { Col, Row } from "../../../../common/components/grid";
+import { Col, Container, Row } from "../../../../common/components/grid";
+import { HeadingLevel3 } from "../../../../common/tokens/typography";
+import { ADAPTIVE } from "../../../../common/tokens/screen";
 
-export const TitleStyled = styled.h3`
+export const TitleStyled = styled(HeadingLevel3)`
   text-transform: uppercase;
-  ${getTextStyles('Montserrat', 500, 48, 60)}
+
+  ${ADAPTIVE.minWidth.mobile} {
+    ${getTextStyles('Montserrat', 400, 30, 38)}
+    margin-bottom: 80px;
+  }
+
+  ${ADAPTIVE.minWidth.tablet} {
+    ${getTextStyles('Montserrat', 400, 36, 44)}
+    margin-bottom: 40px;
+  }
+
+  ${ADAPTIVE.minWidth.desktop} {
+    ${getTextStyles('Montserrat', 400, 48, 60)}
+    margin-bottom: 80px;
+  }
 `;
 
 export const CenterColStyled = styled(Col)`
@@ -42,5 +58,16 @@ export const RowStyled = styled(Row)`
         opacity: 1;
       }
     }
+  }
+`;
+
+export const ContainerStyled = styled(Container)`
+
+  ${ADAPTIVE.minWidth.mobile} {
+    /* height: 650px; */
+  }
+
+  ${ADAPTIVE.minWidth.desktop} {
+    height: 650px;
   }
 `;

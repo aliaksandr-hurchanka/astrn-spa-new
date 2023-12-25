@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Col, Container, Row } from '../../../../common/components/grid';
-import { CenterColStyled, CountStyled, CountTextStyled, RowStyled, TitleStyled } from './styled';
+import { CenterColStyled, ContainerStyled, CountStyled, CountTextStyled, RowStyled, TitleStyled } from './styled';
 
 export function Achievements() {
 
@@ -25,8 +25,8 @@ export function Achievements() {
   }, []);
 
   return (
-    <Container height='650px'>
-      <RowStyled lgMt='70px' id='achievements'>
+    <ContainerStyled mdPb='60px' lgPb='120px'>
+      <RowStyled lgMt='70px' id='achievements' mdMb='60px' mb='0px'>
         <Col lg={1} />
         <CenterColStyled lg={10}>
           <TitleStyled>
@@ -35,20 +35,20 @@ export function Achievements() {
         </CenterColStyled>
         <Col lg={1} />
       </RowStyled>
-      <Row>
-        <CenterColStyled lg={4}>
+      <Row rowGap='26px'>
+        <CenterColStyled lg={4} md={8}>
           <CountStyled>235 000</CountStyled>
           <CountTextStyled>Projects completed</CountTextStyled>
         </CenterColStyled>
-        <CenterColStyled lg={4}>
+        <CenterColStyled lg={4} md={8}>
           <CountStyled>+50 000</CountStyled>
           <CountTextStyled>Hours Saved Annually</CountTextStyled>
         </CenterColStyled>
-        <CenterColStyled lg={4}>
+        <CenterColStyled lg={4} md={8}>
           <CountStyled>3 500</CountStyled>
           <CountTextStyled>Unique Users</CountTextStyled>
         </CenterColStyled>
       </Row>
-    </Container>
+    </ContainerStyled>
   );
 }

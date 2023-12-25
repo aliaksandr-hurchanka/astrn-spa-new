@@ -1,14 +1,18 @@
-import { ColStyled, ContainerStyled, GradientLayerStyled, HeadingStyled, LineStyled, RegularTextStyled, ReliabilityStyled, ValueStyled, ValueTextStyled } from "./styled";
+import { ColStyled, ColValueStyled, ContainerStyled, GradientLayerStyled, HeadingStyled, LineStyled, RegularTextStyled, ReliabilityStyled, ValueStyled, ValueTextStyled } from "./styled";
 import { Col, Row } from "../../../../common/components/grid";
 import { Image } from '../../../../common/components/image';
 import LineImage from '../../../../assets/reliability/line.svg';
 import { BannerLayer, ParallaxBanner } from "react-scroll-parallax";
 import { useState } from "react";
+import { useWindowSize } from "../../../../common/hooks";
+import { getFoundationLayerConfig, getLineLayerConfig, getTextLayerConfig } from "./helpers";
 
 export function Reliability() {
 
   const [scroll, setScroll] = useState(0);
   const [deg, setDeg] = useState(15);
+
+  const { isInfiniteDesktopView, isDesktopView, isMiddleDesktopView, isTabletView, isMobileView } = useWindowSize();
 
   window.addEventListener('scroll', () => {
     if (window.scrollY > (scroll + 100)) {
@@ -19,10 +23,7 @@ export function Reliability() {
 
     // --------- LINE -----------
     const layer1: BannerLayer = {
-      translateY: [10, 10],
-      translateX: [-10, 5, 'easeOutQuad'],
-      opacity: [0, 2.0],
-      speed: -100,
+      ...getLineLayerConfig(isMobileView, isTabletView, isMiddleDesktopView, isDesktopView),
       shouldAlwaysCompleteAnimation: true,
       children: (
         <LineStyled>
@@ -33,10 +34,7 @@ export function Reliability() {
 
     // --------- GRADIENT -----------
     const layer2: BannerLayer = {
-      translateY: [0, 0],
-      // translateX: [-5, 10],
-      // opacity: [1.0, 0],
-      // speed: 10,
+      ...getFoundationLayerConfig(isMobileView),
       shouldAlwaysCompleteAnimation: true,
       children: (
         <GradientLayerStyled />
@@ -45,23 +43,12 @@ export function Reliability() {
 
     // --------- TEXT -----------
     const layer3: BannerLayer = {
-      translateY: [15, -5],
-      translateX: [0, 0],
-      opacity: [3.0, -1.0],
+      ...getTextLayerConfig(isMobileView, isTabletView),
       shouldAlwaysCompleteAnimation: true,
       children: (
-        <Row>
-          <Col lg={1} />
-          <ColStyled lg={4}>
-            <HeadingStyled>
-              Reliability
-            </HeadingStyled>
-            <RegularTextStyled color='#BFBFBF'>
-              Time-tested. Over 100,000 firmware installations successfully installed since 2018.
-            </RegularTextStyled>
-          </ColStyled>
-          <Col lg={3} />
-          <Col lg={4} style={{ display: 'flex', flexDirection: 'column', justifyContent: 'end' }}>
+        isMobileView
+        ? <Row rowGap='100px'>
+          <ColValueStyled lg={4} sm={4}>
             <ValueStyled deg={deg}>
               100
             </ValueStyled>
@@ -71,7 +58,39 @@ export function Reliability() {
             <RegularTextStyled color='#BFBFBF'>
               Firmware installations
             </RegularTextStyled>
-          </Col>
+          </ColValueStyled>
+          <ColStyled lg={4} sm={4}>
+            <HeadingStyled>
+              Reliability
+            </HeadingStyled>
+            <RegularTextStyled color='#BFBFBF'>
+              Time-tested. Over 100,000 firmware installations successfully installed since 2018.
+            </RegularTextStyled>
+          </ColStyled>
+        </Row>
+        : <Row>
+          {(isInfiniteDesktopView || isMiddleDesktopView) && <Col lg={1} />}
+          <ColStyled lg={4} md={3}>
+            <HeadingStyled>
+              Reliability
+            </HeadingStyled>
+            <RegularTextStyled color='#BFBFBF'>
+              Time-tested. Over 100,000 firmware installations successfully installed since 2018.
+            </RegularTextStyled>
+          </ColStyled>
+          {(isInfiniteDesktopView || isMiddleDesktopView || isTabletView) && <Col lg={2} md={2} />}
+          <ColValueStyled lg={4} md={3}>
+            <ValueStyled deg={deg}>
+              100
+            </ValueStyled>
+            <ValueTextStyled>
+              thousand
+            </ValueTextStyled>
+            <RegularTextStyled color='#BFBFBF'>
+              Firmware installations
+            </RegularTextStyled>
+          </ColValueStyled>
+          {(isInfiniteDesktopView || isMiddleDesktopView) && <Col lg={1} />}
         </Row>
       )
     };
@@ -80,7 +99,7 @@ export function Reliability() {
     <ReliabilityStyled>
       <ContainerStyled>
         <ParallaxBanner
-          style={{ aspectRatio: '2 / 1' }}
+          style={isMobileView ? { aspectRatio: '1 / 2' } : { aspectRatio: '2 / 1' }}
           layers={[layer2, layer1, layer3]}
         />
       </ContainerStyled>

@@ -1,12 +1,25 @@
 
 
+export function getLinesXY(isMobileView: boolean): any {
+
+  if (isMobileView) {
+    return {
+      translateY: [17, 23],
+    };
+  }
+
+  return {
+    translateY: [10, 23],
+  };
+}
+
 export function getFoundationY(
   isMobileView?: boolean,
   isTabletView?: boolean,
   isMiddleDesktopView?: boolean
 ): any {
   if (isMobileView) {
-    return [10, -10, 'easeOutQuad'];
+    return [15, -10, 'easeOutQuad'];
   }
 
   if (isTabletView) {
@@ -29,21 +42,21 @@ export function getMinerXY(
 
   if (isMobileView) {
     return {
-      translateY: [10, 20, 'easeOutQuad'],
-      translateX: [16, -10],
+      translateY: [17, 13, 'easeOutQuad'],
+      translateX: [16, 16],
     };
   }
 
   if (isTabletView) {
     return {
-      translateY: [30, 40, 'easeOutQuad'],
+      translateY: [33, 40, 'easeOutQuad'],
       translateX: [52, 35],
     };
   }
   
   if (isMiddleDesktopView) {
     return {
-      translateY: [16, -7, 'easeOutQuad'],
+      translateY: [22, -7, 'easeOutQuad'],
       translateX: [50, 45],
     };
   }
@@ -56,7 +69,7 @@ export function getMinerXY(
   // }
 
   return {
-    translateY: [27, 20, 'easeOutQuad'],
+    translateY: [26, 20, 'easeOutQuad'],
     translateX: [50, 50],
   };
 }
@@ -69,7 +82,7 @@ export function getTextXY(
 
   if (isMobileView) {
     return {
-      translateY: [5, -20, 'easeOutQuad'],
+      translateY: [40, 30, 'easeOutQuad'],
     };
   }
 

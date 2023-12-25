@@ -1,33 +1,21 @@
-// import Spline from "@splinetool/react-spline";
 import styled, { css } from "styled-components";
 import { Col, Container, Row } from "../../../../common/components/grid";
 import { Image } from '../../../../common/components/image';
-import HeroImage from '../../../../assets/PatternDark.png';
 import { HeadingLevel1 } from "../../../../common/tokens/typography";
 import { getTextStyles } from "../../../../common/utils/styles";
 import LinesImage from '../../../../assets/home/Lines.png';
 import FoundationImage from '../../../../assets/home/Foundation.png';
 import MinerImage from '../../../../assets/home/miner.png';
 import { ParallaxBanner } from "react-scroll-parallax";
+import { ADAPTIVE } from "../../../../common/tokens/screen";
 
 
-export const HeroSectionStyled = styled.div`
-  /* height: 100dvh; */
-`;
-
-// export const LinesStyled = styled.div`
-//   position: absolute;
-// `;
-
-// export const FoundationStyled = styled.div`
-//   position: absolute;
-//   bottom: 30%;
-// `;
+export const HeroSectionStyled = styled.div``;
 
 export const ParallaxBannerStyled = styled(ParallaxBanner)`
-  /* overflow: auto !important;
-  position: absolute !important; */
-  /* height: 100dvh; */
+  ${ADAPTIVE.minWidth.mobile} {
+    height: 100dvh;
+  }
 `;
 
 export const LinesLayerStyled = styled.div<{
@@ -40,8 +28,6 @@ export const LinesLayerStyled = styled.div<{
   height: 636px;
   width: 100%;
   background-position-x: center;
-  /* background-size: auto; */
-  /* position: absolute; */
 
   ${({ isMobileView }) => isMobileView && css`
     background-size: 100% auto;
@@ -92,65 +78,43 @@ export const MinerLayerStyled = styled.div<{
   z-index: 3;
   background: url(${MinerImage}) no-repeat;
   background-size: contain;
-  height: 500px;
-  width: 500px;
+  height: 300px;
+  width: 300px;
   ${({ isMobileView }) => isMobileView && 'background-size: auto 300px;'}
   ${({ isTabletView }) => isTabletView && 'background-size: auto 350px;'}
-  /* ${({ isMiddleDesktopView }) => isMiddleDesktopView && 'background-size: auto 500px;'} */
-  /* ${({ isDesktopView }) => isDesktopView && 'background-size: auto 500px;'} */
   background-position-y: 17%;
+
+  ${ADAPTIVE.minWidth.tablet} {
+    height: 500px;
+    width: 500px;    
+  }
 
   -webkit-animation: slide-left 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 	        animation: slide-left 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
   
-          @-webkit-keyframes slide-left {
-            0% {
-              -webkit-transform: translateX(100px);
-                      transform: translateX(100px);
-            }
-            100% {
-              -webkit-transform: translateX(0px);
-                      transform: translateX(0px);
-            }
-          }
-          @keyframes slide-left {
-            0% {
-              -webkit-transform: translateX(100px);
-                      transform: translateX(100px);
-            }
-            100% {
-              -webkit-transform: translateX(0px);
-                      transform: translateX(0px);
-            }
-          }
-  /* -webkit-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) 1s both;
-	        animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) 1s both;
-
-  @-webkit-keyframes fade-in {
+  @-webkit-keyframes slide-left {
     0% {
-      opacity: 0;
+      -webkit-transform: translateX(100px);
+              transform: translateX(100px);
     }
     100% {
-      opacity: 1;
+      -webkit-transform: translateX(0px);
+              transform: translateX(0px);
     }
   }
-  @keyframes fade-in {
+  @keyframes slide-left {
     0% {
-      opacity: 0;
+      -webkit-transform: translateX(100px);
+              transform: translateX(100px);
     }
     100% {
-      opacity: 1;
+      -webkit-transform: translateX(0px);
+              transform: translateX(0px);
     }
-  } */
+  }
 `;
 
-export const ColStyled = styled(Col)`
-  /* flex-direction: column;
-  display: flex;
-  // justify-content: center;
-  gap: 16px; */
-  /* margin-top: -35%; */
-`;
+export const ColStyled = styled(Col)``;
 
 export const TestStyled = styled.div`
   opacity: 0;
@@ -184,7 +148,6 @@ export const HeadingLevel1Styled = styled(HeadingLevel1)`
 
 export const RowStyled = styled(Row)`
   position: relative;
-  /* height: 100vh; */
   background: var(--Gold-gradient, radial-gradient(46.25% 45.98% at 0% 46.5%, #3A2813 0%, #010101 100%));
 `;
 
@@ -244,10 +207,7 @@ export const DescriptionStyled = styled.p`
   z-index: 1;
 `;
 export const SectionStyled = styled.div`
-  /* height: calc(100vh - 360px); */
-  /* top: 60%; */
   z-index: 5;
-  /* position: relative; */
   display: flex;
   gap: 32px;
   flex-direction: column;
@@ -275,80 +235,13 @@ export const SectionStyled = styled.div`
       opacity: 1;
     }
   }
-
-  /* h1 {
-  -webkit-animation: tracking-in-expand-fwd-top 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
-	        animation: tracking-in-expand-fwd-top 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
-
-          @-webkit-keyframes tracking-in-expand-fwd-top {
-            0% {
-              letter-spacing: -0.5em;
-              -webkit-transform: translateZ(-700px) translateY(-500px);
-                      transform: translateZ(-700px) translateY(-500px);
-              opacity: 0;
-            }
-            40% {
-              opacity: 0.6;
-            }
-            100% {
-              -webkit-transform: translateZ(0) translateY(0);
-                      transform: translateZ(0) translateY(0);
-              opacity: 1;
-            }
-          }
-          @keyframes tracking-in-expand-fwd-top {
-            0% {
-              letter-spacing: -0.5em;
-              -webkit-transform: translateZ(-700px) translateY(-500px);
-                      transform: translateZ(-700px) translateY(-500px);
-              opacity: 0;
-            }
-            40% {
-              opacity: 0.6;
-            }
-            100% {
-              -webkit-transform: translateZ(0) translateY(0);
-                      transform: translateZ(0) translateY(0);
-              opacity: 1;
-            }
-          }
-    } */
-
-
-  /* -webkit-animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-	        animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-
-  @-webkit-keyframes slide-bottom {
-    0% {
-      -webkit-transform: translateY(0);
-              transform: translateY(0);
-    }
-    100% {
-      -webkit-transform: translateY(100px);
-              transform: translateY(100px);
-    }
-  }
-  @keyframes slide-bottom {
-    0% {
-      -webkit-transform: translateY(0);
-              transform: translateY(0);
-    }
-    100% {
-      -webkit-transform: translateY(100px);
-              transform: translateY(100px);
-    }
-  } */
 `;
 
 export const ContainerStyled = styled(Container)`
-  /* background: url(${HeroImage}) no-repeat;
-  background-position: 0 25%; */
-  // transform: rotate(-90deg);
   height: 768px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* margin-top: -80px; // header height */
 `;
 
 

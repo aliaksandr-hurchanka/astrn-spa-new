@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { getTextStyles } from "../../../../common/utils/styles";
 import { Col } from "../../../../common/components/grid";
-import { RegularTextLevel1 } from "../../../../common/tokens/typography";
 
 export const ButtonLinkStyled = styled(Link)`
   display: inline-flex;

@@ -15,7 +15,7 @@ import { BannerLayer } from "react-scroll-parallax";
 import { useTranslation } from "react-i18next";
 import { ButtonStyled } from "../../../../common/components/button-styled";
 import { useWindowSize } from "../../../../common/hooks";
-import { getFoundationY, getMinerXY, getTextXY } from "./helpers";
+import { getFoundationY, getLinesXY, getMinerXY, getTextXY } from "./helpers";
 
 
 export function HeroSection() {
@@ -24,8 +24,7 @@ export function HeroSection() {
 
   // --------- LINES -----------
   const layer1: BannerLayer = {
-    translateY: [10, 23],
-    // translateX: [0, 30],
+    ...getLinesXY(isMobileView),
     opacity: [1.0, 0],
     speed: 10,
     shouldAlwaysCompleteAnimation: true,

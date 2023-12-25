@@ -4,8 +4,12 @@ import { Image } from '../../../../common/components/image';
 import LineImage from '../../../../assets/income/lineR.svg';
 import { BannerLayer, ParallaxBanner } from 'react-scroll-parallax';
 import { useState } from 'react';
+import { getFoundationLayerConfig, getLineLayerConfig, getTextLayerConfig } from "./helpers";
+import { useWindowSize } from "../../../../common/hooks";
 
 export function Income() {
+
+  const { isMobileView } = useWindowSize();
 
   const [scroll, setScroll] = useState(0);
   const [deg, setDeg] = useState(45);
@@ -19,10 +23,7 @@ export function Income() {
 
   // --------- LINE -----------
   const layer1: BannerLayer = {
-    translateY: [10, 10],
-    translateX: [5, -10, 'easeOutQuad'],
-    opacity: [0, 2.0],
-    speed: -100,
+    ...getLineLayerConfig(isMobileView),
     shouldAlwaysCompleteAnimation: true,
     children: (
       <LineStyled>
@@ -33,7 +34,7 @@ export function Income() {
 
   // --------- GRADIENT -----------
   const layer2: BannerLayer = {
-    translateY: [0, 0],
+    ...getFoundationLayerConfig(isMobileView),
     shouldAlwaysCompleteAnimation: true,
     children: (
       <GradientLayerStyled />
@@ -42,10 +43,7 @@ export function Income() {
 
   // --------- TEXT -----------
   const layer3: BannerLayer = {
-    translateY: [15, -5],
-    translateX: [0, 0],
-    opacity: [3.0, -1.0],
-    // speed: 10,
+    ...getTextLayerConfig(isMobileView),
     shouldAlwaysCompleteAnimation: true,
     children: (
       <Row>

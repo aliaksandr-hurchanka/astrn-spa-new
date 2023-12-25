@@ -28,7 +28,7 @@ export const BREAKPOINT: Record<AliasBreakpoints, SizesBreakpoints> = {
 export type AdaptiveKeys = 'minWidth' | 'maxWidth';
 export type AdaptiveCommonOptions = 'mobileXs' | 'mobile' | 'tablet' | 'desktop';
 
-export type AdaptiveOptionsMinWidth = AdaptiveCommonOptions | 'desktopLg';
+export type AdaptiveOptionsMinWidth = AdaptiveCommonOptions | 'desktopMd' | 'desktopLg';
 
 /**
  * _Mobile First_ - ADAPTIVE.minWidth
@@ -36,6 +36,7 @@ export type AdaptiveOptionsMinWidth = AdaptiveCommonOptions | 'desktopLg';
  * @param mobile  min-width = 360
  * @param tablet  min-width = 768
  * @param desktop  min-width = 1025
+ * @param desktopMd  min-width = 1280
  * @param desktopLg  min-width = 1440
  *
  * _Desktop First_ - ADAPTIVE.maxWidth
@@ -49,6 +50,7 @@ export const ADAPTIVE: Record<AdaptiveKeys, { [K in AdaptiveOptionsMinWidth]?: s
     mobileXs: `@media only screen and (min-width: ${BREAKPOINT.xs}px)`,
     mobile: `@media only screen and (min-width: ${BREAKPOINT.sm}px)`,
     tablet: `@media only screen and (min-width: ${BREAKPOINT.md}px)`,
+    desktopMd: `@media only screen and (min-width: ${BREAKPOINT.mlg}px)`,
     desktop: `@media only screen and (min-width: ${BREAKPOINT.lg}px)`,
     desktopLg: `@media only screen and (min-width: ${BREAKPOINT.xlg}px)`,
   },
