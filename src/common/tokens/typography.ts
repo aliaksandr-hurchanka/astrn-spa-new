@@ -2,7 +2,6 @@ import { MouseEvent } from 'react';
 
 import styled, { css } from 'styled-components';
 
-import { colorAccentLinkLight, colorCoreBlack900Base, colorCoreWhite1000 } from './colors';
 import { elevationBottomLvl4, typographyTextShadow } from './elevations';
 import { ADAPTIVE } from './screen';
 import { ellipsisEndingLine, getTextStyles } from '../utils/styles';
@@ -78,7 +77,7 @@ export const HeadingStylesCommon = css<{ color?: string }>`
   ${textUpperCase}
   ${boxReset}
 
-  color: ${({ color = colorCoreWhite1000 }) => color};
+  color: ${({ color }) => color};
 `;
 
 /**
@@ -214,7 +213,7 @@ interface RegularTextProps {
 
 export const RegularTextStylesCommon = css<RegularTextProps>`
   font-weight: ${({ weight = 400 }) => weight};
-  color: ${({ color = colorCoreBlack900Base }) => color};
+  color: ${({ color }) => color};
 
   ${({ isDisplayFlex }) => isDisplayFlex && 'display: flex;'}
   ${({ alignItems }) => alignItems && `align-items: ${alignItems};`}
@@ -292,7 +291,7 @@ interface RegularLinkProps {
 }
 
 export const RegularLinkStylesCommon = css<RegularLinkProps>`
-  color: ${({ color = colorAccentLinkLight }) => color};
+  color: ${({ color }) => color};
 
   ${({ isDisplayFlex }) => isDisplayFlex && 'display: flex;'}
   ${({ alignItems }) => alignItems && `align-items: ${alignItems};`}
@@ -328,7 +327,7 @@ export const RegularLabelLevel1 = styled.label<RegularLinkProps>`
   ${getTextStyles('Montserrat', null, 12, 16)}
 
   font-weight: ${({ weight = 400 }) => weight};
-  color: ${({ color = colorCoreBlack900Base }) => color};
+  color: ${({ color }) => color};
 
   ${({ isDisplayFlex }) => isDisplayFlex && 'display: flex;'}
   ${({ alignItems }) => alignItems && `align-items: ${alignItems};`}

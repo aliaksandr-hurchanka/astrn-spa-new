@@ -16,7 +16,7 @@ function Resources() {
   return (
     <ResourcesPageStyled>
       <ContainerStyled width='100%'>
-        <RowStyled height='546px'>
+        <RowStyled>
           <Col lg={7} md={4} sm={4} smCustomMargin='0 0 40px' order={isMobileView ? 2 : 1}>
             <TitleStyled>
               <HeadingLevel1 color='#fff'>All supported hardware</HeadingLevel1>

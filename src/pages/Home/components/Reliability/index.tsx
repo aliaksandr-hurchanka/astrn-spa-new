@@ -35,6 +35,7 @@ export function Reliability() {
     // --------- GRADIENT -----------
     const layer2: BannerLayer = {
       ...getFoundationLayerConfig(isMobileView),
+      expanded: false,
       shouldAlwaysCompleteAnimation: true,
       children: (
         <GradientLayerStyled />
@@ -48,7 +49,7 @@ export function Reliability() {
       children: (
         isMobileView
         ? <Row rowGap='100px'>
-          <ColValueStyled lg={4} sm={4}>
+          <ColValueStyled sm={4}>
             <ValueStyled deg={deg}>
               100
             </ValueStyled>
@@ -59,7 +60,7 @@ export function Reliability() {
               Firmware installations
             </RegularTextStyled>
           </ColValueStyled>
-          <ColStyled lg={4} sm={4}>
+          <ColStyled sm={4}>
             <HeadingStyled>
               Reliability
             </HeadingStyled>

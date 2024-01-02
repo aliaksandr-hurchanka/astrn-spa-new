@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Row } from '../../common/components/grid';
 import { HeadingLevel2, RegularTextLevel1 } from '../../common/tokens/typography';
-import { AdministratorPanelStyled, LeftColStyled, RightColStyled, LeftShadowStyled, RightShadowStyled, ImageStyled } from './styled';
+import { AdministratorPanelStyled, LeftColStyled, RightColStyled, RightShadowStyled, ImageStyled } from './styled';
 import Tablet from '../../assets/admin-panel-section/tablet.png';
 import { ButtonStyled } from '../../common/components/button-styled';
 import { Link } from 'react-router-dom';
@@ -9,12 +9,12 @@ import { useWindowSize } from '../../common/hooks';
 
 export function AdministratorPanel() {
 
-  const { isMobileView, isTabletView } = useWindowSize();
+  const { isMobileView } = useWindowSize();
 
   return (
     <AdministratorPanelStyled>
       {/* {!isMobileView && !isTabletView && <LeftShadowStyled />} */}
-      <Container height='448px'>
+      <Container>
         <Row mb='30px' mt='30px'>
           <LeftColStyled lg={6} md={4} sm={4} order={isMobileView ? 2 : 1}>
             {!isMobileView && <HeadingLevel2 color='#FFB22E' width='100%' textAlign='center'>

@@ -1,22 +1,23 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import data from '../../data/data.json';
-import { find, isEmpty } from 'lodash';
-import { Col, Container, Row } from '../../common/components/grid';
+import { find, isEmpty, max } from 'lodash';
+import { Col, Container, Row } from '@astrn/common/components/grid';
 import { CalculatorStyled, CharacteristicsStyled, ChipsStyled, ColStyled, CurrencyStyled, DiscountStyled, ImageStyled, InputStyled, LabelStyled, MethodStyled, MinusButtonStyled, NameStyled, PaymentMethodsStyled, PlusButtonStyled, PriceColStyled, PriceLabelStyled, PriceSectionTitleStyled, PriceStyled, RowStyled, SelectStyled } from './styled';
-import { Progress } from '../../components/Progress';
-import { Image } from '../../common/components/image';
-import ResourceImage from '../../assets/resource.png';
-import Minus from '../../assets/icons/minus.svg';
-import Plus from '../../assets/icons/plus.svg';
-import BTCIcon from '../../assets/icons/btc.png';
-import USDTIcon from '../../assets/icons/usdt.png'
-import { SVGIcon } from '../../common/components/svg-icon';
+import { Progress } from '@astrn/components/Progress';
+import { Image } from '@astrn/common/components/image';
+import ResourceImage from '@astrn/assets/resource.png';
+import Minus from '@astrn/assets/icons/minus.svg';
+import Plus from '@astrn/assets/icons/plus.svg';
+import BTCIcon from '@astrn/assets/icons/btc.png';
+import USDTIcon from '@astrn/assets/icons/usdt.png'
+import { SVGIcon } from '@astrn/common/components/svg-icon';
 import { DownloadSection } from './components/DownloadSection';
 import { Connected } from './components/Connected';
-import { AdministratorPanel } from '../../components/AdministratorPanel';
-import { useWindowSize } from '../../common/hooks';
+import { AdministratorPanel } from '@astrn/components/AdministratorPanel';
+import { useWindowSize } from '@astrn/common/hooks';
 import { FAQ } from './components/FAQ';
+import { Breadcrumbs } from './components/Breadcrumbs';
 
 const options = [
   { value: 'lifetime-license', label: 'Lifetime License' },
@@ -43,7 +44,12 @@ export function Resource() {
   return (
     <>
       <Container lgPb='80px'>
-        <Row lgMt='80px' mt='40px'>
+        <Row>
+          <Col lg={6}>
+            <Breadcrumbs title={resource?.name} />
+          </Col>
+        </Row>
+        <Row>
           <Col lg={7} order={isMobileView ? 2 : 1}>
             <NameStyled>
               {resource?.name}
@@ -53,10 +59,26 @@ export function Resource() {
               <span>{resource?.variants}Th</span>
             </NameStyled>
             <CharacteristicsStyled>
-              {resource?.baseValueCooler && <Progress baseValue={resource?.baseValueCooler} boostValue={resource?.boostValueCooler} />}
+              {resource?.baseValueCooler
+                && <Progress
+                baseValue={resource?.baseValueCooler}
+                boostValue={resource?.boostValueCooler}
+                maxValue={
+                  max([Number(resource?.boostValueCooler), Number(resource?.boostValueWater)])
+                }
+              />}
             </CharacteristicsStyled>
             <CharacteristicsStyled>
-              {resource?.baseValueWater && <Progress baseValue={resource?.baseValueWater} boostValue={resource?.boostValueWater} isWater />}
+              {resource?.baseValueWater
+                && <Progress
+                  baseValue={resource?.baseValueWater}
+                  boostValue={resource?.boostValueWater}
+                  maxValue={
+                    max([Number(resource?.boostValueCooler), Number(resource?.boostValueWater)])
+                  }
+                  isWater
+                />
+              }
             </CharacteristicsStyled>
           </Col>
           <ColStyled lg={5} justifyContent='center' order={isMobileView ? 1 : 2}>
@@ -77,6 +99,9 @@ export function Resource() {
                 classNamePrefix="select"
                 defaultValue={options[2]}
                 options={options}
+                // @ts-ignore
+                autoComplete="off"
+                inputMode="none"
               />
             </Col>
             <Col lg={2} md={8} sm={4}>

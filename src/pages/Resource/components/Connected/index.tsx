@@ -1,6 +1,6 @@
 import React from 'react';
 import { Col, Container, Row } from '../../../../common/components/grid';
-import { ColStyled, DescriptionStyled, FormRowStyled, FormStyled, SocialStyled, SocialTextStyled, TitleStyled } from './styled';
+import { ColStyled, DescriptionStyled, FormRowStyled, FormStyled, SocialStyled, SocialTextStyled } from './styled';
 import { ButtonStyled } from '../../../../common/components/button-styled';
 import { SVGIcon } from '../../../../common/components/svg-icon';
 import EmailIcon from '../../../../assets/icons/email.svg';

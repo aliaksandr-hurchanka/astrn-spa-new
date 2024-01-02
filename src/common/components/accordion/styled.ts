@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { getTextStyles } from "../../utils/styles";
-import { HeadingLevel2 } from "../../tokens/typography";
+import styled from 'styled-components';
+import { getTextStyles } from '@astrn/common/utils/styles';
+import { HeadingLevel2 } from '@astrn/common/tokens/typography';
 
 /* Style the accordion section */
 export const AccordionSectionStyled = styled.div<{ theme?: string }>`

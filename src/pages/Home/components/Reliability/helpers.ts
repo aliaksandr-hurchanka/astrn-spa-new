@@ -7,19 +7,19 @@ export function getLineLayerConfig(
 
   if (isMobileView) {
     return {
-      translateY: [42, 42],
-      translateX: [-50, 5, 'easeOutQuad'],
-      opacity: [0, 2.0],
-      speed: -100,
+      translateY: [0, 0],
+      translateX: [-10, 5, 'easeOutQuad'],
+      opacity: [0, 3.0],
+      speed: -10,
     };
   }
 
   if (isTabletView) {
     return {
       translateY: [35, 35],
-      translateX: [15, 20, 'easeOutQuad'],
-      opacity: [0, 2.0],
-      speed: -100,
+      translateX: [15, 25, 'easeOutQuad'],
+      opacity: [0, 3.0],
+      speed: -10,
     };
   }
 
@@ -27,8 +27,8 @@ export function getLineLayerConfig(
     return {
       translateY: [25, 25],
       translateX: [5, 10, 'easeOutQuad'],
-      opacity: [0, 2.0],
-      speed: -100,
+      opacity: [0, 3.0],
+      speed: -10,
     };
   }
 
@@ -36,8 +36,8 @@ export function getLineLayerConfig(
     return {
       translateY: [25, 25],
       translateX: [10, 15, 'easeOutQuad'],
-      opacity: [0, 2.0],
-      speed: -100,
+      opacity: [0, 3.0],
+      speed: -10,
     };
   }
 
@@ -70,7 +70,7 @@ export function getTextLayerConfig(isMobileView: boolean, isTabletView: boolean)
   return {
     translateY: [15, -5],
     translateX: [0, 0],
-    opacity: [3.0, -1.0],
+    opacity: [0.0, 3.0],
   };
 }
 
@@ -78,8 +78,8 @@ export function getFoundationLayerConfig(isMobileView: boolean): any {
 
   if (isMobileView) {
     return {
-      translateY: [39, 39],
-      translateX: [20, 20],
+      translateY: [0, 0],
+      translateX: [0, 0],
     };
   }
 

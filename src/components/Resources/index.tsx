@@ -8,7 +8,7 @@ export function ResourcesList({ resources }: any) {
     <ResourcesListStyled>
       {resources.map(({ id, name, countChips, variants, baseValueCooler, boostValueCooler, baseValueWater, boostValueWater }: any) => {
         return (
-          <ResourceStyled>
+          <ResourceStyled key={id}>
             <LinkStyled to={`/resources/${id}`}>
               <RowStyled>
                 <Col lg={4} md={8} sm={4}>

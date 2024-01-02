@@ -1,10 +1,10 @@
 import React from 'react';
 import { Col, Container, Row } from '../../../../common/components/grid';
 import resources from '../../../../data/home-data.json';
-import { ButtonColStyled, ButtonLinkStyled } from './styled';
+import { ButtonColStyled, ButtonLinkStyled, ParallaxBannerStyled } from './styled';
 import { ResourcesList } from '../../../../components/Resources';
 import { HeadingLevel2, RegularTextLevel1 } from '../../../../common/tokens/typography';
-import { BannerLayer, ParallaxBanner } from 'react-scroll-parallax';
+import { BannerLayer } from 'react-scroll-parallax';
 
 export function SupportedHardware() {
 
@@ -13,7 +13,8 @@ export function SupportedHardware() {
     translateY: [15, -5],
     translateX: [0, 0],
     opacity: [-0.5, 3.0],
-    // speed: 10,
+    expanded: false,
+    style: { position: 'relative' },
     shouldAlwaysCompleteAnimation: true,
     children: (
       <>
@@ -44,9 +45,10 @@ export function SupportedHardware() {
   };
 
   return (
-    <Container lgPt='80px' lgPb='80px' mdPt='40px' mdPb='40px'>
-      <ParallaxBanner
-        style={{ aspectRatio: '2 / 1' }}
+    <Container lgPb='120px'>
+      <ParallaxBannerStyled
+        // style={isMobileView ? { aspectRatio: '1 / 2' } : { aspectRatio: '1 / 1' }}
+        style={{ overflow: 'visible' }}
         layers={[layer1]}
       />
     </Container>

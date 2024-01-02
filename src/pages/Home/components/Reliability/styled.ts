@@ -5,7 +5,11 @@ import { textLayerShadow } from '../../../../common/tokens/elevations';
 import { RegularTextLevel1 } from '../../../../common/tokens/typography';
 import { ADAPTIVE } from '../../../../common/tokens/screen';
 
-export const ReliabilityStyled = styled.div``;
+export const ReliabilityStyled = styled.div`
+  ${ADAPTIVE.maxWidth.mobile} {
+    height: 700px;
+  }
+`;
 
 export const ContainerStyled = styled(Container)`
 
@@ -21,10 +25,11 @@ export const ContainerStyled = styled(Container)`
 export const GradientLayerStyled = styled.div`
 
   ${ADAPTIVE.minWidth.mobile} {
-    background-size: 700px 511px;
+    background-size: 800px 311px;
     background-repeat: no-repeat;
-    background-position-y: -100px;
-    height: 511px;
+    background-position-y: 270px;
+    background-position-x: 0px;
+    height: 711px;
   }
 
   ${ADAPTIVE.minWidth.tablet} {
@@ -61,10 +66,14 @@ export const GradientLayerStyled = styled.div`
 export const LineStyled = styled.div`
   ${ADAPTIVE.minWidth.mobile} {
     width: 344px;
+    position: relative;
+    top: 300px;
+    // background-position-x: 250px;
   }
 
   ${ADAPTIVE.minWidth.tablet} {
     width: 400px;
+    top: 0;
     transform: rotate(0deg);
   }
 

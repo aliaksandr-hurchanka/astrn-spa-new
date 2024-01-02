@@ -6,6 +6,7 @@ import './components/Temporary/styles.css';
 import { Reliability } from './components/Reliability';
 import { AdminPanelBanner } from '../../components/AdminPanelBanner';
 import { Income } from './components/Income';
+import { FAQCarousel } from './components/FAQCarousel';
 
 function Home() {
   return (
@@ -17,6 +18,7 @@ function Home() {
       <Income />
       <SupportedHardware />
       <Performance />
+      <FAQCarousel />
     </>
   );
 }

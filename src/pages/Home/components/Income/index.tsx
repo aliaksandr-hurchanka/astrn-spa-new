@@ -1,18 +1,18 @@
-import { ColStyled, ContainerStyled, HeadingStyled, LineStyled, RegularTextStyled, IncomeStyled, ValueStyled, ValueTextStyled, GradientLayerStyled } from "./styled";
+import { ColStyled, ColValueStyled, ContainerStyled, GradientLayerStyled, HeadingStyled, LineStyled, RegularTextStyled, ReliabilityStyled, ValueStyled, ValueTextStyled } from "./styled";
 import { Col, Row } from "../../../../common/components/grid";
 import { Image } from '../../../../common/components/image';
-import LineImage from '../../../../assets/income/lineR.svg';
-import { BannerLayer, ParallaxBanner } from 'react-scroll-parallax';
-import { useState } from 'react';
-import { getFoundationLayerConfig, getLineLayerConfig, getTextLayerConfig } from "./helpers";
+import LineImage from '@astrn/assets/income/lineR.svg';
+import { BannerLayer, ParallaxBanner } from "react-scroll-parallax";
+import { useState } from "react";
 import { useWindowSize } from "../../../../common/hooks";
+import { getFoundationLayerConfig, getLineLayerConfig, getTextLayerConfig } from "./helpers";
 
 export function Income() {
 
-  const { isMobileView } = useWindowSize();
-
   const [scroll, setScroll] = useState(0);
-  const [deg, setDeg] = useState(45);
+  const [deg, setDeg] = useState(15);
+
+  const { isInfiniteDesktopView, isDesktopView, isMiddleDesktopView, isTabletView, isMobileView } = useWindowSize();
 
   window.addEventListener('scroll', () => {
     if (window.scrollY > (scroll + 100)) {
@@ -21,67 +21,95 @@ export function Income() {
     }
   });
 
-  // --------- LINE -----------
-  const layer1: BannerLayer = {
-    ...getLineLayerConfig(isMobileView),
-    shouldAlwaysCompleteAnimation: true,
-    children: (
-      <LineStyled>
-        <Image src={LineImage} />
-      </LineStyled>
-    )
-  };
+    // --------- LINE -----------
+    const layer1: BannerLayer = {
+      ...getLineLayerConfig(isMobileView, isTabletView, isMiddleDesktopView, isDesktopView),
+      shouldAlwaysCompleteAnimation: true,
+      children: (
+        <LineStyled>
+          <Image src={LineImage} />
+        </LineStyled>
+      )
+    };
 
-  // --------- GRADIENT -----------
-  const layer2: BannerLayer = {
-    ...getFoundationLayerConfig(isMobileView),
-    shouldAlwaysCompleteAnimation: true,
-    children: (
-      <GradientLayerStyled />
-    )
-  };
+    // --------- GRADIENT -----------
+    const layer2: BannerLayer = {
+      ...getFoundationLayerConfig(isMobileView),
+      expanded: false,
+      shouldAlwaysCompleteAnimation: true,
+      children: (
+        <GradientLayerStyled />
+      )
+    };
 
-  // --------- TEXT -----------
-  const layer3: BannerLayer = {
-    ...getTextLayerConfig(isMobileView),
-    shouldAlwaysCompleteAnimation: true,
-    children: (
-      <Row>
-        <Col lg={4} style={{ paddingTop: '200px', display: 'flex', flexDirection: 'column', justifyContent: 'end', textAlign: 'right' }}>
-          <ValueTextStyled>
-            Up to
-          </ValueTextStyled>
-          <ValueStyled deg={deg}>
-            40%
-          </ValueStyled>
-          <ValueTextStyled>
-            increased hashrate
-          </ValueTextStyled>
-          <RegularTextStyled color='#BFBFBF'>
-            Increase the performance of miners to maximum values 
-          </RegularTextStyled>
-        </Col>
-        <Col lg={3} />
-        <ColStyled lg={5}>
-          <HeadingStyled>
-            Reliability
-          </HeadingStyled>
-          <RegularTextStyled color='#BFBFBF'>
-            Time-tested. Over 100,000 firmware installations successfully installed since 2018.
-          </RegularTextStyled>
-        </ColStyled>
-      </Row>
-    )
-  };
+    // --------- TEXT -----------
+    const layer3: BannerLayer = {
+      ...getTextLayerConfig(isMobileView, isTabletView),
+      shouldAlwaysCompleteAnimation: true,
+      children: (
+        isMobileView
+        ? <Row rowGap='100px'>
+          <ColValueStyled sm={4}>
+            <ValueTextStyled>
+              Up to
+            </ValueTextStyled>
+            <ValueStyled deg={deg}>
+              50%
+            </ValueStyled>
+            <ValueTextStyled>
+              Hashrate
+            </ValueTextStyled>
+            <RegularTextStyled color='#BFBFBF'>
+              Description
+            </RegularTextStyled>
+          </ColValueStyled>
+          <ColStyled sm={4}>
+            <HeadingStyled>
+              Reliability
+            </HeadingStyled>
+            <RegularTextStyled color='#BFBFBF'>
+              Time-tested. Over 100,000 firmware installations successfully installed since 2018.
+            </RegularTextStyled>
+          </ColStyled>
+        </Row>
+        : <Row>
+          {(isInfiniteDesktopView || isMiddleDesktopView) && <Col lg={1} md={1} />}
+          <ColValueStyled lg={4} md={3}>
+            <ValueTextStyled>
+              Up to
+            </ValueTextStyled>
+            <ValueStyled deg={deg}>
+              50%
+            </ValueStyled>
+            <ValueTextStyled>
+              hashrate
+            </ValueTextStyled>
+            <RegularTextStyled color='#BFBFBF'>
+              Increase the performance of miners to maximum values 
+            </RegularTextStyled>
+          </ColValueStyled>
+          {(isInfiniteDesktopView || isMiddleDesktopView || isTabletView) && <Col lg={2} md={2} />}
+          <ColStyled lg={4} md={3}>
+            <HeadingStyled>
+              Reliability
+            </HeadingStyled>
+            <RegularTextStyled color='#BFBFBF'>
+              Time-tested. Over 100,000 firmware installations successfully installed since 2018.
+            </RegularTextStyled>
+          </ColStyled>
+          {(isInfiniteDesktopView || isMiddleDesktopView) && <Col lg={1} />}
+        </Row>
+      )
+    };
 
   return (
-    <IncomeStyled>
+    <ReliabilityStyled>
       <ContainerStyled>
         <ParallaxBanner
-          style={{ aspectRatio: '2 / 1' }}
+          style={isMobileView ? { aspectRatio: '1 / 2' } : { aspectRatio: '2 / 1' }}
           layers={[layer2, layer1, layer3]}
         />
       </ContainerStyled>
-    </IncomeStyled>
+    </ReliabilityStyled>
   );
 }

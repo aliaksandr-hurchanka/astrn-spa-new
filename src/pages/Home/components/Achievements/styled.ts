@@ -3,6 +3,7 @@ import { getTextStyles } from "../../../../common/utils/styles";
 import { Col, Container, Row } from "../../../../common/components/grid";
 import { HeadingLevel3 } from "../../../../common/tokens/typography";
 import { ADAPTIVE } from "../../../../common/tokens/screen";
+import { ParallaxBanner } from "react-scroll-parallax";
 
 export const TitleStyled = styled(HeadingLevel3)`
   text-transform: uppercase;
@@ -64,10 +65,16 @@ export const RowStyled = styled(Row)`
 export const ContainerStyled = styled(Container)`
 
   ${ADAPTIVE.minWidth.mobile} {
-    /* height: 650px; */
+    height: 650px;
   }
 
   ${ADAPTIVE.minWidth.desktop} {
     height: 650px;
+  }
+`;
+
+export const ParallaxBannerStyled = styled(ParallaxBanner)`
+  ${ADAPTIVE.maxWidth.mobile} {
+    height: 850px;
   }
 `;
