@@ -15,7 +15,7 @@ import { BannerLayer } from "react-scroll-parallax";
 import { useTranslation } from "react-i18next";
 import { ButtonStyled } from "../../../../common/components/button-styled";
 import { useWindowSize } from "../../../../common/hooks";
-import { getFoundationY, getMinerXY, getTextXY } from "./helpers";
+import { getFoundationY, getLinesXY, getMinerXY, getTextXY } from "./helpers";
 
 
 export function HeroSection() {
@@ -24,8 +24,7 @@ export function HeroSection() {
 
   // --------- LINES -----------
   const layer1: BannerLayer = {
-    translateY: [17, -35],
-    // translateX: [0, 30],
+    ...getLinesXY(isMobileView),
     opacity: [1.0, 0],
     speed: 10,
     shouldAlwaysCompleteAnimation: true,
@@ -73,7 +72,7 @@ export function HeroSection() {
     shouldAlwaysCompleteAnimation: true,
     expanded: false,
     children: (
-      <Row height="100vh">
+      <Row>
         <ColStyled sm={4} md={4} lg={6}>
           <SectionStyled>
             <HeadingLevel1Styled
@@ -90,7 +89,7 @@ export function HeroSection() {
   return (
     <>
       <HeroSectionStyled>
-        <ContainerStyled height="100vh">
+        <ContainerStyled>
           {/* <LinesStyled>
             <SVGIcon type={Lines} sizes={{
               w: 1440,
@@ -110,6 +109,17 @@ export function HeroSection() {
             style={{ aspectRatio: '1 / 1' }}
             layers={[layer1, layer2, layer3, layer4]}
           />
+          {/* <Row>
+            <ColStyled sm={4} md={4} lg={6}>
+              <SectionStyled>
+                <HeadingLevel1Styled
+                  dangerouslySetInnerHTML={{ __html: t("home-hero-title") }}
+                />
+                <DescriptionStyled>{t("home-hero-description")}</DescriptionStyled>
+                <ButtonStyled zIndex="1">{t("home-hero-button")}</ButtonStyled>
+              </SectionStyled>
+            </ColStyled>
+          </Row> */}
         </ContainerStyled>
       </HeroSectionStyled>
     </>

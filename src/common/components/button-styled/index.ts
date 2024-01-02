@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { getTextStyles } from '../../utils/styles';
+import { getTextStyles } from '@astrn/common/utils/styles';
 
 export const ButtonStyled = styled.button<{
   type?: 'small' | 'large' | undefined;

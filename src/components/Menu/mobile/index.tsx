@@ -25,8 +25,6 @@ export function MobileMenu() {
       document.body.style.overflow = 'hidden';
 
       window.onscroll = () => window.scrollTo(scrollLeft, scrollTop);
-      console.log('Done');
-      
 
       return;
     }

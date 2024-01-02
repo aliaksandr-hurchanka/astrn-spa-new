@@ -1,7 +1,5 @@
 import styled from "styled-components";
-import { Container } from "../../common/components/grid";
-// import BackImage from '../../assets/ResourcesPatternDark.png';
-// import MobileBackImage from '../../assets/resources/mobile-bg.png';
+import { Container, Row } from "../../common/components/grid";
 import { Image } from '../../common/components/image';
 import { ADAPTIVE } from "../../common/tokens/screen";
 
@@ -31,4 +29,37 @@ export const SubTitleStyled = styled.div`
 
 export const ImageStyled = styled(Image)`
   height: auto;
+`;
+
+export const RowStyled = styled(Row)`
+
+  min-height: auto;
+
+  ${ADAPTIVE.minWidth.tablet} {
+    min-height: 346px;
+  }
+
+  ${ADAPTIVE.minWidth.desktop} {
+    min-height: 546px;
+  }
+
+  -webkit-animation: fade-in 3.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+          animation: fade-in 3.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+
+  @-webkit-keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 `;

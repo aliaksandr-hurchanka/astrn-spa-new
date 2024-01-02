@@ -6,5 +6,6 @@ export const OptionsContext = createContext({
   isLanguageMenuShowed: false,
   setIsLanguageMenuShowed: (isShowed: boolean) => isShowed,
   currentLanguage: {},
+  // eslint-disable-next-line no-empty-pattern
   setCurrentLanguage: ({}) => {}
 });

@@ -33,7 +33,8 @@ export function LanguageSelector() {
 
   return (
     <>
-      {!isLanguageMenuShowed
+      {(isInfiniteDesktopView || isMiddleDesktopView || isTabletView || isMobileView)
+      && !isLanguageMenuShowed
       ? (
         <LanguageSelectorStyled onClick={() => setIsLanguageMenuShowed(!isLanguageMenuShowed)}>
           <SVGIcon type={activeLanguage?.icon} sizes={{
@@ -46,8 +47,7 @@ export function LanguageSelector() {
             h: 15
           }} />
         </LanguageSelectorStyled>) : null}
-      {isLanguageMenuShowed
-        && (isInfiniteDesktopView || isMiddleDesktopView)
+      {isLanguageMenuShowed && (isInfiniteDesktopView || isMiddleDesktopView)
         && (
         // @ts-ignore
         <LanguageListStyled ref={elementRef}>{
@@ -64,8 +64,7 @@ export function LanguageSelector() {
             );
           })}</LanguageListStyled>)}
       {isLanguageMenuShowed
-        && !isInfiniteDesktopView
-        && !isMiddleDesktopView
+        && (isTabletView || isMobileView)
         && (
         <>
           <LanguageMobileListStyled>{

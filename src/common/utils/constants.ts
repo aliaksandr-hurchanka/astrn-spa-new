@@ -22,20 +22,6 @@ export enum AspectRatio {
   Square = '1/1',
 }
 
-export enum DATE_FORMAT {
-  MMM = 'MMM', // Month (formatting) - Jan, Feb, ..., Dec
-  P = 'P', // Long localized date - 04/29/1453
-  d = 'd', // Day of month - 1, 2, ..., 31
-  'dd MMM yyyy' = 'dd MMM yyyy', // Mixed - 27 Jan 2017
-  'MMM y' = 'MMM y', // Mixed - Jan 2017
-  'MM/dd/yyyy' = 'MM/dd/yyyy', // Mixed - 04/21/2023
-  'dd/MM/yyyy' = 'dd/MM/yyyy', // Mixed - 21/04/2023
-  'dd-MM-yyyy' = 'dd-MM-yyyy', // Mixed - 21-04-2023
-  'yyyy-MM-dd' = 'yyyy-MM-dd', // Mixed - 2023-04-21
-  'yyyy/MM/dd' = 'yyyy/MM/dd', // Mixed - 2023/04/21
-  "yyyy-MM-dd'T'HH:mm" = "yyyy-MM-dd'T'HH:mm",
-}
-
 export const ASPECT_RATIO_CARD_COMMON_PARAMS = {
   sm: AspectRatio.RectangleLevel5,
   md: AspectRatio.RectangleLevel3,

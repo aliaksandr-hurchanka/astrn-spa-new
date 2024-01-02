@@ -1,11 +1,12 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6",
     "lib": [
       "dom",
       "dom.iterable",
       "esnext"
     ],
+    "baseUrl": "src",
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -18,7 +19,19 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "paths": {
+      "@astrn/assets/*": ["./assets/*"],
+      "@astrn/assets/income/*": ["./assets/income/*"],
+      "@astrn/common/components/*": ["./common/components/*"],
+      "@astrn/common/hooks/*": ["./common/hooks/*"],
+      "@astrn/common/tokens/*": ["./common/tokens/*"],
+      "@astrn/common/types/*": ["./common/types/*"],
+      "@astrn/common/utils/*": ["./common/utils/*"],
+      "@astrn/components/*": ["./components/*"],
+      "@astrn/pages/*": ["./pages/*"],
+      "@astrn/*": ["./*"],
+    }
   },
   "include": [
     "src"

@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { Image } from '../../common/components/image';
 import { Col } from "../../common/components/grid";
-import LeftShadow from '../../assets/admin-panel-section/shadow-1.png';
-import RightShadow from '../../assets/admin-panel-section/shadow-2.png';
+import LeftShadow from '../../assets/admin-panel-section/GradientGold.png';
+import RightShadow from '../../assets/administrator-panel/GradientBlue.png';
 import { ADAPTIVE } from "../../common/tokens/screen";
 
 export const AdministratorPanelStyled = styled.div`

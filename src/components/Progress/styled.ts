@@ -17,19 +17,19 @@ export const ArrowLineContainerStyled = styled.div`
   display: flex;
 `;
 
-export const ArrowLine = styled.div<{ isWater?: boolean }>`
+export const ArrowLine = styled.div<{ lineWidth?: number; isWater?: boolean }>`
   
   height: 46px;
-  width: 100%;
+  width: ${({ lineWidth = 100 }) => lineWidth}%;
 
   ${ADAPTIVE.minWidth.tablet} {
     height: 66px;
-    width: 100%;
+    width: ${({ lineWidth }) => lineWidth ? `${lineWidth}%` : '100'}%;
   }
 
   ${ADAPTIVE.minWidth.desktop} {
     height: 66px;
-    width: 100%;
+    width: ${({ lineWidth }) => lineWidth ? `${lineWidth}%` : '100%'};
   }
   
   background: ${({ isWater }) => isWater

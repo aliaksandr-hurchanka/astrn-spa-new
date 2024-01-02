@@ -1,18 +1,14 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 
 import { AccordionContentStyled, AccordionSectionStyled, AccordionStyled, AccordionTextStyled, AccordionTitleStyled } from "./styled";
 import { SVGIcon } from "../svg-icon";
-import UpArrowIcon from '../../../assets/icons/up-arrow.svg';
-import DownArrowIcon from '../../../assets/icons/down-arrow.svg';
+import UpArrowIcon from '@astrn/assets/icons/up-arrow.svg';
+import DownArrowIcon from '@astrn/assets/icons/down-arrow.svg';
 
 export function Accordion(props: any) {
   const [active, setActive] = useState(false);
   const content = useRef(null);
   const [height, setHeight] = useState("0px");
-
-  useEffect(() => {
-    console.log("Height for ", props.title, ": ", height);
-  }, [height, props.title]);
 
   function toggleAccordion() {
     setActive(!active);

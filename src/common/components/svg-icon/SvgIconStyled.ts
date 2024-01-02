@@ -1,44 +1,8 @@
 import styled, { css } from 'styled-components';
 
-import { colorBlackTransparent50 } from '../../tokens/colors';
 import { CORNER_RADIUS } from '../../tokens/cornerRadius';
 
 import { TSvgIconProps } from './types';
-
-// const getWidth = (size: number) => css`
-//   width: ${size}px;
-// `;
-
-// const getHeight = (size: number) => css`
-//   height: ${size}px;
-// `;
-
-// const getSimpleSize = (size: SizeType) => css`
-//   ${getWidth(size)}
-//   ${getHeight(size)}
-// `;
-
-// // eslint-disable-next-line no-unused-vars
-// const getSizes = ({
-//   size,
-//   sizes,
-// }: {
-//   size?: SizeType;
-//   sizes?: { [K in Breakpoint]?: SizeType };
-// }) => {
-//   if (size) {
-//     return css`
-//       ${getSimpleSize(size)}
-//     `;
-//   }
-
-//   if (sizes) {
-//     // TODO - Need implement more complex functionality for case with 'sizes' options
-//     return css``;
-//   }
-
-//   return css``;
-// };
 
 export const SVGIconStyled = styled.span<TSvgIconProps>`
   display: flex;
@@ -70,7 +34,7 @@ export const SVGIconStyled = styled.span<TSvgIconProps>`
     css`
       @media (hover: hover) and (pointer: fine) {
         &:hover {
-          background-color: ${colorBlackTransparent50};
+          background-color: #ccc;
           border-radius: ${CORNER_RADIUS.l};
         }
       }
@@ -79,7 +43,7 @@ export const SVGIconStyled = styled.span<TSvgIconProps>`
   ${({ isActive }) =>
     isActive &&
     css`
-      background-color: ${colorBlackTransparent50};
+      background-color: #ccc;
       border-radius: ${CORNER_RADIUS.circle};
     `}
 `;

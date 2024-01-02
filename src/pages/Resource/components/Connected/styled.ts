@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { getTextStyles } from '../../../../common/utils/styles';
-import { Col, Row } from '../../../../common/components/grid';
+import { Col } from '../../../../common/components/grid';
 import { ADAPTIVE } from '../../../../common/tokens/screen';
 import { HeadingLevel2, RegularTextLevel1 } from '../../../../common/tokens/typography';
 
